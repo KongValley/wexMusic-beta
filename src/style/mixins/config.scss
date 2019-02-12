@@ -1,0 +1,11 @@
+/*
+  namespace list:
+  p - page (default)
+  c - components
+  l - layout
+ */
+$namespace: p;
+$element-separator: '__';
+$modifier-separator: '--';
+$state-prefix: 'is-';
+

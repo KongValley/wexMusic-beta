@@ -15,9 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "@megalo/entry": "^0.1.1",
+    "@megalo/px2rpx-loader": "^0.1.1",
     "@megalo/target": "^0.6.2",
     "@megalo/template-compiler": "^0.7.3",
-    "@megalo/px2rpx-loader": "^0.1.1",
     "babel-core": "6",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -38,6 +38,7 @@
   "dependencies": {
     "@megalo/api": "^0.2.2",
     "@megalo/vhtml-plugin": "^0.1.2",
+    "flyio": "^0.6.13",
     "megalo": "^0.7.3",
     "octoparse": "^0.3.2"
   }

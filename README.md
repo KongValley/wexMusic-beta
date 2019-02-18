@@ -1,29 +1,19 @@
 # wexMusic-beta
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
+## 一个音乐小程序
 
-## 描述
-
-a student project
+始于2018
 
 ## 作者
 
-Chara <chara1997@foxmail.com>
+匿名保命
 
 ## 运行
 
 微信小程序：
 
 ```bash
-npm run dev:wechat
-```
-
-支付宝小程序：
-
-```bash
-npm run dev:alipay
-```
-
-百度智能小程序：
-
-```bash
-npm run dev:swan
+yarn run
+or
+npm run run 😀
 ```

@@ -8,7 +8,7 @@ const fly = new Fly()
  * 沙雕 WebStorm 检测不到以上三个属性，我只好直接用 @namespace 解决
  */
 
-// 项目请求地址
+// 项目api部署地址
 const BASEURL = 'http://47.107.32.22:3000'
 // 最大超时时间
 const TIMEOUT = 5000

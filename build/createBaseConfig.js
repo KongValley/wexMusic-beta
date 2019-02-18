@@ -48,7 +48,7 @@ function createBaseConfig( platform = 'wechat' ) {
     },
 
     output: {
-      path: _.resolve( `dist-${platform}/` ),
+      path: _.resolve(`dist-${platform}/`),
       filename: 'static/js/[name].js',
       chunkFilename: 'static/js/[id].js'
     },
@@ -79,7 +79,10 @@ function createBaseConfig( platform = 'wechat' ) {
       extensions: ['.vue', '.js', '.json'],
       alias: {
         'vue': 'megalo',
-        '@': _.resolve('src')
+        '@': _.resolve('src'),
+        '_p': _.resolve('src/pages'),
+        '_c': _.resolve('src/components'),
+        '_s': _.resolve('src/style')
       },
     },
 
@@ -95,7 +98,6 @@ function createBaseConfig( platform = 'wechat' ) {
             }
           ]
         },
-
         {
           test: /\.js$/,
           use: 'babel-loader'

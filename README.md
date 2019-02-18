@@ -1,19 +1,31 @@
-# wexMusic-beta
-[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
-## 一个音乐小程序
+# wexMusic-β
 
-始于2018
+## 简介📕
 
-## 作者
+一个音乐小程序
 
-匿名保命
+## 作者✍
 
-## 运行
+你可以叫我大鹏
+
+## 开冲😀
 
 微信小程序：
 
 ```bash
-yarn run
+yarn build
 or
-npm run run 😀
+npm run build
 ```
+## 主要技术栈
+- Megalo
+- Vue
+- 微信小程序
+
+## 吐槽
+微信小程序在屏幕缩放不是100%的情况下不能点击
+不得不调整成模糊的那种显示
+我眼睛快瞎了(*Φ皿Φ*)
+
+## 广告位
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)

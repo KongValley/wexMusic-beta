@@ -45,7 +45,6 @@ fly.interceptors.response.use(response => {
   }
   return response
 }, error => {
-  /** @namespace error.request */
   delete queue[error.request.url]
   console.log('error⚠: ' + error)
   // 如果队列里的请求都为空,取消loading

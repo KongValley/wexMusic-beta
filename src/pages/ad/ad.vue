@@ -1,11 +1,11 @@
 <template>
   <div class="p-ad">
     <div class="p-ad__button--group">
-      <c-button icon="face" position="right" bold>
-        <div class="p-ad__button">登录</div>
+      <c-button position="right">
+        <div class="p-ad__button">Sign In</div>
       </c-button>
-      <c-button icon="plus_one" position="right" bold>
-        <div class="p-ad__button">注册</div>
+      <c-button>
+        <div class="p-ad__button">Sign Up</div>
       </c-button>
     </div>
   </div>
@@ -40,9 +40,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #a770ef, #cf8bf3, #fdb99b);;
   @include e(button) {
-    font-weight: bold;
     @include m(group) {
       position: absolute;
       box-sizing: border-box;

@@ -1,5 +1,8 @@
 <template>
   <div class="p-ad">
+    <div class="p-ad__title">
+      iMusic
+    </div>
     <div class="p-ad__button--group">
       <c-button position="right">
         <div class="p-ad__button">Sign In</div>
@@ -40,6 +43,19 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include e(title) {
+    display:inline-block;
+    font-size: 35px;
+    color: $--color-primary;
+    border-top: 3px solid $--color-primary;
+    border-bottom: 3px solid $--color-primary;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 150px;
+  }
   @include e(button) {
     @include m(group) {
       position: absolute;

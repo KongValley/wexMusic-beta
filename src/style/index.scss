@@ -1,5 +1,5 @@
 page {
-  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  font-family: 'Robot',-apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   height: 100%;
 }
 
@@ -10,12 +10,12 @@ page {
   src: url(http://chara-static-source.oss-cn-shanghai.aliyuncs.com/font/MaterialIcons-Regular.woff2) format('woff2');
 }
 
-//@font-face {
-//  font-family: 'Robot';
-//  font-style: normal;
-//  font-weight: 400;
-//  src: url();
-//}
+@font-face {
+  font-family: 'Robot';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://chara-static-source.oss-cn-shanghai.aliyuncs.com/font/Roboto-Regular.ttf) format('truetype');
+}
 
 .material-icons {
   font-family: 'Material Icons', serif;

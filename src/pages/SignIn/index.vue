@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<c-input label="Email" v-model="value"></c-input>
+		<c-input label="Email" v-model.lazy="value"></c-input>
 		<input type="text" placeholder="">
 	</div>
 </template>

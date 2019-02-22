@@ -13,20 +13,10 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 -------------------------- */
 $--color-white: #fff !default;
 $--color-black: #000 !default;
+$--color-transparent: transparent !default;
 
 $--color-primary: #2196f3 !default;
 $--color-secondary: #ff4081 !default;
-
-// mix方法指定的比例是第一种颜色所占比例
-$--color-primary-light-1: mix($--color-white, $--color-primary, 10%) !default;
-$--color-primary-light-2: mix($--color-white, $--color-primary, 20%) !default;
-$--color-primary-light-3: mix($--color-white, $--color-primary, 30%) !default;
-$--color-primary-light-4: mix($--color-white, $--color-primary, 40%) !default;
-$--color-primary-light-5: mix($--color-white, $--color-primary, 50%) !default;
-$--color-primary-light-6: mix($--color-white, $--color-primary, 60%) !default;
-$--color-primary-light-7: mix($--color-white, $--color-primary, 70%) !default;
-$--color-primary-light-8: mix($--color-white, $--color-primary, 80%) !default;
-$--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default;
 
 // status colors
 $--color-success: #4caf50 !default;
@@ -36,6 +26,10 @@ $--color-info: #2196f3 !default;
 
 $--color-text-primary: rgba(0,0,0,.87) !default;
 $--color-text-inverse: $--color-white;
+
+$--color-fill-disabled: rgba(0, 0, 0, .12) !default;
+$--color-font-disabled: rgba(0, 0, 0, .38) !default;
+
 
 /* Border
 -------------------------- */
@@ -57,25 +51,41 @@ $--font-path: 'fonts' !default;
 $--font-size-base: 16px !default;
 $--font-size-small: 14px !default;
 $--font-size-large: 18px !default;
-$--font-color-disabled-base: rgba(0, 0, 0, 0.38) !default;
+$--font-color-disabled-base: $--color-font-disabled !default;
 $--font-weight-base: normal !default;
 $--font-weight-large: bold !default;
-$--font-line-height-primary: 24px !default;
+$--font-line-height-primary: 40px !default;
 
 /* Button
 -------------------------- */
 $--button-font-size: $--font-size-large;
 $--button-font-weight-default: $--font-weight-base;
 $--button-font-weight-large: $--font-weight-large;
+$--button-font-line-height: 50px;
+
+$--button-height: 50px;
+$--button-min-width: 64px;
+
 
 $--button-disabled-font-color: $--font-color-disabled-base;
-$--button-contain-font-color: $--color-white;
+
 $--button-outline-font-color: $--color-primary;
+$--button-outline-fill-color: $--color-transparent;
+$--button-outline-disabled-fill-color: $--color-transparent;
 
+$--button-contain-font-color: $--color-white;
 $--button-contain-fill-color: $--color-primary;
+$--button-contain-modal-fill-color: $--color-white;
+$--button-contain-disabled-fill-color: $--color-fill-disabled;
+$--button-contain-box-shadow-base: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !default;
+$--button-contain-box-shadow-active: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12) !default;
 
-$--button-min-width: 64px;
-$--button-height: 36px;
+$--button-text-font-color: $--color-primary;
+$--button-text-fill-color: $--color-transparent;
+$--button-text-disabled-fill-color: $--color-transparent;
+
+$--button-modal-width: 50px;
+$--button-modal-height: 50px;
 
 $--button-border-width: $--border-width-base;
 $--button-border-style: $--border-style-base;
@@ -83,22 +93,10 @@ $--button-border-color: $--border-color-base;
 $--button-border-radius: $--border-radius-base;
 
 $--button-padding-vertical: 0px !default;
-$--button-padding-horizontal: 16px !default;
-
-$--button-medium-font-size: 14px !default;
-$--button-medium-border-radius: #{$--border-radius-base - 1} !default;
-$--button-medium-padding-vertical: 10px !default;
-$--button-medium-padding-horizontal: 20px !default;
+$--button-padding-horizontal: 20px !default;
 
 $--button-default-color: $--color-text-primary;
-$--button-default-fill: $--color-white !default;
-$--button-default-box-shadow: $--box-shadow-base;
-$--button-default-active-box-shadow: 0 0 0 3px rgba($--button-default-fill, 0.5);
-
-
-
-$--button-active-shade-percent: 20%;
-$--button-hover-tint-percent: 20%;
+$--button-default-fill: $--color-white;
 
 $--button-active-transition: $--all-transition;
 

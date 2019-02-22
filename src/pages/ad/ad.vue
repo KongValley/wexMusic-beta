@@ -57,6 +57,8 @@ export default {
     margin-bottom: 150px;
   }
   @include e(button) {
+    text-transform: uppercase;
+    font-size: 20px;
     @include m(group) {
       position: absolute;
       box-sizing: border-box;

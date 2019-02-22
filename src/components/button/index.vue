@@ -1,5 +1,5 @@
 <template>
-	<button class="c-button" :class="buttonClass" :disabled="disable">
+	<button class="c-button" :class="buttonClass" :disabled="disable" @click="$emit('click')">
 		<div class="c-button__container">
 			<slot></slot>
 		</div>
@@ -13,8 +13,8 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'outline',
-      validator:(val)=>oneOfList(val,['contain','outline'])
+      default: 'contain',
+      validator:(val)=>oneOfList(val,['contain','outline','text'])
     },
     disable: {
       type: Boolean,
@@ -25,7 +25,8 @@ export default {
     buttonClass() {
       return {
         'c-button--outline':  this.type==='outline',
-        'c-button--contain':  this.type==='contain'
+        'c-button--contain':  this.type==='contain',
+        'c-button--text': this.type==='text'
       }
     }
   }
@@ -37,7 +38,7 @@ export default {
 	@import "~_s/mixins/mixin";
 	@include b(button,c) {
 		min-width: $--button-min-width;
-		height: 36px;
+		height: $--button-height;
 		display: inline-block;
 		position: relative;
 		overflow: hidden;
@@ -49,32 +50,54 @@ export default {
 		box-sizing: border-box;
 		border-radius: $--button-border-radius;
 		padding: $--button-padding-vertical $--button-padding-horizontal;
-		// box-shadow: $--button-default-box-shadow;
 		cursor: pointer;
 
 		vertical-align: middle;
 		text-align: center;
 		text-overflow: ellipsis;
-		line-height: 36px;
+		line-height: $--button-font-line-height;
+
+		@include m(text) {
+			border: none;
+			color: $--button-text-font-color;
+			background-color: $--button-text-fill-color;
+			&::after {
+				content: "";
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				padding: 50%;
+				border-radius: 50%;
+				width: $--button-modal-width;
+				height: $--button-modal-height;
+				background-color: currentColor;
+				opacity: 0;
+				transform: translate(-50%, -50%) scale(1);
+				transition: opacity 1s, transform .5s;
+			}
+
+			&:active::after {
+				opacity: 0.16;
+				transform: translate(0%, 0%) scale(0);
+				transition: transform 0s;
+			}
+
+			&:disabled {
+				color: $--button-text-disabled-fill-color;
+				background-color: transparent;
+			}
+
+			&:disabled::after {
+				opacity: 0;
+			}
+		}
 
 		@include m(contain) {
 			border: none;
 			color: $--button-contain-font-color;
 			background-color: $--button-contain-fill-color;
 			transition: box-shadow 0.2s;
-
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				background-color: rgb(255,255,255);
-				opacity: 0;
-				transition: opacity 0.2s;
-			}
-
+			box-shadow: $--button-contain-box-shadow-base;
 			&::after {
 				content: "";
 				position: absolute;
@@ -82,24 +105,42 @@ export default {
 				top: 50%;
 				border-radius: 50%;
 				padding: 50%;
-				width: 32px; /* Safari */
-				height: 32px; /* Safari */
-				background-color: rgb(255,255,255);
+				width: $--button-modal-width;
+				height: $--button-modal-height;
+				background-color: $--button-contain-modal-fill-color;
 				opacity: 0;
 				transform: translate(-50%, -50%) scale(1);
 				transition: opacity 1s, transform 0.5s;
 			}
-			&:focus,&:hover {
-				box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+
+			&:active {
+				box-shadow: $--button-contain-box-shadow-active;
 			}
 
+			&:active::after {
+				left: 50%;
+				top: 50%;
+				opacity: 0.32;
+				transform: translate(0%,0%) scale(0);
+				transition: transform 0s;
+			}
+
+			&:disabled {
+				color: $--button-disabled-font-color;
+				background-color: $--button-contain-disabled-fill-color;
+				box-shadow: none;
+			}
+
+			&:disabled::after {
+				opacity: 0;
+			}
 		}
 
 		@include m(outline) {
 			color: $--button-outline-font-color;
 			border: $--button-border-style $--button-border-width $--button-border-color;
-			background-color: transparent;
-			height: 40px;
+			background-color: $--button-outline-fill-color;
+			height: $--button-height;
 
 			&::after {
 				content: "";
@@ -108,8 +149,8 @@ export default {
 				top: 50%;
 				padding: 50%;
 				border-radius: 50%;
-				width: 50px;
-				height: 50px;
+				width: $--button-modal-width;
+				height: $--button-modal-height;
 				background-color: currentColor;
 				opacity: 0;
 				transform: translate(-50%, -50%) scale(1);
@@ -126,7 +167,7 @@ export default {
 
 			&:disabled {
 				color: $--button-disabled-font-color;
-				background-color: transparent;
+				background-color: $--button-outline-disabled-fill-color;
 				cursor: initial;
 			}
 

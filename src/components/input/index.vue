@@ -2,7 +2,7 @@
   <div>
     <label class="c-input">
       <input placeholder="">
-      <span></span>
+      <span>{{label}}</span>
     </label>
   </div>
 </template>

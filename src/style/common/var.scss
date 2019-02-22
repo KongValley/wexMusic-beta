@@ -30,7 +30,6 @@ $--color-text-inverse: $--color-white;
 $--color-fill-disabled: rgba(0, 0, 0, .12) !default;
 $--color-font-disabled: rgba(0, 0, 0, .38) !default;
 
-
 /* Border
 -------------------------- */
 $--border-width-base: 2px !default;
@@ -103,13 +102,33 @@ $--button-active-transition: $--all-transition;
 /* Input
 -------------------------- */
 $--input-font-size: $--font-size-base;
+$--input-label-font-size: 75% !default;
+$--input-label-line-height: 15px !default;
 $--input-label-font-size: $--font-size-small;
-$--input-default-height: 50px;
-$--input-default-active-line-height: 68px;
+$--input-font-color: $--color-text-primary;
+$--input-caret-color: $--color-primary;
 
-$--input-default-color: $--color-text-primary;
-$--input-default-active-color: $--color-primary;
-$--input-default-border-active-color: $--color-primary;
+$--input-default-height: 50px !default;
+$--input-default-active-line-height: 68px !default;
 
-$--input-active-border-width: 2px;
-$--input-default-border-width: 1px;
+
+$--input-active-color: $--color-primary;
+$--input-border-color: rgba(0, 0, 0, .6) !default;
+$--input-active-border-color: $--color-primary;
+
+$--input-default-border-width: 2px !default;
+$--input-default-border-style: solid !default;
+$--input-default-border-radius: $--border-radius-base;
+
+$--input-active-border-width: 2px !default;
+
+$--input-content-padding: 15px 13px 15px !default;
+$--input-content-width: 100% !default;
+$--input-content-height: inherit !default;
+$--input-content-color: $--color-text-primary;
+$--input-content-fill-color: $--color-transparent;
+
+
+
+
+

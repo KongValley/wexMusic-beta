@@ -126,3 +126,13 @@ $E: "";
     @content
   }
 }
+
+@mixin toast-bottom {
+  bottom: 0;
+  left: 50%;
+}
+
+@mixin toast-top {
+  left: 50%;
+  top: 0;
+}

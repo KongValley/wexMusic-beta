@@ -24,7 +24,7 @@ $--color-warning: #fdd835 !default;
 $--color-danger: #f44336 !default;
 $--color-info: #2196f3 !default;
 
-$--color-text-primary: rgba(0,0,0,.87) !default;
+$--color-black-lighten: rgba(0,0,0,.87) !default;
 $--color-text-inverse: $--color-white;
 
 $--color-fill-disabled: rgba(0, 0, 0, .12) !default;
@@ -94,7 +94,7 @@ $--button-border-radius: $--border-radius-base;
 $--button-padding-vertical: 0px !default;
 $--button-padding-horizontal: 20px !default;
 
-$--button-default-color: $--color-text-primary;
+$--button-default-color: $--color-black-lighten;
 $--button-default-fill: $--color-white;
 
 $--button-active-transition: $--all-transition;
@@ -105,7 +105,7 @@ $--input-font-size: $--font-size-base;
 $--input-label-font-size: 75% !default;
 $--input-label-line-height: 15px !default;
 $--input-label-font-size: $--font-size-small;
-$--input-font-color: $--color-text-primary;
+$--input-font-color: $--color-black-lighten;
 $--input-caret-color: $--color-primary;
 
 $--input-default-height: 50px !default;
@@ -127,9 +127,30 @@ $--input-active-border-width: 2px !default;
 $--input-content-padding: 15px 13px 15px !default;
 $--input-content-width: 100% !default;
 $--input-content-height: inherit !default;
-$--input-content-color: $--color-text-primary;
+$--input-content-color: $--color-black-lighten;
 $--input-content-fill-color: $--color-transparent;
 
+/* Toast
+-------------------------- */
+$--toast-font-size: $--font-size-base;
+
+$--toast-default-color: $--color-white;
+$--toast-default-fill-color: $--color-black-lighten;
+$--toast-action-color: $--color-secondary;
+
+$--toast-info-fill-color: $--color-info;
+$--toast-success-fill-color: $--color-success;
+$--toast-warning-fill-color: $--color-warning;
+$--toast-error-fill-color: $--color-danger;
+
+$--toast-min-width: 200px !default;
+$--toast-min-height: 48px !default;
+$--toast-line-height: 20px !default;
+$--toast-content-padding: 6px 16px !default;
+
+$--toast-z-index: 2000 !default;
+
+$--toast-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !default;
 
 
 

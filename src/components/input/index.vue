@@ -1,17 +1,17 @@
 
 <template>
-  <div>
     <label class="c-input" :class="labelClass">
       <input placeholder=" " :value="value"
          @change="$emit('change', $event.target.value)"
          @input="$emit('input', $event.target.value)"
          @focus="$emit('focus', $event.target.value)"
          @blur="$emit('blur', $event.target.value)"
+         v-if="type !== 'textarea'"
+         :type="type"
       >
       <textarea v-if="type === 'textarea'"></textarea>
       <span>{{label}}</span>
     </label>
-  </div>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
     type: {
       type: String,
       default: 'input',
-      validator:(val)=>oneOfList(val,['input','textarea'])
+      validator:(val)=>oneOfList(val,['input','textarea','password'])
     },
     value: {
       type: String
@@ -49,6 +49,7 @@ export default {
 @import "~_s/common/var";
 @import "~_s/mixins/mixin";
 @include b(input,c) {
+  width: 100%;
   position: relative;
   display: inline-block;
   padding-top: 6px;

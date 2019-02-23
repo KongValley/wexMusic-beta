@@ -4,7 +4,7 @@
       iMusic
     </div>
     <div class="p-ad__button--group">
-      <c-button position="right">
+      <c-button>
         <div class="p-ad__button">Sign In</div>
       </c-button>
       <c-button>

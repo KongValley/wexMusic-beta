@@ -26,7 +26,7 @@ fly.interceptors.request.use(config => {
   // 有请求,就把请求地址压入队列
   queue[config.url] = true
   wx.showLoading({
-    title: '加载中',
+    title: '电磁波发送中',
     mask: true
   })
   return config

@@ -46,6 +46,7 @@ export default {
       if(this.timer) {
           return
       }
+      this.$emit('click')
       this.animate = true
       //console.log('动画开始')
       this.timer = setTimeout(() => {
@@ -54,7 +55,7 @@ export default {
           this.timer = false
           //console.log('动画结束')
       }, 1000)
-        this.$emit('click')
+
     }
   }
 }

@@ -34,7 +34,7 @@ export default {
     },
     duration: {
       type: Number,
-      default: 500000
+      default: 3000
     },
     visible: {
       type: Boolean,
@@ -71,18 +71,16 @@ export default {
         clearTimeout(this.selfTimer)
         this.selfTimer = null
       }
-
       if(this.selfAnimationTimer) {
-        clearTimeout(this.selfAnimationTimer)
-        this.selfAnimationTimer = null
+        return
       }
 
-      if(!val) {
-        this.selfAnimationEnd = false
-        this.selfAnimationTimer = setTimeout(() => {
-            this.selfAnimationEnd = true
-        }, this.animate)
-      }
+      // if(!val) {
+      //   this.selfAnimationEnd = false
+      //   this.selfAnimationTimer = setTimeout(() => {
+      //       this.selfAnimationEnd = true
+      //   }, this.animate)
+      // }
 
       if(val) {
         this.selfTimer = setTimeout(() => {
@@ -91,6 +89,8 @@ export default {
             this.selfVisible = false
             this.selfAnimationEnd = true
             this.$emit('update:visible',false)
+            clearTimeout(this.selfAnimationTimer)
+            this.selfAnimationTimer = null
           }, this.animate)
         }, this.duration)
       }
@@ -101,22 +101,23 @@ export default {
   },
   methods: {
     handleClose() {
+      if(this.selfTimer) {
+          clearTimeout(this.selfTimer)
+          this.selfTimer = null
+      }
 
-        if(this.selfTimer) {
-            clearTimeout(this.selfTimer)
-            this.selfTimer = null
-        }
-
-        if(this.selfAnimationTimer) {
-            clearTimeout(this.selfAnimationTimer)
-            this.selfAnimationTimer = null
-        }
-      console.log('click')
+      if(this.selfAnimationTimer) {
+          clearTimeout(this.selfAnimationTimer)
+          this.selfAnimationTimer = null
+      }
+      this.$emit('close')
       this.selfAnimationEnd = false
       this.selfAnimationTimer = setTimeout(() => {
           this.selfVisible = false
           this.selfAnimationEnd = true
           this.$emit('update:visible',false)
+          clearTimeout(this.selfAnimationTimer)
+          this.selfAnimationTimer = null
       }, this.animate)
     }
   }

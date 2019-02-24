@@ -1,5 +1,8 @@
 <template>
-	<button class="c-button" :class="buttonClass" :disabled="disable" @click="$emit('click')">
+	<button class="c-button"
+		:class="buttonClass"
+		:disabled="disable"
+		@click="handleClick">
 		<div class="c-button__container">
 			<slot></slot>
 		</div>
@@ -26,8 +29,32 @@ export default {
       return {
         'c-button--outline':  this.type==='outline',
         'c-button--contain':  this.type==='contain',
-        'c-button--text': this.type==='text'
+        'c-button--text': this.type==='text',
+        'is-active': this.animate,
       }
+    }
+  },
+  data () {
+    return {
+      animate: false,
+      timer: null
+    }
+  },
+  methods: {
+    handleClick() {
+      //console.log('点击Button了')
+      if(this.timer) {
+          return
+      }
+      this.animate = true
+      //console.log('动画开始')
+      this.timer = setTimeout(() => {
+          this.animate = false
+          clearTimeout(this.timer)
+          this.timer = false
+          //console.log('动画结束')
+      }, 1000)
+        this.$emit('click')
     }
   }
 }
@@ -72,14 +99,6 @@ export default {
 			height: $--button-modal-height;
 			background-color: currentColor;
 			opacity: 0;
-			transform: translate(-50%, -50%) scale(1);
-			transition: opacity 1s, transform .5s;
-		}
-
-		&:active::after {
-			opacity: 0.16;
-			transform: translate(0%, 0%) scale(0);
-			transition: transform 0s;
 		}
 
 		&:disabled {
@@ -89,6 +108,14 @@ export default {
 
 		&:disabled::after {
 			opacity: 0;
+		}
+
+		@include when(active) {
+			&::after {
+				left: 50%;
+				top: 50%;
+				animation: ripple-text 1s;
+			}
 		}
 	}
 
@@ -109,20 +136,10 @@ export default {
 			height: $--button-modal-height;
 			background-color: $--button-contain-modal-fill-color;
 			opacity: 0;
-			transform: translate(-50%, -50%) scale(1);
-			transition: opacity 1s, transform 0.5s;
 		}
 
 		&:active {
 			box-shadow: $--button-contain-box-shadow-active;
-		}
-
-		&:active::after {
-			left: 50%;
-			top: 50%;
-			opacity: 0.32;
-			transform: translate(0%,0%) scale(0);
-			transition: transform 0s;
 		}
 
 		&:disabled {
@@ -133,6 +150,14 @@ export default {
 
 		&:disabled::after {
 			opacity: 0;
+		}
+
+		@include when(active) {
+			&::after {
+				left: 50%;
+				top: 50%;
+				animation: ripple-contain 1s;
+			}
 		}
 	}
 
@@ -153,16 +178,6 @@ export default {
 			height: $--button-modal-height;
 			background-color: currentColor;
 			opacity: 0;
-			transform: translate(-50%, -50%) scale(1);
-			transition: opacity 1s, transform .5s;
-		}
-
-		&:active::after {
-			opacity: 0.16;
-			left: 50%;
-			top: 50%;
-			transform: translate(0%, 0%) scale(0);
-			transition:  transform 0s;
 		}
 
 		&:disabled {
@@ -177,6 +192,14 @@ export default {
 
 		&:disabled::after {
 			opacity: 0;
+		}
+
+		@include when(active) {
+			&::after {
+				left: 50%;
+				top: 50%;
+				animation: ripple-text 1s;
+			}
 		}
 	}
 }

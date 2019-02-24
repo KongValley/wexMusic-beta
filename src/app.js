@@ -13,8 +13,8 @@ export default {
   config: {
     // pages 的首个页面会被编译成首页
     pages: [
-      'pages/signin/index',
       'pages/ad/ad',
+      'pages/signin/index',
       'pages/hello',
       'pages/my/index'
     ],

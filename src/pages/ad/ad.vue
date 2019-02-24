@@ -4,7 +4,7 @@
       iMusic
     </div>
     <div class="p-ad__button--group">
-      <c-button>
+      <c-button @click="handleToSignIn">
         <div class="p-ad__button">Sign In</div>
       </c-button>
       <c-button>
@@ -26,6 +26,12 @@ export default {
     }
   },
   methods: {
+    handleToSignIn() {
+      console.log('click')
+      wx.navigateTo({
+        url: '../signin/index'
+      })
+    }
   },
   mounted() {
   }

@@ -1,16 +1,15 @@
 <template>
 	<div class="p-signin">
-		<c-toast>
-			<div slot="content"> 11111111 </div>
-			<div slot="action">
-				<i class="material-icons">close</i>
+		<c-toast :visible.sync="visible" status="error">
+			<div slot="content" >
+				<div>11111</div>
 			</div>
 		</c-toast>
 		<div class="p-signin__form">
 			<c-input label="Phone" v-model.lazy="phone"></c-input>
 			<c-input label="Password" v-model.lazy="password" type="password"></c-input>
 		</div>
-		<c-button type="contain" class="p-signin__button" @click="handleSubmit()">
+		<c-button type="contain" class="p-signin__button" @click="handleShow()">
 			<div class="p-ad__button">Sign In</div>
 		</c-button>
 	</div>
@@ -31,7 +30,9 @@ export default {
   data() {
     return {
       phone: "",
-      password: ""
+      password: "",
+      visible: false,
+      message: ""
     }
   },
   methods: {
@@ -49,6 +50,9 @@ export default {
       } catch (e) {
 		    console.warn(e)
       }
+    },
+    handleShow() {
+      this.visible = !this.visible
     }
   }
 }

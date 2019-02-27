@@ -53,7 +53,7 @@ export const loginRefreshAPI = () => fly.request({
  * @export
  * @returns
  */
-export const getloginStatusAPI = () => fly.request({
+export const getLoginStatusAPI = () => fly.request({
   url: '/login/status'
 })
 

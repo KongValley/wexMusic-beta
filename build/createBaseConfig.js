@@ -130,7 +130,7 @@ function createBaseConfig( platform = 'wechat' ) {
         filename: `./static/css/[name].${cssExt}`,
       }),
       new CopyWebpackPlugin([{
-        from: 'src/static', to: 'static'
+        from: 'src/static/iview', to: 'static/iview'
       }])
     ],
     stats:{

@@ -62,7 +62,7 @@ $--button-font-weight-default: $--font-weight-base;
 $--button-font-weight-large: $--font-weight-large;
 $--button-font-line-height: 50px;
 
-$--button-height: 50px;
+$--button-height: 45px;
 $--button-min-width: 64px;
 
 
@@ -92,7 +92,7 @@ $--button-border-color: $--border-color-base;
 $--button-border-radius: $--border-radius-base;
 
 $--button-padding-vertical: 0px !default;
-$--button-padding-horizontal: 20px !default;
+$--button-padding-horizontal: 8px !default;
 
 $--button-default-color: $--color-black-lighten;
 $--button-default-fill: $--color-white;
@@ -108,8 +108,8 @@ $--input-label-font-size: $--font-size-small;
 $--input-font-color: $--color-black-lighten;
 $--input-caret-color: $--color-primary;
 
-$--input-default-height: 50px !default;
-$--input-default-active-line-height: 68px !default;
+$--input-default-height: 45px !default;
+$--input-default-active-line-height: 58px !default;
 
 
 $--input-active-color: $--color-primary;
@@ -124,7 +124,7 @@ $--input-default-border-radius: $--border-radius-base;
 
 $--input-active-border-width: 2px !default;
 
-$--input-content-padding: 15px 13px 15px !default;
+$--input-content-padding: 10px 13px 10px !default;
 $--input-content-width: 100% !default;
 $--input-content-height: inherit !default;
 $--input-content-color: $--color-black-lighten;
@@ -146,7 +146,7 @@ $--toast-error-fill-color: $--color-danger;
 $--toast-min-width: 200px !default;
 $--toast-min-height: 48px !default;
 $--toast-line-height: 20px !default;
-$--toast-content-padding: 0px 16px !default;
+$--toast-content-padding: 0px 8px !default;
 
 $--toast-z-index: 2000 !default;
 

@@ -85,6 +85,14 @@ export default {
 	text-overflow: ellipsis;
 	line-height: $--button-font-line-height;
 
+	@include e(container) {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 	@include m(text) {
 		border: none;
 		color: $--button-text-font-color;

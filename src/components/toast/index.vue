@@ -75,13 +75,6 @@ export default {
         return
       }
 
-      // if(!val) {
-      //   this.selfAnimationEnd = false
-      //   this.selfAnimationTimer = setTimeout(() => {
-      //       this.selfAnimationEnd = true
-      //   }, this.animate)
-      // }
-
       if(val) {
         this.selfTimer = setTimeout(() => {
           this.selfAnimationEnd = false

@@ -2,21 +2,21 @@
 	<div class="p-signin">
 		<c-toast :visible.sync="visible" status="error">
 			<div slot="content" >
-				<div>11111</div>
+				<div>{{message}}</div>
 			</div>
 		</c-toast>
 		<div class="p-signin__form">
 			<c-input label="Phone" v-model.lazy="phone"></c-input>
 			<c-input label="Password" v-model.lazy="password" type="password"></c-input>
 		</div>
-		<c-button type="contain" class="p-signin__button" @click="handleShow()">
+		<c-button type="contain" class="p-signin__button" @click="handleSubmit()">
 			<div class="p-ad__button">Sign In</div>
 		</c-button>
 	</div>
 </template>
 
 <script>
-import { loginByPhoneAPI } from '_a/login'
+import { loginByPhoneAPI,getLoginStatusAPI } from '_a/login'
 import CInput from '_c/input'
 import CToast from '_c/toast'
 import CButton from '_c/button'
@@ -46,14 +46,18 @@ export default {
     async handleSubmit() {
       try {
         const res = await this.fetchSignIn()
-        console.log(res)
+        let phone = this.phone
+        let password = this.password
+				wx.redirectTo({
+					url: '../home/index'
+				})
+        // wx.setStorageSync('phone', phone)
+        // wx.setStorageSync('password',password)
       } catch (e) {
-		    console.warn(e)
+        this.visible = true
+		    this.message = e.response.data.msg
       }
     },
-    handleShow() {
-      this.visible = !this.visible
-    }
   }
 }
 </script>

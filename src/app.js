@@ -15,6 +15,7 @@ export default {
     pages: [
       'pages/ad/ad',
       'pages/signin/index',
+      'pages/home/index',
       'pages/hello',
       'pages/my/index'
     ],

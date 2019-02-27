@@ -4,17 +4,13 @@
       iMusic
     </div>
     <div class="p-ad__button--group">
-      <c-button @click="handleToSignIn">
-        <div class="p-ad__button">Sign In</div>
-      </c-button>
-      <c-button>
-        <div class="p-ad__button">Sign Up</div>
-      </c-button>
+      
     </div>
   </div>
 </template>
 
 <script>
+import { loginByPhoneAPI,getLoginStatusAPI } from '_a/login'
 import CButton from '_c/button'
 export default {
   name: 'p_ad',
@@ -23,6 +19,8 @@ export default {
   },
   data() {
     return {
+      phone: '',
+      password: ''
     }
   },
   methods: {
@@ -31,9 +29,31 @@ export default {
       wx.navigateTo({
         url: '../signin/index'
       })
+    },
+    async autoLogin() {
+      try {
+        const phone = wx.getStorageSync('phone')
+        const password = wx.getStorageSync('password')
+        if(phone.length && password.length) {
+          let params =  {
+            phone: phone,
+            password: password
+          }
+          // const res = await loginByPhoneAPI({
+          //   ...params
+          // })
+          // if(res.code === '200') {
+              //TODO 跳转到首页
+          // }
+        }
+        const res = await getLoginStatusAPI()
+      } catch (e) {
+        console.log('暂无账号信息')
+      }
     }
   },
-  mounted() {
+  async mounted() {
+    await this.autoLogin()
   }
 }
 </script>

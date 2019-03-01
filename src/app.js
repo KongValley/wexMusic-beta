@@ -3,6 +3,12 @@ import Vue from 'vue'
 import '_s/index.scss'
 import VHtmlPlugin from '@megalo/vhtml-plugin'
 
+// 引入Fundebug监控前端异常
+const fundebug = require('./utils/fundebug.1.0.0.min')
+fundebug.init({
+  apikey: '850d3afe3ffe3207903b5d7b44b1329fc30cd31238e628934f3aeb3c212aaede'
+})
+
 Vue.use(VHtmlPlugin)
 
 const app = new Vue(App)
@@ -13,35 +19,32 @@ export default {
   config: {
     // pages 的首个页面会被编译成首页
     pages: [
-      'pages/ad/ad',
+      'pages/ad/index',
       'pages/signin/index',
-      'pages/home/index',
-      'pages/hello',
-      'pages/my/index'
+      'pages/home/index'
     ],
-    tabBar: {
-      color: '#333',
-      selectedColor: '#007d37',
-      list: [
-        {
-        pagePath: 'pages/hello',
-        text: 'home',
-        iconPath: 'static/imgs/home.png',
-        selectedIconPath: 'static/imgs/home_on.png',
-        },
-        {
-        pagePath: 'pages/my/index',
-        text: 'my',
-        iconPath: 'static/imgs/mine.png',
-        selectedIconPath: 'static/imgs/mine_on.png',
-        }
-      ]
-    },
+    // tabBar: {
+    //   color: '#333',
+    //   selectedColor: '#007d37',
+    //   list: [
+    //     {
+    //     pagePath: 'pages/hello',
+    //     text: 'home',
+    //     iconPath: 'static/imgs/home.png',
+    //     selectedIconPath: 'static/imgs/home_on.png',
+    //     },
+    //     {
+    //     pagePath: 'pages/my/index',
+    //     text: 'my',
+    //     iconPath: 'static/imgs/mine.png',
+    //     selectedIconPath: 'static/imgs/mine_on.png',
+    //     }
+    //   ]
+    // },
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'wexMusic-beta',
-      navigationBarTextStyle: 'black'
+      navigationBarBackgroundColor: '#C20C0C',
+      navigationBarTitleText: '网不易云音乐',
+      navigationBarTextStyle: 'white'
     }
   }
 }

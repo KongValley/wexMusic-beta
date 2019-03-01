@@ -53,7 +53,7 @@ export default {
   position: relative;
   display: inline-block;
   padding-top: 6px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   overflow: hidden;
   
@@ -84,7 +84,6 @@ export default {
   
   /* Span
   -------------------------- */
-
   & > input + span,
   & > textarea + span {
     position: absolute;

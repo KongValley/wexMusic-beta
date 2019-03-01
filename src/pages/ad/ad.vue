@@ -1,10 +1,11 @@
 <template>
   <div class="p-ad">
-    <div class="p-ad__title">
+    <div class="p-ad-title">
       iMusic
     </div>
-    <div class="p-ad__button--group">
-      
+    <div class="p-ad-button-group">
+      <i-button type="ghost" shape="circle" i-class="p-ad-button" @click="handleToSignIn()">手机号登录</i-button>
+      <i-button type="ghost" shape="circle" i-class="p-ad-button">注册</i-button>
     </div>
   </div>
 </template>
@@ -25,7 +26,6 @@ export default {
   },
   methods: {
     handleToSignIn() {
-      console.log('click')
       wx.navigateTo({
         url: '../signin/index'
       })
@@ -44,7 +44,7 @@ export default {
           // })
           // if(res.code === '200') {
               //TODO 跳转到首页
-          // }
+          // }  
         }
         const res = await getLoginStatusAPI()
       } catch (e) {
@@ -53,15 +53,14 @@ export default {
     }
   },
   async mounted() {
-    await this.autoLogin()
+    // await this.autoLogin()
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "~_s/common/var";
-@import "~_s/mixins/mixin";
-@include b(ad,p) {
+.p-ad {
   width: 100%;
   height: 100%;
   display: flex;
@@ -69,7 +68,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @include e(title) {
+  .p-ad-title {
     display:inline-block;
     font-size: 35px;
     color: $--color-primary;
@@ -82,21 +81,24 @@ export default {
     letter-spacing: 3px;
     margin-bottom: 150px;
   }
-  @include e(button) {
-    text-transform: uppercase;
-    font-size: 20px;
-    @include m(group) {
-      position: absolute;
-      box-sizing: border-box;
-      bottom: 0;
-      left: 0;
-      display: flex;
-      width: 100%;
-      justify-content: space-around;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-bottom: 30px;
+  .p-ad-button-group {
+
+    /deep/ .p-ad-button {
+      color: $--color-primary !important;
+      box-shadow: inset 0 0 0 2px $--color-primary;
     }
+
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
   }
+  
 }
 </style>

@@ -84,7 +84,8 @@ function createBaseConfig( platform = 'wechat' ) {
         '_c': _.resolve('src/components'),
         '_s': _.resolve('src/style'),
         '_u': _.resolve('src/utils'),
-        '_a': _.resolve('src/api')
+        '_a': _.resolve('src/api'),
+        '_v': _.resolve('src/static/iview')
       },
     },
 
@@ -130,7 +131,8 @@ function createBaseConfig( platform = 'wechat' ) {
         filename: `./static/css/[name].${cssExt}`,
       }),
       new CopyWebpackPlugin([{
-        from: 'src/static/iview', to: 'static/iview'
+        from: 'src/static/iview', to: 'static/iview',
+        from: 'src/static/imgs', to: 'static/imgs'
       }])
     ],
     stats:{

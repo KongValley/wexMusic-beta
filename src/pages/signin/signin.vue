@@ -22,15 +22,16 @@
       </div>
     </div>
     <div class="p-signin-button">
-      <i-button i-class="button-primary" shape="circle">登录</i-button>
+      <i-button i-class="button-primary" shape="circle" @click="handleSubmit">登录</i-button>
     </div>
-    <i-toast id="toast"></i-toast>
+    <i-message id="message"></i-message>
   </div>
 </template>
 
 <script>
 import { loginByPhoneAPI,getLoginStatusAPI } from '_a/login'
 import CInput from '_c/input'
+const { $Message } = require('_v/base/index')
 export default {
   name: "p_signin",
   data() {
@@ -52,18 +53,28 @@ export default {
     async handleSubmit() {
       try {
         const res = await this.fetchSignIn()
+        const app= getApp()
+        app.globalData.id = res.data.account.id
+        app.globalData.avatarUrl = res.data.profile.avatarUrl
+        app.globalData.backgroundUrl = res.data.profile.backgroundUrl
+        app.globalData.nickname = res.data.profile.nickname
         let phone = this.phone
         let password = this.password
-        wx.redirectTo({
-          url: '../home/index'
+        $Message({
+          content: "登录成功",
+          type: 'error'
         })
         wx.setStorageSync('phone', phone)
         wx.setStorageSync('password',password)
+        wx.redirectTo({
+          url: '../home/index'
+        })
+
       } catch (e) {
         this.visible = true
-        $Toast({
+        $Message({
           content: e.response.data.msg ? e.response.data.msg : "未知异常",
-          type: 'warning'
+          type: 'error'
         })
       }
     },
@@ -77,6 +88,12 @@ export default {
 
 <style lang="scss" scoped>
 @import "~_s/common/var";
+@font-face {
+  font-family: 'Robot';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://chara-static-source.oss-cn-shanghai.aliyuncs.com/font/Roboto-Regular.ttf) format('truetype');
+}
 .p-signin {
   &-form {
     display: flex;
@@ -100,20 +117,23 @@ export default {
     width: 100%;
     font-size: 18px;
 
-    &.phone {
-      padding-top: 40px;
-    }
-
-    &.password {
-      padding-top: 20px;
-    }
-
     input {
       font-size: 16px;
       flex: 1;
       caret-color: $--color-primary;
       height: 100%;
       font-family: Robot !important;
+    }
+
+    &.phone {
+      padding-top: 40px;
+    }
+
+    &.password {
+      padding-top: 20px;
+      input {
+        font-size: 12px;
+      }
     }
 
     .is-not-empty {

@@ -15,7 +15,7 @@ export default {
         "i-button": '../../static/iview/button/index',
         "i-input": '../../static/iview/input/index',
         "i-tabs": "../../static/iview/tabs/index",
-        "i-tab": ".../../static/iview/tab/index"
+        "i-tab": "../../static/iview/tab/index"
       }
     }
   }

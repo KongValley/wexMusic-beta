@@ -14,7 +14,7 @@ export default {
       usingComponents: {
         "i-button": '../../static/iview/button/index',
         "i-input": '../../static/iview/input/index',
-        "i-toast": "../../static/iview/toast/index"
+        "i-message": "../../static/iview/message/index"
       }
     }
   }

@@ -39,21 +39,22 @@ export default {
             phone: phone,
             password: password
           }
-          // const res = await loginByPhoneAPI({
-          //   ...params
-          // })
-          // if(res.code === '200') {
-              //TODO 跳转到首页
-          // }  
+          const res = await loginByPhoneAPI({
+            ...params
+          })
+          if(res.data.code === 200) {
+            wx.redirectTo({
+              url: '../home/index'
+            })
+          }
         }
-        const res = await getLoginStatusAPI()
       } catch (e) {
         console.log('暂无账号信息')
       }
     }
   },
   async mounted() {
-    // await this.autoLogin()
+    await this.autoLogin()
   }
 }
 </script>

@@ -1,4 +1,4 @@
-import App from './search'
+import App from './search-detail'
 import Vue from 'vue'
 
 const app = new Vue(App)
@@ -9,11 +9,8 @@ export default {
   config: {
     _wechat: {
       navigationBarBackgroundColor: '#DF4337',
-      navigationBarTitleText: '🔍搜索页',
+      navigationBarTitleText: '😑搜索结果',
       navigationBarTextStyle: 'white',
-      usingComponents: {
-        "i-modal": '../../static/iview/modal/index'
-      }
     }
   }
 }

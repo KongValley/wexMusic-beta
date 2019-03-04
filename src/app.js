@@ -44,7 +44,7 @@ export default {
     //   ]
     // },
     window: {
-      navigationBarBackgroundColor: '#C20C0C',
+      navigationBarBackgroundColor: '#DF4337',
       navigationBarTitleText: '网不易云音乐',
       navigationBarTextStyle: 'white'
     }

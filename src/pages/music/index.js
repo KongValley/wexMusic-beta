@@ -8,7 +8,7 @@ app.$mount()
 export default {
   config: {
     _wechat: {
-      navigationBarBackgroundColor: '#C20C0C',
+      navigationBarBackgroundColor: '#DF4337',
       navigationBarTitleText: '🤣我的音乐',
       navigationBarTextStyle: 'white',
       usingComponents: {

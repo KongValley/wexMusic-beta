@@ -43,35 +43,15 @@ export const getSearchHotDataAPI = () => fly.request({
  *
  * @author Da Peng
  * @export
- * @param {Object} { keywords, limit = 30, offset = 0, type = 1 } // 传入一个对象
+ * @param {Object} { keywords, type } // 传入一个对象
  * @param {String} keywords // 关键词
- * @param {Number} limit // 返回数量,默认为30
- * @param {Number} offset // 偏移数量,用于分页,如(页数-1)*30,其中30为limit的值,默认为0
- * @param {Number} type // 搜索类型,默认为1即单曲
- * 取值意义-> 1:单曲 10:专辑 100:歌手 1000:歌单 1002: 用户 1004: MV 1006: 歌词 1009: 电台
+ * @param {String} type // 搜索类型,默认为mobile
  * @returns
  */
-export const getSearchSuggestAPI = ({ keywords, limit = 30, offset = 0, type = 1 }) => fly.request({
+export const getSearchSuggestAPI = ({ keywords, type = 'mobile' }) => fly.request({
   url: '/search/suggest',
   body: {
     keywords,
-    limit,
-    offset,
     type
-  }
-})
-
-/**
- * 搜索多重匹配接口,传入搜索关键词可获得搜索结果
- *
- * @author Da Peng
- * @export
- * @param {String} keywords // 关键词
- * @returns
- */
-export const getMultiMatchAPI = ({ keywords }) => fly.request({
-  url: '/search/multimatch',
-  body: {
-    keywords
   }
 })

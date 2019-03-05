@@ -11,6 +11,10 @@ export default {
       navigationBarBackgroundColor: '#DF4337',
       navigationBarTitleText: '😑搜索结果',
       navigationBarTextStyle: 'white',
+      "usingComponents": {
+        "i-tabs": "../../static/vant/tabs/index",
+        "i-tab": "../../static/vant/tab/index"
+      }
     }
   }
 }

@@ -42,6 +42,7 @@
     "@megalo/vhtml-plugin": "^0.1.2",
     "flyio": "^0.6.13",
     "megalo": "^0.7.3",
-    "octoparse": "^0.3.2"
+    "octoparse": "^0.3.2",
+    "vant-weapp": "^0.5.6"
   }
 }

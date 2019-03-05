@@ -132,7 +132,8 @@ function createBaseConfig( platform = 'wechat' ) {
       }),
       new CopyWebpackPlugin([{
         from: 'src/static/iview', to: 'static/iview',
-        from: 'src/static/imgs', to: 'static/imgs'
+        from: 'src/static/imgs', to: 'static/imgs',
+        from: 'src/static/vant', to: 'static/vant'
       }])
     ],
     stats:{

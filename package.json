@@ -8,9 +8,11 @@
     "dev:alipay": "webpack --config ./build/webpack.config.alipay.js -w",
     "dev:swan": "webpack --config ./build/webpack.config.swan.js -w",
     "dev:wechat": "webpack --config ./build/webpack.config.wechat.js -w",
-    "build": "yarn dev:wechat",
-    "commit": "gitmoji -c",
-    "store": "git add ."
+    "b": "yarn dev:wechat",
+    "c": "gitmoji -c",
+    "a": "git add .",
+    "push": "git push",
+    "pull": "git pull"
   },
   "keywords": [],
   "author": "Chara <chara1997@foxmail.com>",

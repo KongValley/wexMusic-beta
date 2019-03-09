@@ -13,7 +13,8 @@ export default {
       navigationBarTextStyle: 'white',
       "usingComponents": {
         "i-tabs": "../../static/vant/tabs/index",
-        "i-tab": "../../static/vant/tab/index"
+        "i-tab": "../../static/vant/tab/index",
+        "i-action-sheet": "../../static/iview/action-sheet/index"
       }
     }
   }

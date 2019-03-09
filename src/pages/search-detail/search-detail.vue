@@ -116,7 +116,7 @@
 <script>
 import CHighlight from '_c/searchHighlight'
 import { getSearchDataAPI } from '_a/search'
-import { typeList,resultList } from 'var'
+import { typeList,resultList } from './var'
 
 export default {
   name: "search-detail",
@@ -172,7 +172,7 @@ export default {
       this.currentPage = detail.index
       this.currentType = typeList[detail.index]
       const currentResult = this.result[resultList[detail.index]]
-      if(currentResult.list.length > 0)
+      if(currentResult.list.length === 0)
         this.fetchSearchResult(currentResult.offset)
     },
     handleSongSheetActive() {
@@ -181,13 +181,14 @@ export default {
     },
     async fetchSearchResult(offset) {
       try {
-        // 1:单曲 10:专辑 100:歌手 1000:歌单 1002: 用户 1004: MV 1006: 歌词 1009: 电台
+        // type --> 1:单曲 10:专辑 100:歌手 1000:歌单 1002: 用户 1004: MV 1006: 歌词 1009: 电台
         const params = {
           keywords: this.keyword,
           type: this.currentType,
           offset: offset
         }
-        const a = await getSearchDataAPI(params)
+        const res = await getSearchDataAPI(params)
+        console.log(res)
       } catch (e) {
         console.warn(e)
       }

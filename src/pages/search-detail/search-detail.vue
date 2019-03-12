@@ -11,114 +11,176 @@
         :border="false"
         color="#fff">
         <i-tab title="单曲" :title-style="titleStyle">
-          <scroll-view class="list-cnt"  v-if="currentType === typeList[0]" mp:scroll-y="true">
-            <div class="list-item" v-for="i in 10" :key="i">
+          <scroll-view
+            class="list-cnt"
+            mp:scroll-y="true"
+            @scrolltolower="handleScrollToLower">
+            <div class="list-item" v-for="item in result.songs.data" :key="item.id" @click="handlePlayMusic(item)">
               <div class="item-title">
                 <div class="title-header">
-                  <c-highlight :keyword="keyword" :str="'海阔天空6667777'"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="item.name"></c-highlight>
                 </div>
                 <div class="title-desc">
-                  <c-highlight :keyword="keyword" :str="'Mo'+' - '+'哈哈哈'"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="`${handleSplitArtists(item.artists)} - ${item.album.name}`"></c-highlight>
                 </div>
               </div>
-              <div class="item-action" @click="handleSongSheetActive">
+              <div class="item-action" @click.stop="handleSongSheetActive(item)">
                 <i class="material-icons">more_vert</i>
               </div>
             </div>
-
-            <i-action-sheet :visible="songSheetVisible" show-cancel @cancel="handleSongSheetCancel1"></i-action-sheet>
+            <div v-if="result.songs.endFlag === false">
+              <i-load-more></i-load-more>
+            </div>
+            <div v-if="result.songs.endFlag === true">
+              <i-divider color="#DF4337" lineColor="#DF4337">我是有底线的 :)</i-divider>
+            </div>
+            <i-action-sheet
+              i-class="action-sheet-circle"
+              :visible="songSheetVisible"
+              :actions="currentSongAction"
+              @click="handleClickSongSheet"
+              @cancel="handleSongSheetCancel">
+              <div slot="header" style="padding: 10px">
+                <div>歌曲：{{currentSongInfo.name}}</div>
+              </div>
+            </i-action-sheet>
           </scroll-view>
         </i-tab>
         <i-tab title="专辑" :title-style="titleStyle">
-          <div class="list-cnt"  v-if="currentType === typeList[1]">
-            <div class="list-item">
+          <scroll-view
+            class="list-cnt"
+            mp:scroll-y="true"
+            @scrolltolower="handleScrollToLower">
+            <div class="list-item" v-for="item in result.albums.data" :key="item.id">
               <div class="item-img">
-                <img src="https://chara-static-source.oss-cn-shanghai.aliyuncs.com/font/avator.jpg" alt="">
+                <img :src="item.picUrl" alt="">
               </div>
               <div class="item-title">
                 <div class="title-header">
                   <!--专辑名-->
-                  <c-highlight :keyword="keyword" :str="'Beautiful Girl'"></c-highlight>
-                  <!--专辑如果是外语的，显示副标题中文名-->
-                  <div class="title-sub-header">
-                    <c-highlight :keyword="keyword" :str="'不要笑'"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="item.name"></c-highlight>
+                  <!--专辑别名-->
+                  <div class="title-sub-header" v-if="item.alias.length > 0">
+                    <c-highlight :keyword="keyword" :str="'（'+item.alias[0]+'）'"></c-highlight>
                   </div>
                 </div>
                 <div class="title-desc">
-                  <c-highlight :keyword="keyword" :str="'哈哈'+' - '+'2011.9.14'"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="item.artist.name+' '+handleAlbumFormatTime(item)"></c-highlight>
                 </div>
               </div>
             </div>
-          </div>
+            <div v-if="result.albums.endFlag === false">
+              <i-load-more></i-load-more>
+            </div>
+            <div v-if="result.albums.endFlag === true">
+              <i-divider color="#DF4337" lineColor="#DF4337">我是有底线的 :)</i-divider>
+            </div>
+          </scroll-view>
         </i-tab>
         <i-tab title="歌手" :title-style="titleStyle">
-          <div class="list-cnt"  v-if="currentType === typeList[2]">
-            <div class="list-item">
+          <scroll-view
+            class="list-cnt"
+            mp:scroll-y="true"
+            @scrolltolower="handleScrollToLower">
+            <div class="list-item" v-for="item in result.artists.data" :key="item.id">
               <div class="item-img">
-                <img src="https://chara-static-source.oss-cn-shanghai.aliyuncs.com/font/avator.jpg" alt="">
+                <img :src="item.picUrl" alt="">
               </div>
               <div class="item-title">
                 <div class="title-header">
                   <!--歌手名字-->
-                  <c-highlight :keyword="keyword" :str="'梁咏琪'"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="item.name"></c-highlight>
                   <!--歌手外语名字-->
-                  <div class="title-sub-header">
-                    <c-highlight :keyword="keyword" :str="'gigi'"></c-highlight>
+                  <div class="title-sub-header" v-if="item.alias.length > 0">
+                    <c-highlight :keyword="keyword" :str="item.alias[0]"></c-highlight>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+            <div v-if="result.artists.endFlag === false">
+              <i-load-more></i-load-more>
+            </div>
+            <div v-if="result.artists.endFlag === true">
+              <i-divider color="#DF4337" lineColor="#DF4337">我是有底线的 :)</i-divider>
+            </div>
+          </scroll-view>
         </i-tab>
         <i-tab title="歌单" :title-style="titleStyle">
-          <div class="list-cnt"  v-if="currentType === typeList[3]">
-            <div class="list-item">
+          <scroll-view
+            class="list-cnt"
+            mp:scroll-y="true"
+            @scrolltolower="handleScrollToLower">
+            <div class="list-item" v-for="item in result.playlists.data" :key="item.id">
               <div class="item-img">
-                <img src="https://chara-static-source.oss-cn-shanghai.aliyuncs.com/font/avator.jpg" alt="">
+                <img :src="item.coverImgUrl" alt="">
               </div>
               <div class="item-title">
                 <div class="title-header">
-                  <!--专辑名-->
-                  <c-highlight :keyword="keyword" :str="'Beautiful Girl'"></c-highlight>
+                  <!--歌单名-->
+                  <c-highlight :keyword="keyword" :str="item.name"></c-highlight>
                 </div>
                 <div class="title-desc">
-                  <span>{{`${keyword} by `}}</span>
-                  <c-highlight :keyword="keyword" :str="'哈哈'+' - '+'2011.9.14'"></c-highlight>
-                  <span>{{`，播放${keyword}次`}}</span>
+                  <span class="desc-header">{{`${item.trackCount}首 by `}}</span>
+                  <c-highlight :keyword="keyword" :str="item.creator.nickname"></c-highlight>
+                  <span>{{`，播放${item.playCount}次`}}</span>
                 </div>
               </div>
             </div>
-          </div>
+            <div v-if="result.playlists.endFlag === false">
+              <i-load-more></i-load-more>
+            </div>
+            <div v-if="result.playlists.endFlag === true">
+              <i-divider color="#DF4337" lineColor="#DF4337">我是有底线的 :)</i-divider>
+            </div>
+          </scroll-view>
         </i-tab>
         <i-tab title="电台" :title-style="titleStyle">
-          <div class="list-cnt" v-if="currentType === typeList[4]">
-            <div class="list-item">
+          <scroll-view
+            class="list-cnt"
+            mp:scroll-y="true"
+            @scrolltolower="handleScrollToLower">
+            <div class="list-item" v-for="item in result.djRadios.data" :key="item.id">
               <div class="item-img">
-                <img src="https://chara-static-source.oss-cn-shanghai.aliyuncs.com/font/avator.jpg" alt="">
+                <img :src="item.picUrl" alt="">
               </div>
               <div class="item-title">
                 <div class="title-header">
                   <!--电台名-->
-                  <c-highlight :keyword="keyword" :str="'Beautiful Girl'"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="item.name"></c-highlight>
                 </div>
                 <div class="title-desc">
-                  <c-highlight :keyword="keyword" :str="'DZ不歪3'"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="item.dj.nickname"></c-highlight>
                 </div>
               </div>
             </div>
-          </div>
+            <div v-if="result.djRadios.endFlag === false">
+              <i-load-more></i-load-more>
+            </div>
+            <div v-if="result.djRadios.endFlag === true">
+              <i-divider color="#DF4337" lineColor="#DF4337">我是有底线的 :)</i-divider>
+            </div>
+          </scroll-view>
         </i-tab>
       </i-tabs>
+      <i-toast id="toast"></i-toast>
     </div>
   </div>
 </template>
 
 <script>
-import CHighlight from '_c/searchHighlight'
-import { getSearchDataAPI } from '_a/search'
-import { typeList,resultList } from './var'
+  import CHighlight from '_c/searchHighlight'
+  import { getSearchDataAPI } from '_a/search'
+  import { getSongDetailAPI } from '_a/song'
+  import {resultList, typeList} from './var'
+  import {formatTime} from '_u'
+  const { $Toast } = require('_v/base/index')
+  import searchSongData from '_m/search-song.json'
+  import searchAlbumData from '_m/search-album'
+  import searchArtistData from '_m/search-artist'
+  import searchPlaylistData from '_m/search-play-list'
+  import searchDjData from '_m/search-dj'
 
-export default {
+  export default {
   name: "search-detail",
   components: {
     CHighlight
@@ -133,32 +195,55 @@ export default {
       typeList: typeList,
       // 存放获取的各个数据
       result: {
-        song: {
+        songs: {
+          // 存放偏移量
           offset: 0,
-          list: []
+          // 存放数据
+          data: [],
+          // 总数（网易云这部分有问题）
+          total: 0,
+          // 存放唯一id
+          idList: [],
+          // 是否加载完毕
+          endFlag: false
         },
-        album: {
+        albums: {
           offset: 0,
-          list: []
+          data: [],
+          total: 0,
+          idList: [],
+          endFlag: false
         },
-        singer: {
+        artists: {
           offset: 0,
-          list: []
+          data: [],
+          total: 0,
+          idList: [],
+          endFlag: false
         },
-        playlist: {
+        playlists: {
           offset: 0,
-          list: []
+          data: [],
+          total: 0,
+          idList: [],
+          endFlag: false
         },
-        dj: {
+        djRadios: {
           offset: 0,
-          list: []
+          data: [],
+          total: 0,
+          idList: [],
+          endFlag: false
         }
       },
       // 当前歌曲抽屉数据
       currentSongInfo: {
         name: "",
+        id: "",
         author: "",
-        album: ""
+        album: "",
+        albumId: "",
+        artists: ""
       }
     };
   },
@@ -171,37 +256,201 @@ export default {
     handleChangeScroll({ detail }) {
       this.currentPage = detail.index
       this.currentType = typeList[detail.index]
-      const currentResult = this.result[resultList[detail.index]]
-      if(currentResult.list.length === 0)
-        this.fetchSearchResult(currentResult.offset)
+      if(this.currentPageData.data.length === 0)
+        this.fetchSearchResult(this.currentPageData.offset)
     },
-    handleSongSheetActive() {
-      // TODO 弹出抽屉
+    // 打开歌曲动作抽屉
+    handleSongSheetActive(_) {
+      this.currentSongInfo.name = _.name
+      this.currentSongInfo.id = _.id
+      this.currentSongInfo.album = _.album.name
+      this.currentSongInfo.albumId = _.album.id
+      this.currentSongInfo.artists = this.handleSplitArtists(_.artists)
       this.songSheetVisible = true
     },
     async fetchSearchResult(offset) {
       try {
-        // type --> 1:单曲 10:专辑 100:歌手 1000:歌单 1002: 用户 1004: MV 1006: 歌词 1009: 电台
+        // type [ 1:单曲 10:专辑 100:歌手 1000:歌单 1009: 电台 ]
         const params = {
           keywords: this.keyword,
           type: this.currentType,
           offset: offset
         }
-        const res = await getSearchDataAPI(params)
-        console.log(res)
+        return await getSearchDataAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    },
+    async fetchSongDetailAPI(id) {
+      try {
+        const params = {
+          ids: id
+        }
+        return await getSongDetailAPI(params)
       } catch (e) {
         console.warn(e)
       }
     },
     // 关闭歌曲的抽屉
-    handleSongSheetCancel1() {
+    handleSongSheetCancel() {
       this.songSheetVisible = false
+    },
+    // 获取点击索引
+    handleClickSongSheet({_relatedInfo}) {
+      if(_relatedInfo.anchorTargetText) {
+        const index = this.currentSongAction.findIndex((val)=> {
+          return val.name === _relatedInfo.anchorTargetText
+        })
+      }
+    },
+    // 添加到下一首歌曲
+    async handleAddSong() {
+      this._initStore()
+      const arr = wx.getStorageSync('playArr')
+      const flag = arr.findIndex((val)=> {
+        return val.id === this.currentSongInfo.id
+      })
+      if(flag >= 0 ) {
+        $Toast({
+          content: '播放列表已有此歌曲',
+          type: 'praise'
+        })
+      }else {
+        $Toast({
+          content: '添加成功',
+          type: 'success'
+        })
+        const res = await this.fetchSongDetailAPI(this.currentSongInfo.id)
+        arr.push({
+          id: this.currentSongInfo.id,
+          title: this.currentSongInfo.name,
+          epname: this.currentSongInfo.album,
+          coverImgUrl: res.data.songs[0].al.picUrl,
+          singer: this.currentSongInfo.artists,
+          src: `https://music.163.com/song/media/outer/url?id=${this.currentSongInfo.id}.mp3`
+        })
+      }
+    },
+    // 格式化歌手
+    handleSplitArtists(data) {
+      return data.map(_ => _.name).join('/')
+    },
+    // 格式化时间
+    handleAlbumFormatTime(item) {
+      if(item.containedSong) {
+        return '包含单曲：'+item.containedSong
+      } else {
+        const date = new Date(item.publishTime)
+        return formatTime(date)
+      }
+    },
+    // 滚动条触底
+    async handleScrollToLower() {
+      // 如果直接是count一致那就直接显示加载完毕
+      if (this.currentPageData.total === this.currentPageData.data.length)
+        this.currentPageData.endFlag =true
+      // 继续加载
+      if(this.currentPageData.total !== this.currentPageData.data.length
+        || this.currentPageData.endFlag === false){
+        this.currentPageData.offset = this.currentPageData.offset + 1
+        const res = await this.fetchSearchResult(this.currentPageData.offset)
+        const result = res.data.result[resultList[this.currentPage]].filter((el)=> {
+          return this.currentPageData.idList.indexOf(el.id) < 0
+        })
+        // 如果筛除重复之后返回数组长度为0就表示加载完毕
+        // 若 > 0 则表示仍有数据
+        if(result.length > 0){
+          const resultId = result.map(el=> el.id)
+          this.currentPageData.data.push(...result)
+          this.currentPageData.idList.push(...resultId)
+        }else {
+          this.currentPageData.endFlag = true
+        }
+      }
+    },
+    // 播放音乐
+    async handlePlayMusic(_) {
+      const res = await this.fetchSongDetailAPI(_.id)
+      this._initStore()
+      const arr = wx.getStorageSync('playArr')
+      // MARK 播放列表存储的数据结构
+      const flag = arr.findIndex((val) => {
+        return val.id === _.id
+      })
+      if(flag > 0) {
+        arr.slice(flag,1)
+      }else if(flag === 0) {
+
+      }else {
+        const audio = wx.getBackgroundAudioManager()
+        audio.title = _.name
+        audio.epname = _.album.name
+        audio.singer = this.handleSplitArtists(_.artists)
+        audio.coverImgUrl = res.data.songs[0].al.picUrl
+        audio.src = `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
+        arr.unshift({
+          id: _.id,
+          title: _.name,
+          epname:_.album.name,
+          coverImgUrl: res.data.songs[0].al.picUrl,
+          singer: this.handleSplitArtists(_.artists),
+          src: `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
+        })
+        wx.setStorageSync('playArr', arr)
+      }
+    },
+    _initStore() {
+      if(!wx.getStorageSync('playArr')) {
+        wx.setStorageSync('playArr', [])
+      }
     }
   },
   onLoad(option) {
-    this.keyword = option.search
+    // this.keyword = option.search
     // test
+    // this.keyword = '海阔天空'
+  },
+  created() {
+    this.keyword = this.$mp.options.search
     this.keyword = '海阔天空'
+    this.result.songs.data = searchSongData.result.songs
+    this.result.songs.idList = this.result.songs.data.map(el=> el.id)
+    this.result.songs.total = searchSongData.result.songCount
+    this.result.albums.data = searchAlbumData.result.albums
+    this.result.albums.idList = this.result.albums.data.map(el=> el.id)
+    this.result.artists.data = searchArtistData.result.artists
+    this.result.playlists.data = searchPlaylistData.result.playlists
+    this.result.djRadios.data = searchDjData.result.djRadios
+    this.result.djRadios.total = searchDjData.result.djRadiosCount
+  },
+  computed: {
+    currentSongAction() {
+      return [
+        {
+          name: '下一首播放',
+          icon: 'playon'
+        },
+        {
+          name: '收藏到歌单',
+          icon: 'collection'
+        },
+        {
+          name: '评论',
+          icon: 'interactive'
+        },
+        {
+          name: '歌手：'+this.currentSongInfo.artists,
+          icon: 'integral',
+        },
+        {
+          name: '专辑：'+this.currentSongInfo.album,
+          icon: 'createtask'
+        },
+      ]
+    },
+    currentPageData() {
+      return this.result[resultList[this.currentPage]]
+    }
   }
 }
 </script>
@@ -242,10 +491,22 @@ export default {
         .list-item {
           width: 100%;
           height: 60px;
+          position: relative;
           box-sizing: border-box;
           display: flex;
           padding-left: 10px;
-          box-shadow: inset  0 0 1px 0  rgba(0, 0, 0, .3);
+          // MARK 真1rpx边框
+          &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            background-color: rgba(0, 0, 0, .1);
+            transform: scale(1,0.5);
+            transform-origin: center bottom;
+          }
           .item-img {
             width: 40px;
             height: 100%;
@@ -264,19 +525,25 @@ export default {
             flex-direction: column;
             justify-content: center;
             .title-header {
-              font-size: 16px;
+              font-size: 14px;
               display: flex;
-              align-items: center;
+              align-items: center;line-height: 1;
               .title-sub-header {
+                padding-left: 5px;
                 color: rgba(0,0,0,.3);
                 line-height: 1;
               }
             }
             .title-desc {
               color: rgba(0,0,0,.3);
-              padding-top: 5px;
+              padding-top: 8px;
               font-size: 12px;
               display: flex;
+              line-height: 1;
+              align-items: center;
+              .desc-header {
+                padding-right: 5px;
+              }
             }
           }
           .item-action {
@@ -286,6 +553,8 @@ export default {
             justify-content: center;
             align-items: center;
           }
+        }
+        .action-sheet-circle {
         }
       }
 

@@ -27,23 +27,38 @@ export default {
       'pages/signin/index',
       // 'pages/search-detail/index'
     ],
+    "requiredBackgroundModes": ["audio"],
     // tabBar: {
     //   color: '#333',
     //   selectedColor: '#007d37',
     //   list: [
     //     {
-    //     pagePath: 'pages/hello',
-    //     text: 'home',
-    //     iconPath: 'static/imgs/home.png',
-    //     selectedIconPath: 'static/imgs/home_on.png',
+    //       pagePath: 'pages/search-detail/index',
+    //       text: 'Home',
+    //       iconPath: 'static/imgs/home.png',
+    //       selectedIconPath: 'static/imgs/home_on.png'
     //     },
     //     {
-    //     pagePath: 'pages/my/index',
-    //     text: 'my',
-    //     iconPath: 'static/imgs/mine.png',
-    //     selectedIconPath: 'static/imgs/mine_on.png',
-    //     }
+    //       pagePath: 'pages/ad/index',
+    //       text: 'my',
+    //       iconPath: 'static/imgs/mine.png',
+    //       selectedIconPath: 'static/imgs/mine_on.png',
+    //       }
     //   ]
+      // list: [
+      //   {
+      //   pagePath: 'pages/hello',
+      //   text: 'home',
+      //   iconPath: 'static/imgs/home.png',
+      //   selectedIconPath: 'static/imgs/home_on.png',
+      //   },
+      //   {
+      //   pagePath: 'pages/my/index',
+      //   text: 'my',
+      //   iconPath: 'static/imgs/mine.png',
+      //   selectedIconPath: 'static/imgs/mine_on.png',
+      //   }
+      // ]
     // },
     window: {
       navigationBarBackgroundColor: '#DF4337',

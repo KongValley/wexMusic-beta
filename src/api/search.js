@@ -16,12 +16,12 @@ import fly from '@/utils/request'
  * 取值意义-> 1:单曲 10:专辑 100:歌手 1000:歌单 1002: 用户 1004: MV 1006: 歌词 1009: 电台
  * @returns
  */
-export const getSearchDataAPI = ({ keywords, limit = 30, offset = 0, type = 1 }) => fly.request({
+export const getSearchDataAPI = ({ keywords, limit = 50, offset = 0, type = 1 }) => fly.request({
   url: '/search',
   body: {
     keywords,
-    limit,
     offset,
+    limit,
     type
   }
 })

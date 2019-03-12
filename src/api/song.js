@@ -64,10 +64,10 @@ export const getMusicLyricAPI = ({ id }) => fly.request({
 /**
  * 获取歌曲详情
  * 传入音乐id(支持多个 id, 用 , 隔开)
- * 可获得歌曲详情(注意:歌曲封面需要通过专辑内容接口获取)
+ * 可获得歌曲详情
  *
  * @author Da Peng
- * @param {Stirng} ids // 音乐id
+ * @param {String} ids // 音乐id
  * @export
  */
 export const getSongDetailAPI = ({ ids }) => fly.request({

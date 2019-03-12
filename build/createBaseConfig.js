@@ -85,7 +85,8 @@ function createBaseConfig( platform = 'wechat' ) {
         '_s': _.resolve('src/style'),
         '_u': _.resolve('src/utils'),
         '_a': _.resolve('src/api'),
-        '_v': _.resolve('src/static/iview')
+        '_v': _.resolve('src/static/iview'),
+        '_m': _.resolve('src/mock')
       },
     },
 

@@ -13,3 +13,21 @@ export function throttle(fn,delay = 1000) {
     }
   }
 }
+
+export const formatTime = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const day = date.getDate()
+
+  return [year, month, day].join('.')
+}
+
+export const initPlayArr = () => {
+  if(!wx.getStorageSync('playArr')) {
+    wx.setStorageSync('playArr', [])
+  }
+}
+
+export const isExistSameSong = (arr,id) => arr.findIndex(val => val.id === id) >= 0
+
+export const findSameSongIndex = (arr,id) => arr.findIndex(val => val.id=== id)

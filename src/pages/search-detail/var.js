@@ -7,9 +7,9 @@ export const typeList = [
 ]
 
 export const resultList = [
-  'song',
-  'album',
-  'singer',
-  'playlist',
-  'dj'
+  'songs',
+  'albums',
+  'artists',
+  'playlists',
+  'djRadios'
 ]

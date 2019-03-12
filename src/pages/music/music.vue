@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="p-music"></div>
 </template>
 
 <script>
@@ -9,5 +9,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.p-music {
 
+}
 </style>

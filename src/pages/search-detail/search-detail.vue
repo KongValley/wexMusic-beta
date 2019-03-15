@@ -5,7 +5,7 @@
     </div>
     <div class="center">
       <i-tabs
-        :current="currentPage"
+        :active="currentPage"
         @change="handleChangeScroll"
         custom-class="center-tabs"
         :border="false"
@@ -172,7 +172,7 @@
   import { getSearchDataAPI } from '_a/search'
   import { getSongDetailAPI } from '_a/song'
   import {resultList, typeList} from './var'
-  import {formatTime} from '_u'
+  import { formatTime,isExistSameSong,initPlayArr,findSameSongIndex } from '_u'
   const { $Toast } = require('_v/base/index')
   import searchSongData from '_m/search-song.json'
   import searchAlbumData from '_m/search-album'
@@ -301,16 +301,21 @@
         const index = this.currentSongAction.findIndex((val)=> {
           return val.name === _relatedInfo.anchorTargetText
         })
+
+        switch (index) {
+          // case 3: {
+          //   this.handleAddSong()
+          // }
+        }
       }
     },
     // 添加到下一首歌曲
     async handleAddSong() {
-      this._initStore()
+      initPlayArr()
       const arr = wx.getStorageSync('playArr')
-      const flag = arr.findIndex((val)=> {
-        return val.id === this.currentSongInfo.id
-      })
-      if(flag >= 0 ) {
+      const flag = isExistSameSong(arr, this.currentSongInfo.id)
+
+      if(flag) {
         $Toast({
           content: '播放列表已有此歌曲',
           type: 'praise'
@@ -370,24 +375,14 @@
     },
     // 播放音乐
     async handlePlayMusic(_) {
+      initPlayArr()
       const res = await this.fetchSongDetailAPI(_.id)
-      this._initStore()
       const arr = wx.getStorageSync('playArr')
       // MARK 播放列表存储的数据结构
-      const flag = arr.findIndex((val) => {
-        return val.id === _.id
-      })
-      if(flag > 0) {
-        arr.slice(flag,1)
-      }else if(flag === 0) {
-
-      }else {
-        const audio = wx.getBackgroundAudioManager()
-        audio.title = _.name
-        audio.epname = _.album.name
-        audio.singer = this.handleSplitArtists(_.artists)
-        audio.coverImgUrl = res.data.songs[0].al.picUrl
-        audio.src = `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
+      const index = findSameSongIndex(arr, _.id)
+      if(index > 0) {
+        // 如果播放的音乐在播放列表里，把这首音乐提到数组最前
+        arr.splice(index,1)
         arr.unshift({
           id: _.id,
           title: _.name,
@@ -397,11 +392,32 @@
           src: `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
         })
         wx.setStorageSync('playArr', arr)
-      }
-    },
-    _initStore() {
-      if(!wx.getStorageSync('playArr')) {
-        wx.setStorageSync('playArr', [])
+        const audio = wx.getBackgroundAudioManager()
+        audio.title = _.name
+        audio.epname = _.album.name
+        audio.singer = this.handleSplitArtists(_.artists)
+        audio.coverImgUrl = res.data.songs[0].al.picUrl
+        audio.src = `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
+      }else if(index === 0) {
+        // 如果点击播放的音乐是当前正在播放的，那就重新播放一遍
+        const audio = wx.getBackgroundAudioManager()
+        audio.seek(0)
+      }else {
+        arr.unshift({
+          id: _.id,
+          title: _.name,
+          epname:_.album.name,
+          coverImgUrl: res.data.songs[0].al.picUrl,
+          singer: this.handleSplitArtists(_.artists),
+          src: `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
+        })
+        wx.setStorageSync('playArr', arr)
+        const audio = wx.getBackgroundAudioManager()
+        audio.title = _.name
+        audio.epname = _.album.name
+        audio.singer = this.handleSplitArtists(_.artists)
+        audio.coverImgUrl = res.data.songs[0].al.picUrl
+        audio.src = `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
       }
     }
   },
@@ -472,12 +488,15 @@
   }
   .center {
     /deep/ .center-tabs {
+      // 覆写默认样式
       // 隐藏滚动条
       ::-webkit-scrollbar {
         width: 0;
         height: 0;
         color: transparent;
-
+      }
+      .van-tabs__line.van-tabs__line {
+        bottom: 8px;
       }
       .van-tab {
         box-sizing: border-box;
@@ -554,13 +573,8 @@
             align-items: center;
           }
         }
-        .action-sheet-circle {
-        }
       }
 
-      .van-tabs__line.van-tabs__line {
-        bottom: 8px;
-      }
     }
   }
 }

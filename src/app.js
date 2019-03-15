@@ -3,7 +3,7 @@ import Vue from 'vue'
 import '_s/index.scss'
 import VHtmlPlugin from '@megalo/vhtml-plugin'
 
-// 引入Fundebug监控前端异常
+// 引入Fundebug，进行线上监控前端异常
 const fundebug = require('./utils/fundebug.1.0.0.min')
 fundebug.init({
   apikey: '850d3afe3ffe3207903b5d7b44b1329fc30cd31238e628934f3aeb3c212aaede'
@@ -19,6 +19,7 @@ export default {
   config: {
     // pages 的首个页面会被编译成首页
     pages: [
+      'pages/artist-detail/index',
       'pages/search-detail/index',
       'pages/search/index',
       'pages/home/index',

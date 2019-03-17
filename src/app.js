@@ -19,6 +19,7 @@ export default {
   config: {
     // pages 的首个页面会被编译成首页
     pages: [
+      'pages/album-detail/index',
       'pages/artist-detail/index',
       'pages/search-detail/index',
       'pages/search/index',

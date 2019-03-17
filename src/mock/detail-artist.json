@@ -1,0 +1,4411 @@
+{
+  "code": 200,
+  "artist": {
+    "img1v1Id": 109951163111191410,
+    "topicPerson": 0,
+    "followed": false,
+    "alias": [
+      "Jay Chou"
+    ],
+    "picId": 109951163111196200,
+    "albumSize": 33,
+    "img1v1Url": "http://p4.music.126.net/o-FjCrUlhyFC96xiVvJZ8g==/109951163111191410.jpg",
+    "briefDesc": "著名歌手，音乐人，词曲创作人，编曲及制作人，MV及电影导演。新世纪华语歌坛领军人物，中国风歌曲始祖，被时代周刊誉为“亚洲猫王”，是2000年后亚洲流行乐坛最具革命性与指标性的创作歌手，亚洲销量超过3100万张，有“亚洲流行天王”之称，开启华语乐坛“R&B时代”与“流行乐中国风”的先河，周杰伦的出现打破了亚洲流行乐坛长年停滞不前的局面，为亚洲流行乐坛翻开了新的一页，是华语乐坛真正把R&B提升到主流高度的人物，引领华语乐坛革命整十年，改写了华语乐坛的流行方向。",
+    "musicSize": 481,
+    "picUrl": "http://p4.music.126.net/ql3nSwy0XKow_HAoZzRZgw==/109951163111196186.jpg",
+    "trans": "",
+    "name": "周杰伦",
+    "id": 6452,
+    "publishTime": 1516594084751,
+    "picId_str": "109951163111196186",
+    "img1v1Id_str": "109951163111191410",
+    "mvSize": 8
+  },
+  "more": true,
+  "hotSongs": [
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 7219,
+          "name": "蔡依林",
+          "alia": [
+            "Jolin Tsai"
+          ]
+        }
+      ],
+      "al": {
+        "id": 21349,
+        "name": "看我72变",
+        "picUrl": "http://p3.music.126.net/lsMlFshdJ96aTGFFgayh4Q==/109951163611523278.jpg",
+        "tns": [
+          "Magic"
+        ],
+        "pic_str": "109951163611523278",
+        "pic": 109951163611523280
+      },
+      "st": 0,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000000210868",
+      "mst": 9,
+      "v": 36,
+      "cp": 7001,
+      "cf": "",
+      "dt": 294000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 11786586,
+        "vd": -26400
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4714716,
+        "vd": -22300
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 7072006,
+        "vd": -23699
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 186025,
+      "fee": 8,
+      "t": 0,
+      "djId": 0,
+      "no": 5,
+      "pst": 0,
+      "name": "布拉格广场",
+      "id": 210049,
+      "privilege": {
+        "id": 210049,
+        "fee": 8,
+        "payed": 0,
+        "st": 0,
+        "pl": 128000,
+        "dl": 0,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 128000,
+        "toast": false,
+        "flag": 4,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 9612,
+          "name": "温岚",
+          "alia": [
+            "Landy"
+          ]
+        }
+      ],
+      "al": {
+        "id": 29597,
+        "name": "有点野",
+        "picUrl": "http://p3.music.126.net/vu3Cdo_dPq8HKOPI6_YXfA==/74766790689775.jpg",
+        "pic_str": "74766790689775",
+        "pic": 74766790689775
+      },
+      "st": 3,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000009484210",
+      "mst": 9,
+      "v": 20,
+      "cp": 673012,
+      "cf": "",
+      "dt": 319000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 12782319,
+        "vd": 1900
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 5112977,
+        "vd": 47
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 7669425,
+        "vd": 45
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 8,
+      "t": 0,
+      "djId": 0,
+      "no": 11,
+      "pst": 0,
+      "name": "屋顶",
+      "id": 298317,
+      "privilege": {
+        "id": 298317,
+        "fee": 8,
+        "payed": 0,
+        "st": 0,
+        "pl": 128000,
+        "dl": 0,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 128000,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 13228454,
+          "name": "蔡威泽"
+        }
+      ],
+      "al": {
+        "id": 37579061,
+        "name": "2018年中央电视台春节联欢晚会",
+        "picUrl": "http://p3.music.126.net/uIFI3Zx-3aiMNsFlAMBxBQ==/109951163142162226.jpg",
+        "pic_str": "109951163142162226",
+        "pic": 109951163142162220
+      },
+      "st": 1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": null,
+      "mst": 9,
+      "v": 132,
+      "cp": 677016,
+      "cf": "",
+      "dt": 214203,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 8570297,
+        "vd": -2
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 3428145,
+        "vd": -2
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 5142195,
+        "vd": 0
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 9,
+      "pst": 0,
+      "name": "魔术与歌曲：告白气球",
+      "id": 536570450,
+      "privilege": {
+        "id": 536570450,
+        "fee": 0,
+        "payed": 0,
+        "st": -300,
+        "pl": 0,
+        "dl": 0,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 3694,
+          "name": "罗志祥",
+          "alia": [
+            "Show"
+          ]
+        },
+        {
+          "id": 4723,
+          "name": "潘玮柏",
+          "alia": [
+            "Will Pan",
+            "Wilber Pan"
+          ]
+        },
+        {
+          "id": 5196,
+          "name": "陶喆",
+          "alia": [
+            "David Tao"
+          ]
+        },
+        {
+          "id": 5346,
+          "name": "王力宏",
+          "alia": [
+            "Leehom Wang"
+          ]
+        },
+        {
+          "id": 5357,
+          "name": "伍思凯",
+          "alia": [
+            "Sky Wu"
+          ]
+        },
+        {
+          "id": 5360,
+          "name": "吴宗宪"
+        },
+        {
+          "id": 6075,
+          "name": "庾澄庆",
+          "alia": [
+            "哈林",
+            "Harlem Yu"
+          ]
+        },
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 6454,
+          "name": "张信哲",
+          "alia": [
+            "阿哲",
+            "Jeff Chang"
+          ]
+        },
+        {
+          "id": 6456,
+          "name": "周华健",
+          "alia": [
+            "Emil Chau"
+          ]
+        },
+        {
+          "id": 7219,
+          "name": "蔡依林",
+          "alia": [
+            "Jolin Tsai"
+          ]
+        },
+        {
+          "id": 7220,
+          "name": "蔡琴"
+        },
+        {
+          "id": 7652,
+          "name": "范玮琪",
+          "alia": [
+            "范范"
+          ]
+        },
+        {
+          "id": 8331,
+          "name": "李玟",
+          "alia": [
+            "CoCo Lee"
+          ]
+        },
+        {
+          "id": 9102,
+          "name": "彭佳慧",
+          "alia": [
+            "Julia Peng"
+          ]
+        },
+        {
+          "id": 9272,
+          "name": "孙燕姿",
+          "alia": [
+            "Stefanie Sun"
+          ]
+        },
+        {
+          "id": 9273,
+          "name": "顺子"
+        },
+        {
+          "id": 9487,
+          "name": "陶晶莹",
+          "alia": [
+            "陶子"
+          ]
+        },
+        {
+          "id": 9612,
+          "name": "温岚",
+          "alia": [
+            "Landy"
+          ]
+        },
+        {
+          "id": 9943,
+          "name": "许茹芸",
+          "alia": [
+            "Valen Hsu"
+          ]
+        },
+        {
+          "id": 9945,
+          "name": "萧亚轩",
+          "alia": [
+            "Elva"
+          ]
+        },
+        {
+          "id": 10559,
+          "name": "张惠妹",
+          "alia": [
+            "aMEI",
+            "阿密特"
+          ]
+        },
+        {
+          "id": 11363,
+          "name": "动力火车"
+        },
+        {
+          "id": 12709,
+          "name": "S.H.E"
+        },
+        {
+          "id": 13283,
+          "name": "信乐团"
+        }
+      ],
+      "al": {
+        "id": 512853,
+        "name": "用音乐加油！！手牵手大合唱",
+        "picUrl": "http://p3.music.126.net/IeRywZSGfWP1Ggfszn3FgQ==/124244813956662.jpg",
+        "pic_str": "124244813956662",
+        "pic": 124244813956662
+      },
+      "st": 1,
+      "cd": "1",
+      "alia": [
+        "2003年抗非典公益歌曲"
+      ],
+      "pop": 100,
+      "rt": "",
+      "mst": 9,
+      "v": 678,
+      "cp": 0,
+      "cf": "",
+      "dt": 342000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 13689251,
+        "vd": -16200
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 5475726,
+        "vd": -12200
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 8213568,
+        "vd": -13800
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 5308516,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 1,
+      "pst": 0,
+      "name": "手牵手",
+      "id": 5268423,
+      "privilege": {
+        "id": 5268423,
+        "fee": 0,
+        "payed": 0,
+        "st": 0,
+        "pl": 320000,
+        "dl": 320000,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 320000,
+        "toast": false,
+        "flag": 128,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 8331,
+          "name": "李玟",
+          "alia": [
+            "CoCo Lee"
+          ]
+        }
+      ],
+      "al": {
+        "id": 25475,
+        "name": "Promise",
+        "picUrl": "http://p4.music.126.net/bsgJVzkmAwVs1emr4b8hRw==/109951163250111834.jpg",
+        "pic_str": "109951163250111834",
+        "pic": 109951163250111840
+      },
+      "st": 3,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000005319691",
+      "mst": 9,
+      "v": 17,
+      "cp": 7001,
+      "cf": "",
+      "dt": 193000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 7757405,
+        "vd": -8000
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 3103012,
+        "vd": -4100
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 4654476,
+        "vd": -5299
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 5287134,
+      "fee": 8,
+      "t": 0,
+      "djId": 0,
+      "no": 2,
+      "pst": 0,
+      "name": "刀马旦",
+      "id": 255020,
+      "privilege": {
+        "id": 255020,
+        "fee": 8,
+        "payed": 0,
+        "st": 0,
+        "pl": 128000,
+        "dl": 0,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 128000,
+        "toast": false,
+        "flag": 4,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 7219,
+          "name": "蔡依林",
+          "alia": [
+            "Jolin Tsai"
+          ]
+        }
+      ],
+      "al": {
+        "id": 21349,
+        "name": "看我72变",
+        "picUrl": "http://p4.music.126.net/lsMlFshdJ96aTGFFgayh4Q==/109951163611523278.jpg",
+        "tns": [
+          "Magic"
+        ],
+        "pic_str": "109951163611523278",
+        "pic": 109951163611523280
+      },
+      "st": 0,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000005317941",
+      "mst": 9,
+      "v": 30,
+      "cp": 7001,
+      "cf": "",
+      "dt": 257000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10305963,
+        "vd": -28100
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4122466,
+        "vd": -24000
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 6183632,
+        "vd": -25600
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 186031,
+      "fee": 8,
+      "t": 0,
+      "djId": 0,
+      "no": 11,
+      "pst": 0,
+      "name": "骑士精神",
+      "id": 210062,
+      "privilege": {
+        "id": 210062,
+        "fee": 8,
+        "payed": 0,
+        "st": 0,
+        "pl": 128000,
+        "dl": 0,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 128000,
+        "toast": false,
+        "flag": 4,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 9612,
+          "name": "温岚",
+          "alia": [
+            "Landy"
+          ]
+        }
+      ],
+      "al": {
+        "id": 29585,
+        "name": "爱回温 新歌+精选",
+        "picUrl": "http://p3.music.126.net/-SVQQKgKJTYV-HYcsf00kw==/74766790701566.jpg",
+        "pic_str": "74766790701566",
+        "pic": 74766790701566
+      },
+      "st": 3,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000008159355",
+      "mst": 9,
+      "v": 22,
+      "cp": 673012,
+      "cf": "",
+      "dt": 258000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10338323,
+        "vd": -15200
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4135391,
+        "vd": -10900
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 6203035,
+        "vd": -12700
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 8,
+      "t": 0,
+      "djId": 0,
+      "no": 9,
+      "pst": 0,
+      "name": "祝我生日快乐 (Live)",
+      "id": 298101,
+      "privilege": {
+        "id": 298101,
+        "fee": 8,
+        "payed": 0,
+        "st": 0,
+        "pl": 128000,
+        "dl": 0,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 128000,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 7219,
+          "name": "蔡依林",
+          "alia": [
+            "Jolin Tsai"
+          ]
+        }
+      ],
+      "al": {
+        "id": 34559090,
+        "name": "玻璃情缘 (对唱篇) Vol.One",
+        "picUrl": "http://p3.music.126.net/6ycRJdzRVPc2pLI8nRleFA==/1378787583916322.jpg",
+        "pic_str": "1378787583916322",
+        "pic": 1378787583916322
+      },
+      "st": 3,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": null,
+      "mst": 9,
+      "v": 8,
+      "cp": 7001,
+      "cf": "",
+      "dt": 277394,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 11096859,
+        "vd": -24200
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4438769,
+        "vd": -20300
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 6658132,
+        "vd": -21700
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 8,
+      "t": 0,
+      "djId": 0,
+      "no": 3,
+      "pst": 0,
+      "name": "海盗",
+      "id": 406346416,
+      "privilege": {
+        "id": 406346416,
+        "fee": 8,
+        "payed": 0,
+        "st": 0,
+        "pl": 128000,
+        "dl": 0,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 128000,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 6456,
+          "name": "周华健",
+          "alia": [
+            "Emil Chau"
+          ]
+        },
+        {
+          "id": 9278,
+          "name": "宋祖英"
+        }
+      ],
+      "al": {
+        "id": 28609,
+        "name": "台北小巨蛋音乐会",
+        "picUrl": "http://p4.music.126.net/5aSOzeCS8paNhYzbDE6A-g==/112150186051141.jpg",
+        "pic_str": "112150186051141",
+        "pic": 112150186051141
+      },
+      "st": 1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "",
+      "mst": 9,
+      "v": 19,
+      "cp": 0,
+      "cf": "",
+      "dt": 234000,
+      "h": null,
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2819387,
+        "vd": 1424
+      },
+      "a": null,
+      "m": null,
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 14,
+      "pst": 0,
+      "name": "康定情歌",
+      "id": 288382,
+      "privilege": {
+        "id": 288382,
+        "fee": 0,
+        "payed": 0,
+        "st": 0,
+        "pl": 96000,
+        "dl": 96000,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 96000,
+        "fl": 320000,
+        "toast": false,
+        "flag": 128,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 1033013,
+          "name": "嘻游记",
+          "alia": [
+            "CUG"
+          ]
+        }
+      ],
+      "al": {
+        "id": 3081217,
+        "name": "夜店咖",
+        "picUrl": "http://p3.music.126.net/fBZ_MDdH1ksSqC8ZzvxUUg==/2540971374163956.jpg",
+        "pic_str": "2540971374163956",
+        "pic": 2540971374163956
+      },
+      "st": 0,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": null,
+      "mst": 9,
+      "v": 7,
+      "cp": 0,
+      "cf": "",
+      "dt": 170000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 6832725,
+        "vd": -200
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 2733173,
+        "vd": -2
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 4099690,
+        "vd": -2
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 1,
+      "pst": 0,
+      "name": "夜店咖",
+      "id": 29808783,
+      "privilege": {
+        "id": 29808783,
+        "fee": 0,
+        "payed": 0,
+        "st": 0,
+        "pl": 320000,
+        "dl": 320000,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 320000,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 9272,
+          "name": "孙燕姿",
+          "alia": [
+            "Stefanie Sun"
+          ]
+        }
+      ],
+      "al": {
+        "id": 3271338,
+        "name": "热门华语278",
+        "picUrl": "http://p4.music.126.net/SDYKlOH5UTUYRlM-Bo9l3g==/3411784581986489.jpg",
+        "pic_str": "3411784581986489",
+        "pic": 3411784581986489
+      },
+      "st": 2,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 95,
+      "rt": null,
+      "mst": 9,
+      "v": 761,
+      "cp": 0,
+      "cf": "",
+      "dt": 174106,
+      "h": {
+        "br": 320000,
+        "fid": 3269947581457001,
+        "size": 6966377,
+        "vd": 0.267022
+      },
+      "l": {
+        "br": 96000,
+        "fid": 7766950139806345,
+        "size": 2089944,
+        "vd": 0.634421
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 7991250512742197,
+        "size": 3483211,
+        "vd": 0.666418
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 1,
+      "pst": 0,
+      "name": "眼泪成诗(Live)",
+      "id": 34167344,
+      "privilege": {
+        "id": 34167344,
+        "fee": 0,
+        "payed": 0,
+        "st": 0,
+        "pl": 320000,
+        "dl": 320000,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 320000,
+        "toast": false,
+        "flag": 128,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 9278,
+          "name": "宋祖英"
+        },
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 28650,
+        "name": "中国北京鸟巢夏季音乐会",
+        "picUrl": "http://p4.music.126.net/_O0ErSGUeALi-4jvzDoj8Q==/871912720826764.jpg",
+        "pic_str": "871912720826764",
+        "pic": 871912720826764
+      },
+      "st": 1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 95,
+      "rt": "",
+      "mst": 9,
+      "v": 14,
+      "cp": 0,
+      "cf": "",
+      "dt": 287634,
+      "h": {
+        "br": 320000,
+        "fid": 1130297953361831,
+        "size": 11530962,
+        "vd": 0
+      },
+      "l": {
+        "br": 96000,
+        "fid": 1169880371961918,
+        "size": 3484099,
+        "vd": 0
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 1013749720817475,
+        "size": 5783502,
+        "vd": 0
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 6,
+      "pst": 0,
+      "name": "山歌好比春江水.多谢了(Live)",
+      "id": 288750,
+      "privilege": {
+        "id": 288750,
+        "fee": 0,
+        "payed": 0,
+        "st": 0,
+        "pl": 320000,
+        "dl": 320000,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 320000,
+        "toast": false,
+        "flag": 128,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 9278,
+          "name": "宋祖英"
+        },
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 28609,
+        "name": "台北小巨蛋音乐会",
+        "picUrl": "http://p4.music.126.net/5aSOzeCS8paNhYzbDE6A-g==/112150186051141.jpg",
+        "pic_str": "112150186051141",
+        "pic": 112150186051141
+      },
+      "st": 1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 95,
+      "rt": "",
+      "mst": 9,
+      "v": 17,
+      "cp": 0,
+      "cf": "",
+      "dt": 242939,
+      "h": null,
+      "l": {
+        "br": 96000,
+        "fid": 1015948744071522,
+        "size": 2941744,
+        "vd": 0
+      },
+      "a": null,
+      "m": null,
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 12,
+      "pst": 0,
+      "name": "黄浦江深",
+      "id": 288371,
+      "privilege": {
+        "id": 288371,
+        "fee": 0,
+        "payed": 0,
+        "st": 0,
+        "pl": 96000,
+        "dl": 96000,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 96000,
+        "fl": 320000,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 9278,
+          "name": "宋祖英"
+        },
+        {
+          "id": 3707,
+          "name": "郎朗",
+          "alia": [
+            "Lang Lang"
+          ]
+        },
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        },
+        {
+          "id": 189020,
+          "name": "多明戈"
+        }
+      ],
+      "al": {
+        "id": 28650,
+        "name": "中国北京鸟巢夏季音乐会",
+        "picUrl": "http://p3.music.126.net/_O0ErSGUeALi-4jvzDoj8Q==/871912720826764.jpg",
+        "pic_str": "871912720826764",
+        "pic": 871912720826764
+      },
+      "st": 1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 95,
+      "rt": "",
+      "mst": 9,
+      "v": 15,
+      "cp": 0,
+      "cf": "",
+      "dt": 416000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 16680878,
+        "vd": -9400
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 6672427,
+        "vd": -5400
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 10008577,
+        "vd": -6900
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 23,
+      "pst": 0,
+      "name": "结尾曲-友谊地久天长(Live)",
+      "id": 288820,
+      "privilege": {
+        "id": 288820,
+        "fee": 0,
+        "payed": 0,
+        "st": 0,
+        "pl": 320000,
+        "dl": 320000,
+        "sp": 7,
+        "cp": 1,
+        "subp": 1,
+        "cs": false,
+        "maxbr": 320000,
+        "fl": 320000,
+        "toast": false,
+        "flag": 128,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p4.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000008436845",
+      "mst": 9,
+      "v": 147,
+      "cp": 1007,
+      "cf": "",
+      "dt": 263000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10537839,
+        "vd": -5200
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4215161,
+        "vd": -800
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 6322720,
+        "vd": -2500
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 507197,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 3,
+      "pst": 0,
+      "name": "烟花易冷",
+      "id": 185668,
+      "privilege": {
+        "id": 185668,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p4.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000006889048",
+      "mst": 9,
+      "v": 131,
+      "cp": 1007,
+      "cf": "",
+      "dt": 253560,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10145064,
+        "vd": -1.39
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3043625,
+        "vd": -1.05
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5072608,
+        "vd": -0.97
+      },
+      "crbt": "8a289b307a82998ef6cb830c9ec52e21",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 345051,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 2,
+      "pst": 0,
+      "name": "给我一首歌的时间",
+      "id": 185694,
+      "privilege": {
+        "id": 185694,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p3.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000006889040",
+      "mst": 9,
+      "v": 130,
+      "cp": 1007,
+      "cf": "",
+      "dt": 264600,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10587055,
+        "vd": -0.36
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3176221,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5293603,
+        "vd": 0
+      },
+      "crbt": "8a289b307a82998e91f4598c43c22ff4",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 345052,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 4,
+      "pst": 0,
+      "name": "花海",
+      "id": 185697,
+      "privilege": {
+        "id": 185697,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p4.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000006889032",
+      "mst": 9,
+      "v": 138,
+      "cp": 1007,
+      "cf": "",
+      "dt": 256720,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10271391,
+        "vd": 0
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4108582,
+        "vd": 0
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 6162852,
+        "vd": 0
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 345057,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 6,
+      "pst": 0,
+      "name": "说好的幸福呢",
+      "id": 185699,
+      "privilege": {
+        "id": 185699,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18888,
+        "name": "不能说的秘密 电影原声带",
+        "picUrl": "http://p4.music.126.net/UAgXkK9Buq7NcFJ2fy0KhA==/84662395351539.jpg",
+        "pic_str": "84662395351539",
+        "pic": 84662395351539
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 100,
+      "rt": "600902000006889100",
+      "mst": 9,
+      "v": 146,
+      "cp": 1007,
+      "cf": "",
+      "dt": 296533,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 11863960,
+        "vd": -0.15
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3559321,
+        "vd": 0
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5932075,
+        "vd": 0
+      },
+      "crbt": "e93f07bd4132712ec8dfb33de1ac8389",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 507196,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 25,
+      "pst": 0,
+      "name": "不能说的秘密",
+      "id": 185868,
+      "privilege": {
+        "id": 185868,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "classic"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p3.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+        "电影《海洋天堂》主题曲"
+      ],
+      "pop": 95,
+      "rt": "600902000003280411",
+      "mst": 9,
+      "v": 141,
+      "cp": 1007,
+      "cf": "",
+      "dt": 282000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 11315328,
+        "vd": -0.64
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3394689,
+        "vd": -0.21
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5657729,
+        "vd": -0.21
+      },
+      "crbt": "7ddf37dca85d746fd30dba47b6338662",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 525074,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 2,
+      "pst": 0,
+      "name": "说了再见",
+      "id": 185667,
+      "privilege": {
+        "id": 185667,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p4.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 95,
+      "rt": "600902000003280409",
+      "mst": 9,
+      "v": 135,
+      "cp": 1007,
+      "cf": "",
+      "dt": 256000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10255805,
+        "vd": -0.000265076
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3076835,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5127969,
+        "vd": -0.000265076
+      },
+      "crbt": "7ddf37dca85d746f1aa68ca7d1890c1d",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 506180,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 7,
+      "pst": 0,
+      "name": "雨下一整晚",
+      "id": 185672,
+      "privilege": {
+        "id": 185672,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p4.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+        "内地版"
+      ],
+      "pop": 95,
+      "rt": "600902000003280404",
+      "mst": 9,
+      "v": 148,
+      "cp": 1007,
+      "cf": "",
+      "dt": 300000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 12034221,
+        "vd": -0.000265076
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3610359,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 6017177,
+        "vd": -0.000265076
+      },
+      "crbt": "7ddf37dca85d746fbbb7f49ad9dd655e",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 58480,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 13,
+      "pst": 0,
+      "name": "超人不会飞",
+      "id": 185686,
+      "privilege": {
+        "id": 185686,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p3.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 95,
+      "rt": "600902000006889028",
+      "mst": 9,
+      "v": 131,
+      "cp": 1007,
+      "cf": "",
+      "dt": 253960,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10160740,
+        "vd": -0.09
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3048330,
+        "vd": 0
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5080447,
+        "vd": 0
+      },
+      "crbt": "8a289b307a82998e0f79949ac1adec5c",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 345053,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 7,
+      "pst": 0,
+      "name": "兰亭序",
+      "id": 185701,
+      "privilege": {
+        "id": 185701,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p3.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000009046904",
+      "mst": 9,
+      "v": 153,
+      "cp": 1007,
+      "cf": "",
+      "dt": 268000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10730224,
+        "vd": -0.000265076
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3219185,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5365196,
+        "vd": -0.000265076
+      },
+      "crbt": "8a289b307a82998e651ab22783a0a5c3",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 214223,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 3,
+      "pst": 0,
+      "name": "Mine Mine",
+      "id": 185615,
+      "privilege": {
+        "id": 185615,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p3.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000009048980",
+      "mst": 9,
+      "v": 154,
+      "cp": 1007,
+      "cf": "",
+      "dt": 218000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 8753281,
+        "vd": -1.76
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2626105,
+        "vd": -1.48
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 4376727,
+        "vd": -1.38
+      },
+      "crbt": "8a289b307a82998ec1ae57ed6e9245ec",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 72,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 4,
+      "pst": 0,
+      "name": "公主病",
+      "id": 185616,
+      "privilege": {
+        "id": 185616,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p4.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000003280403",
+      "mst": 9,
+      "v": 134,
+      "cp": 1007,
+      "cf": "",
+      "dt": 251000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10078169,
+        "vd": -0.7
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3023541,
+        "vd": -0.3
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5039149,
+        "vd": -0.27
+      },
+      "crbt": "7ddf37dca85d746fdc50df2aab9285cc",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 28084,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 6,
+      "pst": 0,
+      "name": "好久不见",
+      "id": 185670,
+      "privilege": {
+        "id": 185670,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p3.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000009047796",
+      "mst": 9,
+      "v": 152,
+      "cp": 1007,
+      "cf": "",
+      "dt": 224000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 8980024,
+        "vd": -0.000265076
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2694127,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 4490098,
+        "vd": -0.000265076
+      },
+      "crbt": "8a289b307a82998e06d133324a8693bb",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 214275,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 5,
+      "pst": 0,
+      "name": "你好吗",
+      "id": 185617,
+      "privilege": {
+        "id": 185617,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p4.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000003280410",
+      "mst": 9,
+      "v": 131,
+      "cp": 1007,
+      "cf": "",
+      "dt": 257000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10318507,
+        "vd": -0.86
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3095651,
+        "vd": -0.46
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5159324,
+        "vd": -0.43
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 348006,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 9,
+      "pst": 0,
+      "name": "我落泪 情绪零碎",
+      "id": 185676,
+      "privilege": {
+        "id": 185676,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6090,
+          "name": "杨瑞代"
+        },
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p3.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000003280405",
+      "mst": 9,
+      "v": 135,
+      "cp": 1007,
+      "cf": "",
+      "dt": 255000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10238998,
+        "vd": -14600
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4095625,
+        "vd": -10700
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 6143416,
+        "vd": -12100
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 5397171,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 10,
+      "pst": 0,
+      "name": "爱的飞行日记",
+      "id": 185678,
+      "privilege": {
+        "id": 185678,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p4.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000003280408",
+      "mst": 9,
+      "v": 133,
+      "cp": 1007,
+      "cf": "",
+      "dt": 255000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10240128,
+        "vd": -0.000265076
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3072129,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5120129,
+        "vd": -0.000265076
+      },
+      "crbt": "7ddf37dca85d746f7fbee14862852f8f",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 524081,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 11,
+      "pst": 0,
+      "name": "自导自演",
+      "id": 185680,
+      "privilege": {
+        "id": 185680,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p4.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000006889052",
+      "mst": 9,
+      "v": 139,
+      "cp": 1007,
+      "cf": "",
+      "dt": 271107,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10847129,
+        "vd": -1
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4338878,
+        "vd": -1
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 6508295,
+        "vd": -1
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 506104,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 1,
+      "pst": 0,
+      "name": "龙战骑士",
+      "id": 185692,
+      "privilege": {
+        "id": 185692,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p4.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 90,
+      "rt": "600902000006889019",
+      "mst": 9,
+      "v": 134,
+      "cp": 1007,
+      "cf": "",
+      "dt": 311987,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 12482504,
+        "vd": -1.26
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3744859,
+        "vd": -0.88
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 6241329,
+        "vd": -0.84
+      },
+      "crbt": "8a289b307a82998ee00c13b5295d8ff7",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 345060,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 9,
+      "pst": 0,
+      "name": "时光机",
+      "id": 185705,
+      "privilege": {
+        "id": 185705,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p4.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000009045868",
+      "mst": 9,
+      "v": 163,
+      "cp": 1007,
+      "cf": "",
+      "dt": 231266,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 9253659,
+        "vd": -3.78
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2776128,
+        "vd": -3.46
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 4626852,
+        "vd": -3.37
+      },
+      "crbt": "8a289b307a82998eb4991e24d4abf3e3",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 1,
+      "pst": 0,
+      "name": "惊叹号",
+      "id": 185613,
+      "privilege": {
+        "id": 185613,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p3.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000003280402",
+      "mst": 9,
+      "v": 139,
+      "cp": 1007,
+      "cf": "",
+      "dt": 194000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 7784613,
+        "vd": -2.32
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2335471,
+        "vd": -1.95
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 3892369,
+        "vd": -1.89
+      },
+      "crbt": "7ddf37dca85d746ff0a02a405f149382",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 348005,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 1,
+      "pst": 0,
+      "name": "跨时代",
+      "id": 185666,
+      "privilege": {
+        "id": 185666,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p3.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000009047800",
+      "mst": 9,
+      "v": 149,
+      "cp": 1007,
+      "cf": "",
+      "dt": 230000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 9215126,
+        "vd": -1.4
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2764658,
+        "vd": -1.01
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 4607649,
+        "vd": -0.96
+      },
+      "crbt": "8a289b307a82998e81bc16c77c69cee7",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 214274,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 2,
+      "pst": 0,
+      "name": "迷魂曲",
+      "id": 185614,
+      "privilege": {
+        "id": 185614,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p4.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000009048976",
+      "mst": 9,
+      "v": 152,
+      "cp": 1007,
+      "cf": "",
+      "dt": 187000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 7499415,
+        "vd": -0.35
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2249953,
+        "vd": -0.02
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 3749800,
+        "vd": -0.000265076
+      },
+      "crbt": "8a289b307a82998e3780c806e6277e61",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 858,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 6,
+      "pst": 0,
+      "name": "疗伤烧肉粽",
+      "id": 185618,
+      "privilege": {
+        "id": 185618,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p4.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000009048972",
+      "mst": 9,
+      "v": 153,
+      "cp": 1007,
+      "cf": "",
+      "dt": 199000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 7985275,
+        "vd": -0.13
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2395699,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 3992721,
+        "vd": -0.000265076
+      },
+      "crbt": "8a289b307a82998e0d6a3b217b1ec3d4",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 525079,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 7,
+      "pst": 0,
+      "name": "琴伤",
+      "id": 185619,
+      "privilege": {
+        "id": 185619,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p4.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000009048968",
+      "mst": 9,
+      "v": 150,
+      "cp": 1007,
+      "cf": "",
+      "dt": 161000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 6456601,
+        "vd": -1.83
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 1937105,
+        "vd": -1.47
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 3228390,
+        "vd": -1.39
+      },
+      "crbt": "8a289b307a82998e6cd783e2906abfc8",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 977,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 8,
+      "pst": 0,
+      "name": "水手怕水",
+      "id": 185620,
+      "privilege": {
+        "id": 185620,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p4.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "",
+      "mst": 9,
+      "v": 153,
+      "cp": 1007,
+      "cf": "",
+      "dt": 263000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 10539024,
+        "vd": -2.82
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 3161836,
+        "vd": -2.5
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 5269604,
+        "vd": -2.4
+      },
+      "crbt": "8a289b307a82998ed10abbea58be3440",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 9,
+      "pst": 0,
+      "name": "世界未末日",
+      "id": 185621,
+      "privilege": {
+        "id": 185621,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p4.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000009048960",
+      "mst": 9,
+      "v": 152,
+      "cp": 1007,
+      "cf": "",
+      "dt": 156000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 6267475,
+        "vd": -0.000265076
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 1880367,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 3133827,
+        "vd": -0.000265076
+      },
+      "crbt": "8a289b307a82998ecb8f6f2c816486eb",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 862,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 11,
+      "pst": 0,
+      "name": "超跑女神",
+      "id": 185623,
+      "privilege": {
+        "id": 185623,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p4.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000006889044",
+      "mst": 9,
+      "v": 139,
+      "cp": 1007,
+      "cf": "",
+      "dt": 174760,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 6993546,
+        "vd": -2
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 2797444,
+        "vd": -1
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 4196145,
+        "vd": -2
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 345056,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 3,
+      "pst": 0,
+      "name": "蛇舞",
+      "id": 185696,
+      "privilege": {
+        "id": 185696,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p4.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000006889036",
+      "mst": 9,
+      "v": 138,
+      "cp": 1007,
+      "cf": "",
+      "dt": 227640,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 9108532,
+        "vd": -0.87
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2732670,
+        "vd": -0.52
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 4554345,
+        "vd": -0.45
+      },
+      "crbt": "8a289b307a82998e6b20acbc303bce0a",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 345055,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 5,
+      "pst": 0,
+      "name": "魔术先生",
+      "id": 185698,
+      "privilege": {
+        "id": 185698,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6090,
+          "name": "杨瑞代"
+        },
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18877,
+        "name": "魔杰座",
+        "picUrl": "http://p3.music.126.net/HBanuZpt8SD2kf15AFa6Og==/109951163200234839.jpg",
+        "pic_str": "109951163200234839",
+        "pic": 109951163200234830
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000006889024",
+      "mst": 9,
+      "v": 130,
+      "cp": 1007,
+      "cf": "",
+      "dt": 169000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 6767847,
+        "vd": -8600
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 2707164,
+        "vd": -4400
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 4060725,
+        "vd": -6100
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 345068,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 8,
+      "pst": 0,
+      "name": "流浪诗人",
+      "id": 185703,
+      "privilege": {
+        "id": 185703,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18892,
+        "name": "黄金甲EP",
+        "picUrl": "http://p4.music.126.net/kyXutaAns9lcMiVGr9OUqg==/37383395356462.jpg",
+        "pic_str": "37383395356462",
+        "pic": 37383395356462
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 85,
+      "rt": "600902000006889168",
+      "mst": 9,
+      "v": 117,
+      "cp": 1007,
+      "cf": "",
+      "dt": 214000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 8595454,
+        "vd": -1.11
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2578724,
+        "vd": -0.76
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 4297790,
+        "vd": -0.7
+      },
+      "crbt": "e93f07bd4132712e56a73e6262d88376",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 1,
+      "pst": 0,
+      "name": "黄金甲",
+      "id": 185872,
+      "privilege": {
+        "id": 185872,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      }
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p4.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 80,
+      "rt": "600907000003035300",
+      "mst": 9,
+      "v": 136,
+      "cp": 1007,
+      "cf": "",
+      "dt": 168000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 6755393,
+        "vd": 0
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2026708,
+        "vd": -0.000265076
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 3377761,
+        "vd": 0
+      },
+      "crbt": "5fb47d3d6b8cecd4f03186ba581feb84",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 348004,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 8,
+      "pst": 0,
+      "name": "嘻哈空姐",
+      "id": 185674,
+      "privilege": {
+        "id": 185674,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18869,
+        "name": "惊叹号",
+        "picUrl": "http://p3.music.126.net/aRmkU-iV0yt0F6UTdEAN3A==/19123805742099070.jpg",
+        "pic_str": "19123805742099070",
+        "pic": 19123805742099070
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 80,
+      "rt": "600902000009045008",
+      "mst": 9,
+      "v": 151,
+      "cp": 1007,
+      "cf": "",
+      "dt": 209000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 8370848,
+        "vd": -0.54
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2511375,
+        "vd": -0.26
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 4185510,
+        "vd": -0.17
+      },
+      "crbt": "8a289b307a82998e1208d2fe0e3656c7",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 859,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 10,
+      "pst": 0,
+      "name": "皮影戏",
+      "id": 185622,
+      "privilege": {
+        "id": 185622,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18875,
+        "name": "跨时代",
+        "picUrl": "http://p4.music.126.net/4E5b_0eDTiMCzYKiVSAerw==/19165587184063665.jpg",
+        "pic_str": "19165587184063665",
+        "pic": 19165587184063664
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+        "内地版"
+      ],
+      "pop": 80,
+      "rt": "600902000003280412",
+      "mst": 9,
+      "v": 131,
+      "cp": 1007,
+      "cf": "",
+      "dt": 239000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 9566181,
+        "vd": -0.97
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 2869953,
+        "vd": -0.6
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 4783161,
+        "vd": -0.54
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 59059,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 5,
+      "pst": 0,
+      "name": "免费教学录像带",
+      "id": 185684,
+      "privilege": {
+        "id": 185684,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18888,
+        "name": "不能说的秘密 电影原声带",
+        "picUrl": "http://p4.music.126.net/UAgXkK9Buq7NcFJ2fy0KhA==/84662395351539.jpg",
+        "pic_str": "84662395351539",
+        "pic": 84662395351539
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 70,
+      "rt": "600902000006889152",
+      "mst": 9,
+      "v": 155,
+      "cp": 1007,
+      "cf": "",
+      "dt": 65706,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 2631096,
+        "vd": 4.3908
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 789359,
+        "vd": 4.68534
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 1315570,
+        "vd": 4.79698
+      },
+      "crbt": "e93f07bd4132712eefd9685868353cdc",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 4,
+      "pst": 0,
+      "name": "淡水海边",
+      "id": 185833,
+      "privilege": {
+        "id": 185833,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "classic"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 12187,
+          "name": "浪花兄弟"
+        },
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18870,
+        "name": "The Era 2010 超时代演唱会",
+        "picUrl": "http://p3.music.126.net/skfZhIyEKls5U0ohTxGDMA==/71468255818341.jpg",
+        "pic_str": "71468255818341",
+        "pic": 71468255818341
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 70,
+      "rt": "600902000008654923",
+      "mst": 9,
+      "v": 103,
+      "cp": 1007,
+      "cf": "",
+      "dt": 282000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 11311063,
+        "vd": -22100
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 4524451,
+        "vd": -17700
+      },
+      "a": null,
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 6786655,
+        "vd": -19400
+      },
+      "crbt": null,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 11,
+      "pst": 0,
+      "name": "你是我的OK绷 (Live)",
+      "id": 185644,
+      "privilege": {
+        "id": 185644,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 128,
+        "preSell": false
+      },
+      "eq": "pop"
+    },
+    {
+      "rtUrls": [
+
+      ],
+      "ar": [
+        {
+          "id": 6452,
+          "name": "周杰伦",
+          "alia": [
+            "Jay Chou"
+          ]
+        }
+      ],
+      "al": {
+        "id": 18888,
+        "name": "不能说的秘密 电影原声带",
+        "picUrl": "http://p3.music.126.net/UAgXkK9Buq7NcFJ2fy0KhA==/84662395351539.jpg",
+        "pic_str": "84662395351539",
+        "pic": 84662395351539
+      },
+      "st": -1,
+      "cd": "1",
+      "alia": [
+
+      ],
+      "pop": 70,
+      "rt": "600902000006889120",
+      "mst": 9,
+      "v": 147,
+      "cp": 1007,
+      "cf": "",
+      "dt": 99254,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 3972921,
+        "vd": 0.651833
+      },
+      "l": {
+        "br": 96000,
+        "fid": 0,
+        "size": 1192030,
+        "vd": 1.21397
+      },
+      "a": null,
+      "m": {
+        "br": 160000,
+        "fid": 0,
+        "size": 1986571,
+        "vd": 0.824408
+      },
+      "crbt": "e93f07bd4132712ee58237acc0946650",
+      "rtUrl": null,
+      "ftype": 0,
+      "rtype": 0,
+      "rurl": null,
+      "mv": 0,
+      "fee": 0,
+      "t": 0,
+      "djId": 0,
+      "no": 15,
+      "pst": 0,
+      "name": "路小雨",
+      "id": 185852,
+      "privilege": {
+        "id": 185852,
+        "fee": 0,
+        "payed": 0,
+        "st": -200,
+        "pl": 0,
+        "dl": 0,
+        "sp": 0,
+        "cp": 0,
+        "subp": 0,
+        "cs": false,
+        "maxbr": 999000,
+        "fl": 0,
+        "toast": false,
+        "flag": 0,
+        "preSell": false
+      },
+      "eq": "classic"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ export const getNewAlbumAPI = ({ limit = 50, offset = 0 }) => fly.request({
 
 /**
  * 获取专辑包含的具体音乐信息
- * @param {Number} id
+ * @param {String} id
  * @param {Number} limit
  * @param {Number} offset
  */
@@ -35,7 +35,7 @@ export const getAlbumSongsAPI = ({ id, limit = 50, offset = 0 }) => fly.request(
  *
  * @author Da Peng
  * @export
- * @param {Number} id // 专辑id
+ * @param {String} id // 专辑id
  * @returns
  */
 export const getAlbumAPI = ({ id }) => fly.request({

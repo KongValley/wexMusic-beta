@@ -37,10 +37,10 @@ export const getArtistListAPI = ({ cat = 1001, limit = 30, offset = 0, initial =
 
 /**
  * 收藏/取消收藏歌手
- * @param {Number} id // 歌手id
+ * @param {String} id // 歌手id
  * @param {Number} t // 操作,1 为收藏,其他为取消收藏
  */
-export const subArtistAPI = ({ id, t = 1 }) => fly.request({
+export const followArtistAPI = ({ id, t = 1 }) => fly.request({
   url: '/artist/sub',
   body: {
     id
@@ -48,18 +48,18 @@ export const subArtistAPI = ({ id, t = 1 }) => fly.request({
 })
 
 /**
- * 获取收藏的歌手列表
+ * MARK 获取收藏的歌手列表
  */
 export const getSubArtistListAPI = () => fly.request({
   url: '/artist/sublist'
 })
 
 /**
- * 获取歌手单曲
+ * MARK 获取歌手单曲
  *
  * @author Da Peng
  * @export
- * @param {Number} id // 歌手id,可由搜索接口获得
+ * @param {String} id // 歌手id,可由搜索接口获得
  * @returns
  */
 export const getArtistSongAPI = ({ id }) => fly.request({
@@ -78,21 +78,21 @@ export const getArtistSongAPI = ({ id }) => fly.request({
  * @param {Number} id // 歌手 id
  * @returns
  */
-export const getArtistMvAPI = ({ id }) => fly.request({
-  url: '/artist/mv',
-  body: {
-    id
-  }
-})
+// export const getArtistMvAPI = ({ id }) => fly.request({
+//   url: '/artist/mv',
+//   body: {
+//     id
+//   }
+// })
 
 /**
- * 获取歌手专辑
+ * MARK 获取歌手专辑
  * 传入歌手 id, 可获得歌手专辑内容
  *
  * @author Da Peng
  * @export
  * @param {Object} { id, limit = 50, offset = 0 } // 传入一个对象
- * @param {Number} id // 歌手 id
+ * @param {String} id // 歌手 id
  * @param {Number} limit // 取出数量,默认为50
  * @param {Number} offset // 偏移数量,用于分页,如:(页数-1)*50,其中50为limit的值,默认为0
  * @returns
@@ -107,11 +107,11 @@ export const getArtistAlbumAPI = ({ id, limit = 50, offset = 0 }) => fly.request
 })
 
 /**
- * 获取歌手描述
+ * MARK 获取歌手描述
  *
  * @author Da Peng
  * @export
- * @param {Number} id // 歌手 id
+ * @param {String} id // 歌手 id
  * @returns
  */
 export const getArtistDescAPI = ({ id }) => fly.request({

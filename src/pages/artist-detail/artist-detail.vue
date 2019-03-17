@@ -2,23 +2,28 @@
   <div class="p-artist-detail">
     <div class="header">
       <div class="header-left">
-        <img src="https://chara-static-source.oss-cn-shanghai.aliyuncs.com/font/avator.jpg" alt="">
+        <img :src="artistImg" alt="">
       </div>
       <div class="header-right">
         <div class="right-desc">
           <div class="desc-title">
-            孔志鹏 (Chara)
+            {{artistName+artistAlias}}
           </div>
           <div class="desc-sub">
-            被收藏xxxx次
           </div>
         </div>
         <div class="right-action">
-          <div class="action-button">
-            <div class="button-icon">
-              <i class="material-icons">add</i>
+          <div class="action-button" @click="handleClickFollowArtist">
+            <div class="button-icon" v-if="this.artistFollowed">
+              <i class="material-icons">favorite</i>
             </div>
-            <div class="button-text">
+            <div class="button-icon" v-if="!this.artistFollowed">
+              <i class="material-icons">favorite_border</i>
+            </div>
+            <div class="button-text" v-if="this.artistFollowed">
+              取消收藏
+            </div>
+            <div class="button-text" v-if="!this.artistFollowed">
               收藏
             </div>
           </div>
@@ -34,27 +39,21 @@
         <i-tab title="热门单曲" :title-style="titleStyle">
           <scroll-view
               class="list-cnt"
-              mp:scroll-y="true"
-              @scrolltolower="handleScrollToLower">
-            <div class="list-item" v-for="item in result.songs.data" :key="item.id" @click="handlePlayMusic(item)">
+              mp:scroll-y="true">
+            <div class="list-item" v-for="item in songs.data" :key="item.id">
               <div class="item-title">
                 <div class="title-header">
-                  <c-highlight :keyword="keyword" :str="item.name"></c-highlight>
+                  {{item.name}}
                 </div>
                 <div class="title-desc">
-                  <c-highlight :keyword="keyword" :str="`${handleSplitArtists(item.artists)} - ${item.album.name}`"></c-highlight>
+                  {{`${handleSplitArtists(item.ar)} - ${item.al.name}`}}
                 </div>
               </div>
               <div class="item-action" @click.stop="handleSongSheetActive(item)">
                 <i class="material-icons">more_vert</i>
               </div>
             </div>
-            <div v-if="result.songs.endFlag === false">
-              <i-load-more></i-load-more>
-            </div>
-            <div v-if="result.songs.endFlag === true">
-              <i-divider color="#DF4337" lineColor="#DF4337">我是有底线的 :)</i-divider>
-            </div>
+            <i-divider color="#DF4337" lineColor="#DF4337">我是有底线的 :)</i-divider>
             <i-action-sheet
                 :visible="songSheetVisible"
                 :actions="currentSongAction"
@@ -66,40 +65,190 @@
             </i-action-sheet>
           </scroll-view>
         </i-tab>
-        <i-tab title="专辑" :title-style="titleStyle"></i-tab>
-        <i-tab title="艺人信息" :title-style="titleStyle"></i-tab>
+        <i-tab title="热门专辑" :title-style="titleStyle">
+          <scroll-view
+              class="list-cnt"
+              mp:scroll-y="true"
+              @scrolltolower="handleScrollToLower">
+            <div class="list-item" v-for="item in albums.data" :key="item.id">
+              <div class="item-img">
+                <img :src="item.picUrl" alt="">
+              </div>
+              <div class="item-title">
+                <div class="title-header">
+                  <!--歌曲名-->
+                  {{ item.name }}
+                  <!--歌曲别名-->
+                  <div class="title-sub-header" v-if="item.alias.length > 0">
+                    {{'（'+item.alias[0]+'）'}}
+                  </div>
+                </div>
+                <div class="title-desc">
+                  {{handleAlbumFormatTime(item)}}
+                </div>
+              </div>
+            </div>
+            <i-divider color="#DF4337" lineColor="#DF4337">我是有底线的 :)</i-divider>
+          </scroll-view>
+        </i-tab>
+        <i-tab title="艺人信息" :title-style="titleStyle">
+          <div class="desc-header">{{artistName}}简介</div>
+          <div class="desc-center">{{artistDesc}}</div>
+        </i-tab>
       </i-tabs>
+      <i-toast id="toast"></i-toast>
     </div>
   </div>
 </template>
 
 <script>
+import {
+  getArtistSongAPI,
+  getArtistAlbumAPI,
+  followArtistAPI
+ } from '_a/artist'
+import { splitArtists,formatTime } from '_u'
+const { $Toast } = require('_v/base/index')
 export default {
   name: "artist-detail",
   data() {
     return {
+      artistId: "",
+      artistDesc: "",
+      artistImg: "",
+      artistName: "",
+      artistAlias: "",
       currentPage: 0,
+      artistFollowed: false,
       titleStyle: "color: #DF4337;",
-      songSheetVisible: false
+      songSheetVisible: false,
+      songs: {
+        // 存放数据
+        data: [],
+      },
+      albums: {
+        // 存放数据
+        data: [],
+      },
+      // 当前歌曲抽屉数据
+      currentSongInfo: {
+        name: "",
+        id: "",
+        author: "",
+        album: "",
+        albumId: "",
+        artists: ""
+      }
     }
   },
   methods: {
     handleChangeScroll({ detail }) {
       this.currentPage = detail.index
-      console.log(detail)
-    },
-    handleScrollToLower() {
-
     },
     handleClickSongSheet() {
     },
     handleSongSheetCancel() {
       this.songSheetVisible = false
+    },
+    handleSongSheetActive(_) {
+      this.currentSongInfo.name = _.name
+      this.currentSongInfo.id = _.id
+      this.currentSongInfo.album = _.al.name
+      this.currentSongInfo.albumId = _.al.id
+      this.currentSongInfo.artists = this.handleSplitArtists(_.ar)
+      this.songSheetVisible = true
+    },
+    handleSplitArtists(data) {
+      return splitArtists(data)
+    },
+    handleAlbumFormatTime(item) {
+      const date = new Date(item.publishTime)
+      return formatTime(date)+' 歌曲'+item.size+'首'
+    },
+    async handleClickFollowArtist() {
+      await this.fetchFollowArtist()
+      this.artistFollowed = !this.artistFollowed
+      $Toast({
+        content: this.artistFollowed ? '收藏成功' : '取消收藏成功',
+        type: 'success'
+      })
+    },
+    async fetchArtistSongs() {
+      try {
+        const params = {
+          id: this.artistId
+        }
+        return await getArtistSongAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    },
+    async fetchArtistAlbums() {
+      try {
+        const params = {
+          id: this.artistId,
+          offset: this.albums.offset
+        }
+        return await getArtistAlbumAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    },
+    async fetchFollowArtist() {
+      try {
+        const params = {
+          id: this.artistId,
+          t: this.artistFollowed ? 0 : 1
+        }
+        return await followArtistAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    },
+    initInfo(data,albums) {
+      this.artistDesc = data.artist.briefDesc
+      this.artistImg = data.artist.picUrl
+      this.artistName = data.artist.name
+      this.artistFollowed = data.artist.followed
+      if(data.artist.alias.length) {
+        this.artistAlias = `（${data.artist.alias.join('/')}）`
+      }
+      this.albums.data = albums.hotAlbums
     }
-
   },
   computed: {
-
+    currentSongAction() {
+      return [
+        {
+          name: '下一首播放',
+          icon: 'playon'
+        },
+        {
+          name: '收藏到歌单',
+          icon: 'collection'
+        },
+        {
+          name: '评论',
+          icon: 'interactive'
+        },
+        {
+          name: '歌手：'+this.currentSongInfo.artists,
+          icon: 'integral',
+        },
+        {
+          name: '专辑：'+this.currentSongInfo.album,
+          icon: 'createtask'
+        },
+      ]
+    },
+  },
+  async mounted() {
+    this.artistId = this.$mp.options.artistId
+    this.artistId = 11127
+    const res = await this.fetchArtistSongs()
+    const resp = await this.fetchArtistAlbums()
+    this.initInfo(res.data,resp.data)
+    this.songs.data = res.data.hotSongs
   }
 }
 </script>
@@ -181,9 +330,22 @@ export default {
       .van-tabs__line.van-tabs__line {
         bottom: 8px;
       }
+      .desc-header {
+        padding-top: 10px;
+        font-size: 16px;
+        position: relative;
+        padding-left: 15px;
+        font-weight: bold;
+      }
+
+      .desc-center {
+        font-size: 14px;
+        padding: 10px 15px;
+        color: rgba(0, 0, 0, .6);
+      }
       .list-cnt {
         width: 100%;
-        height: calc(100vh - 86px);
+        height: calc(100vh - 198px);
         font-size: 14px;
         .list-item {
           width: 100%;
@@ -221,6 +383,7 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            overflow: hidden;
             .title-header {
               font-size: 14px;
               display: flex;
@@ -236,11 +399,8 @@ export default {
               padding-top: 8px;
               font-size: 12px;
               display: flex;
-              line-height: 1;
               align-items: center;
-              .desc-header {
-                padding-right: 5px;
-              }
+              line-height: 1;
             }
           }
           .item-action {

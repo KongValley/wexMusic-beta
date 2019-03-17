@@ -172,7 +172,7 @@
   import { getSearchDataAPI } from '_a/search'
   import { getSongDetailAPI } from '_a/song'
   import {resultList, typeList} from './var'
-  import { formatTime,isExistSameSong,initPlayArr,findSameSongIndex } from '_u'
+  import { formatTime,isExistSameSong,initPlayArr,findSameSongIndex,splitArtists } from '_u'
   const { $Toast } = require('_v/base/index')
   import searchSongData from '_m/search-song.json'
   import searchAlbumData from '_m/search-album'
@@ -338,7 +338,7 @@
     },
     // 格式化歌手
     handleSplitArtists(data) {
-      return data.map(_ => _.name).join('/')
+      return splitArtists(data)
     },
     // 格式化时间
     handleAlbumFormatTime(item) {
@@ -420,11 +420,6 @@
         audio.src = `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
       }
     }
-  },
-  onLoad(option) {
-    // this.keyword = option.search
-    // test
-    // this.keyword = '海阔天空'
   },
   created() {
     this.keyword = this.$mp.options.search

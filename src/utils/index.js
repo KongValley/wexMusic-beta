@@ -31,3 +31,14 @@ export const initPlayArr = () => {
 export const isExistSameSong = (arr,id) => arr.findIndex(val => val.id === id) >= 0
 
 export const findSameSongIndex = (arr,id) => arr.findIndex(val => val.id=== id)
+
+// 多个歌手名格式化为xx/yy/zz的形式
+export const splitArtists = (data) => {
+  if (typeof data === 'object' && data instanceof Array) {
+    if(data.length > 4) {
+      return data.map(_ => _.name).slice(0, 4).join('/')+'等'
+    }else
+      return data.map(_ => _.name).join('/')
+  }else
+    console.warn('You need give me Array, OK?')
+}

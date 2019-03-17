@@ -1,7 +1,8 @@
 // MARK 相似推荐接口
 import fly from '@/utils/request'
 /**
- * 获取相似歌手,传入歌手 id, 可获得相似歌手
+ * MARK 获取相似歌手
+ * 传入歌手 id, 可获得相似歌手
  *
  * @author Da Peng
  * @export
@@ -24,7 +25,7 @@ export const getSimiArtistAPI = ({ id }) => fly.request({
  * @returns
  */
 export const getSimiPlaylistAPI = ({ id }) => fly.request({
-  url: '/simi/palylist',
+  url: '/simi/playlist',
   body: {
     id
   }

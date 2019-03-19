@@ -51,7 +51,7 @@
             class="list-cnt"
             mp:scroll-y="true"
             @scrolltolower="handleScrollToLower">
-            <div class="list-item" v-for="item in result.albums.data" :key="item.id">
+            <div class="list-item" v-for="item in result.albums.data" :key="item.id" @click="handleToAlbumDetail(item.id)">
               <div class="item-img">
                 <img :src="item.picUrl" alt="">
               </div>
@@ -65,7 +65,7 @@
                   </div>
                 </div>
                 <div class="title-desc">
-                  <c-highlight :keyword="keyword" :str="item.artist.name+' '+handleAlbumFormatTime(item)"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="item.artist.name+' '+handleAlbumFormatTime(item.id)"></c-highlight>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@
             class="list-cnt"
             mp:scroll-y="true"
             @scrolltolower="handleScrollToLower">
-            <div class="list-item" v-for="item in result.artists.data" :key="item.id">
+            <div class="list-item" v-for="item in result.artists.data" :key="item.id" @click="handleToArtistDetail(item)">
               <div class="item-img">
                 <img :src="item.picUrl" alt="">
               </div>
@@ -163,27 +163,25 @@
         </i-tab>
       </i-tabs>
       <i-toast id="toast"></i-toast>
+      <c-footerbar></c-footerbar>
     </div>
   </div>
 </template>
 
 <script>
+  import CFooterbar from '_c/footer-bar'
   import CHighlight from '_c/searchHighlight'
   import { getSearchDataAPI } from '_a/search'
   import { getSongDetailAPI } from '_a/song'
-  import {resultList, typeList} from './var'
+  import {resultList, typeList, resultCount} from './var'
   import { formatTime,isExistSameSong,initPlayArr,findSameSongIndex,splitArtists } from '_u'
   const { $Toast } = require('_v/base/index')
-  import searchSongData from '_m/search-song.json'
-  import searchAlbumData from '_m/search-album'
-  import searchArtistData from '_m/search-artist'
-  import searchPlaylistData from '_m/search-play-list'
-  import searchDjData from '_m/search-dj'
-
+  import { playMixin } from '_mixin'
   export default {
   name: "search-detail",
   components: {
-    CHighlight
+    CHighlight,
+    CFooterbar
   },
   data() {
     return {
@@ -241,31 +239,39 @@
         name: "",
         id: "",
         author: "",
-        album: "",
+        albumName: "",
         albumId: "",
-        artists: ""
+        artists: [],
+        duration: null
       }
     };
   },
+  // mixin~in~~in!
+  mixins: [playMixin],
   methods: {
     handleToSearch() {
       wx.redirectTo({
         url: '../search/index'
       })
     },
-    handleChangeScroll({ detail }) {
+    async handleChangeScroll({ detail }) {
       this.currentPage = detail.index
       this.currentType = typeList[detail.index]
-      if(this.currentPageData.data.length === 0)
-        this.fetchSearchResult(this.currentPageData.offset)
+      if(this.currentPageData.data.length === 0){
+        const res = await this.fetchSearchResult(this.currentPageData.offset)
+        this.currentPageData.data = res.data.result[resultList[this.currentPage]]
+        this.currentPageData.total = res.data.result[resultCount[this.currentPage]]
+        this.currentPageData.idList = res.data.result[resultList[this.currentPage]].map(val => val.id)
+      }
     },
     // 打开歌曲动作抽屉
     handleSongSheetActive(_) {
       this.currentSongInfo.name = _.name
       this.currentSongInfo.id = _.id
-      this.currentSongInfo.album = _.album.name
+      this.currentSongInfo.albumName = _.album.name
       this.currentSongInfo.albumId = _.album.id
-      this.currentSongInfo.artists = this.handleSplitArtists(_.artists)
+      this.currentSongInfo.artists = _.artists
+      this.currentSongInfo.duration = _.duration
       this.songSheetVisible = true
     },
     async fetchSearchResult(offset) {
@@ -301,40 +307,36 @@
         const index = this.currentSongAction.findIndex((val)=> {
           return val.name === _relatedInfo.anchorTargetText
         })
-
+        console.log(index)
         switch (index) {
-          // case 3: {
-          //   this.handleAddSong()
-          // }
+          case 0: {
+            this.handleAddSong()
+          }
+          break;
+          case 3: {
+            this.handleToArtistDetail(this.currentSongInfo.artists[0].id)
+          }
+          break;
+          case 4: {
+            this.handleToAlbumDetail(this.currentSongInfo.albumId)
+          }
+          break;
         }
       }
     },
     // 添加到下一首歌曲
     async handleAddSong() {
-      initPlayArr()
-      const arr = wx.getStorageSync('playArr')
-      const flag = isExistSameSong(arr, this.currentSongInfo.id)
-
-      if(flag) {
-        $Toast({
-          content: '播放列表已有此歌曲',
-          type: 'praise'
-        })
-      }else {
-        $Toast({
-          content: '添加成功',
-          type: 'success'
-        })
-        const res = await this.fetchSongDetailAPI(this.currentSongInfo.id)
-        arr.push({
+      const _ = {
+        id: this.currentSongInfo.id,
+        name: this.currentSongInfo.name,
+        album: {
           id: this.currentSongInfo.id,
-          title: this.currentSongInfo.name,
-          epname: this.currentSongInfo.album,
-          coverImgUrl: res.data.songs[0].al.picUrl,
-          singer: this.currentSongInfo.artists,
-          src: `https://music.163.com/song/media/outer/url?id=${this.currentSongInfo.id}.mp3`
-        })
+          name: this.currentSongInfo.name
+        },
+        duration: this.currentSongInfo.duration,
+        artists: this.currentSongInfo.artists,
       }
+      await this._handleAddSong(_)
     },
     // 格式化歌手
     handleSplitArtists(data) {
@@ -375,64 +377,36 @@
     },
     // 播放音乐
     async handlePlayMusic(_) {
-      initPlayArr()
-      const res = await this.fetchSongDetailAPI(_.id)
-      const arr = wx.getStorageSync('playArr')
-      // MARK 播放列表存储的数据结构
-      const index = findSameSongIndex(arr, _.id)
-      if(index > 0) {
-        // 如果播放的音乐在播放列表里，把这首音乐提到数组最前
-        arr.splice(index,1)
-        arr.unshift({
-          id: _.id,
-          title: _.name,
-          epname:_.album.name,
-          coverImgUrl: res.data.songs[0].al.picUrl,
-          singer: this.handleSplitArtists(_.artists),
-          src: `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
-        })
-        wx.setStorageSync('playArr', arr)
-        const audio = wx.getBackgroundAudioManager()
-        audio.title = _.name
-        audio.epname = _.album.name
-        audio.singer = this.handleSplitArtists(_.artists)
-        audio.coverImgUrl = res.data.songs[0].al.picUrl
-        audio.src = `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
-      }else if(index === 0) {
-        // 如果点击播放的音乐是当前正在播放的，那就重新播放一遍
-        const audio = wx.getBackgroundAudioManager()
-        audio.seek(0)
-      }else {
-        arr.unshift({
-          id: _.id,
-          title: _.name,
-          epname:_.album.name,
-          coverImgUrl: res.data.songs[0].al.picUrl,
-          singer: this.handleSplitArtists(_.artists),
-          src: `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
-        })
-        wx.setStorageSync('playArr', arr)
-        const audio = wx.getBackgroundAudioManager()
-        audio.title = _.name
-        audio.epname = _.album.name
-        audio.singer = this.handleSplitArtists(_.artists)
-        audio.coverImgUrl = res.data.songs[0].al.picUrl
-        audio.src = `https://music.163.com/song/media/outer/url?id=${_.id}.mp3`
+      const params = {
+        id: _.id,
+        name: _.name,
+        album: {
+          id: _.album.id,
+          name: _.album.name
+        },
+        duration: _.duration,
+        artists: _.artists
       }
+      await this._handlePlayMusic(params)
+    },
+    handleToAlbumDetail(id) {
+      wx.navigateTo({
+        url: '../album-detail/index?albumId='+ id
+      })
+    },
+    handleToArtistDetail(id) {
+      wx.navigateTo({
+        url: '../artist-detail/index?artistId='+ id
+      })
     }
   },
-  created() {
+  async created() {
     this.keyword = this.$mp.options.search
     this.keyword = '海阔天空'
-    this.result.songs.data = searchSongData.result.songs
-    this.result.songs.idList = this.result.songs.data.map(el=> el.id)
-    this.result.songs.total = searchSongData.result.songCount
-    this.result.albums.data = searchAlbumData.result.albums
-    this.result.albums.idList = this.result.albums.data.map(el=> el.id)
-    this.result.artists.data = searchArtistData.result.artists
-    this.result.playlists.data = searchPlaylistData.result.playlists
-    this.result.djRadios.data = searchDjData.result.djRadios
-    this.result.djRadios.total = searchDjData.result.djRadiosCount
+    const res = await this.fetchSearchResult(this.currentPageData.offset)
+    this.currentPageData.data = res.data.result[resultList[this.currentPage]]
+    this.currentPageData.total = res.data.result[resultCount[this.currentPage]]
+    this.currentPageData.idList = res.data.result[resultList[this.currentPage]].map(val => val.id)
   },
   computed: {
     currentSongAction() {
@@ -450,11 +424,11 @@
           icon: 'interactive'
         },
         {
-          name: '歌手：'+this.currentSongInfo.artists,
+          name: '歌手：'+this.handleSplitArtists(this.currentSongInfo.artists),
           icon: 'integral',
         },
         {
-          name: '专辑：'+this.currentSongInfo.album,
+          name: '专辑：'+this.currentSongInfo.albumName,
           icon: 'createtask'
         },
       ]
@@ -501,6 +475,8 @@
       .list-cnt {
         width: 100%;
         height: calc(100vh - 86px);
+        box-sizing: border-box;
+        padding-bottom: 50px;
         font-size: 14px;
         .list-item {
           width: 100%;

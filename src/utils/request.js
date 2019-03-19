@@ -1,13 +1,6 @@
 import Fly from 'flyio/dist/npm/wx'
 const fly = new Fly()
 
-/** @namespace fly.request */
-/** @namespace fly.config */
-/** @namespace fly.interceptors */
-/**
- * 沙雕 WebStorm 检测不到以上三个属性，我只好直接用 @namespace 解决
- */
-
 // 项目api部署地址
 // const BASEURL = 'http://47.107.32.22:3000'
 const BASEURL = 'http://127.0.0.1:4000'

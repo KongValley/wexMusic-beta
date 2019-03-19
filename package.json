@@ -43,6 +43,7 @@
     "@megalo/api": "^0.2.2",
     "@megalo/vhtml-plugin": "^0.1.2",
     "flyio": "^0.6.13",
+    "lyric-parser": "^1.0.1",
     "megalo": "^0.7.3",
     "octoparse": "^0.3.2",
     "vant-weapp": "^0.5.6"

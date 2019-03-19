@@ -244,7 +244,6 @@ export default {
   },
   async mounted() {
     this.artistId = this.$mp.options.artistId
-    this.artistId = 11127
     const res = await this.fetchArtistSongs()
     const resp = await this.fetchArtistAlbums()
     this.initInfo(res.data,resp.data)

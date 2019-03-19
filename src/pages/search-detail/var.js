@@ -13,3 +13,11 @@ export const resultList = [
   'playlists',
   'djRadios'
 ]
+
+export const resultCount = [
+  'songCount',
+  'albumCount',
+  'artistCount',
+  'playlistCount',
+  'djRadiosCount'
+]

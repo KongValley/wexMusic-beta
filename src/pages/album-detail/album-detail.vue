@@ -76,7 +76,7 @@ export default {
         author: "",
         album: "",
         albumId: "",
-        artists: ""
+        artists: []
       }
     }
   },
@@ -148,7 +148,6 @@ export default {
   },
   async mounted() {
     this.albumId = this.$mp.options.albumId
-    this.albumId = 32311
     const res = await this.fetchAlbumSongs()
     this.initInfo(res.data)
   }

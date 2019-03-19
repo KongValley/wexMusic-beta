@@ -55,6 +55,7 @@ export default {
   },
   async mounted() {
     await this.autoLogin()
+    wx.setStorageSync('playStatus', false)
   }
 }
 </script>

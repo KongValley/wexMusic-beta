@@ -337,6 +337,7 @@
         artists: this.currentSongInfo.artists,
       }
       await this._handleAddSong(_)
+      this.songSheetVisible = false
     },
     // 格式化歌手
     handleSplitArtists(data) {

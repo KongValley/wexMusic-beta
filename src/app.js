@@ -4,10 +4,10 @@ import '_s/index.scss'
 import VHtmlPlugin from '@megalo/vhtml-plugin'
 
 // 引入Fundebug，进行线上监控前端异常
-const fundebug = require('./utils/fundebug.1.0.0.min')
-fundebug.init({
-  apikey: '850d3afe3ffe3207903b5d7b44b1329fc30cd31238e628934f3aeb3c212aaede'
-})
+// const fundebug = require('./utils/fundebug.1.0.0.min')
+// fundebug.init({
+//   apikey: '850d3afe3ffe3207903b5d7b44b1329fc30cd31238e628934f3aeb3c212aaede'
+// })
 
 Vue.use(VHtmlPlugin)
 

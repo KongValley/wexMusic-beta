@@ -27,38 +27,13 @@ export const getUserSubcountAPI = () => fly.request({
   url: '/user/subcount'
 })
 
-/**
- * 更新用户信息
- *
- * @author Da Peng
- * @export
- * @param {Object} { gender, birthday, nickname, province, city, signature } // 传入一个对象
- * @param {Number} gender // 性别 0:保密 1:男性 2:女性
- * @param {Number} birthday // 出生日期,时间戳 unix timestamp
- * @param {String} nickname // 用户昵称
- * @param {Number} province // 省份id
- * @param {Number} city // 城市id
- * @param {String} signature // 用户签名
- * @returns
- */
-export const updateUserDetailAPI = ({ gender, birthday, nickname, province, city, signature }) => fly.request({
-  url: '/user/update',
-  body: {
-    gender,
-    birthday,
-    nickname,
-    province,
-    city,
-    signature
-  }
-})
 
 /**
  * 获取用户歌单,传入用户id,可以获取用户歌单
  *
  * @author Da Peng
  * @export
- * @param {用户 id} uid
+ * @param {String} uid // 用户 id
  * @returns
  */
 export const getUserPlaylistAPI = ({ uid }) => fly.request({
@@ -74,13 +49,13 @@ export const getUserPlaylistAPI = ({ uid }) => fly.request({
  * @author Da Peng
  * @export
  * @param {Object} { id, name, desc, tags } // 传入一个对象
- * @param {Number} id // 歌单id
+ * @param {String} id // 歌单id
  * @param {String} name // 歌单名字
  * @param {String} desc // 歌单描述
  * @param {String} tags // 歌单tag
  * @returns
  */
-export function updateUserPlaylistDetail({ id, name, desc, tags }) {
+export function updateUserPlaylistInfoAPI({ id, name, desc, tags }) {
   return fly.request({
     url: '/playlist/update',
     body: {
@@ -101,8 +76,8 @@ export function updateUserPlaylistDetail({ id, name, desc, tags }) {
  * @author Da Peng
  * @export
  * @param {*} { user_ids, msg }
- * @param {用户 id,多个需用逗号隔开} user_ids
- * @param {要发送的信息} msg
+ * @param {String} user_ids 用户 id,多个需用逗号隔开
+ * @param {String} msg // 要发送的信息
  * @returns
  */
 export const sendMessageAPI = ({ user_ids, msg }) => fly.request({
@@ -172,42 +147,6 @@ export const getUserFollowsAPI = ({ uid, limit = 30, offset = 0 }) => fly.reques
 })
 
 /**
- * 获取用户粉丝列表
- * 传入用户 id, 可以获取用户粉丝列表
- *
- * @author Da Peng
- * @export
- * @param {Object} { uid, limit = 30, offset = 0 } // 传入一个对象
- * @param {Number} uid // 用户 id
- * @param {Number} limit // 返回数量,默认为 30
- * @param {Number} offset // 偏移数量,用于分页,如:(页数-1)*30,其中30为limit的值,默认为 0
- * @returns
- */
-export const getUserFollowedsAPI = ({ uid, limit = 30, offset = 0 }) => fly.request({
-  url: '/user/followeds',
-  body: {
-    uid,
-    limit,
-    offset
-  }
-})
-
-/**
- * 获取用户动态
- *
- * @author Da Peng
- * @export
- * @param {Number} uid // 用户 id
- * @returns
- */
-export const getUserEventAPI = ({ uid }) => fly.request({
-  url: '/user/event',
-  body: {
-    uid
-  }
-})
-
-/**
  * 获取用户播放记录
  *
  * @author Da Peng
@@ -223,19 +162,6 @@ export const getUserRecordAPI = ({ uid, type = 1 }) => fly.request({
     uid,
     type
   }
-})
-
-/**
- * 获取动态消息
- * 获取各种动态 , 对应网页版网易云，朋友界面里的各种动态消息 ，如分享的视频，音乐，照片等
- * 参数暂时未知
- *
- * @author Da Peng
- * @export
- * @returns
- */
-export const getUserEventMessageAPI = () => fly.request({
-  url: '/event'
 })
 
 /**
@@ -270,7 +196,7 @@ export const dailySigninAPI = ({ type = 0 }) => {
 /**
  * 喜欢音乐
  *
- * @param {Number} id
+ * @param {String} id
  * @param {Boolean} like
  */
 export const likeMusicAPI = ({ id, like = true }) => fly.request({
@@ -278,6 +204,13 @@ export const likeMusicAPI = ({ id, like = true }) => fly.request({
   body: {
     id,
     like
+  }
+})
+
+export const getlikeMusicListAPI = ({ uid }) => fly.request({
+  url: '/likelist',
+  body: {
+    uid
   }
 })
 

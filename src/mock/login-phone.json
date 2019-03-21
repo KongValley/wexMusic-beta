@@ -1,0 +1,99 @@
+{
+  "loginType": 1,
+  "code": 200,
+  "account": {
+    "id": 355246761,
+    "userName": "1_13968320676",
+    "type": 1,
+    "status": 0,
+    "whitelistAuthority": 0,
+    "createTime": 1478006924009,
+    "salt": "[B@3b541f37",
+    "tokenVersion": 0,
+    "ban": 0,
+    "baoyueVersion": -2,
+    "donateVersion": 0,
+    "vipType": 0,
+    "viptypeVersion": 1500741872995,
+    "anonimousUser": false
+  },
+  "profile": {
+    "detailDescription": "",
+    "followed": false,
+    "birthday": -2209017600000,
+    "avatarImgId": 19109512090970000,
+    "province": 330000,
+    "defaultAvatar": false,
+    "avatarUrl": "https://p2.music.126.net/u35PCe-aw8qV6OG5iNbhYQ==/19109512090970000.jpg",
+    "nickname": "楼下有家小小超市",
+    "userId": 355246761,
+    "gender": 1,
+    "accountStatus": 0,
+    "vipType": 0,
+    "city": 330100,
+    "userType": 0,
+    "mutual": false,
+    "remarkName": null,
+    "expertTags": null,
+    "authStatus": 0,
+    "backgroundImgId": 2002210674180198,
+    "experts": {
+
+    },
+    "djStatus": 0,
+    "backgroundUrl": "https://p2.music.126.net/i0qi6mibX8gq2SaLF1bYbA==/2002210674180198.jpg",
+    "description": "",
+    "avatarImgIdStr": "19109512090970000",
+    "backgroundImgIdStr": "2002210674180198",
+    "signature": "",
+    "authority": 0,
+    "avatarImgId_str": "19109512090970000",
+    "followeds": 3,
+    "follows": 10,
+    "eventCount": 1,
+    "playlistCount": 7,
+    "playlistBeSubscribedCount": 0
+  },
+  "bindings": [
+    {
+      "refreshTime": 1478006947,
+      "tokenJsonStr": "{\"countrycode\":\"\",\"cellphone\":\"13968320676\",\"hasPassword\":true}",
+      "userId": 355246761,
+      "expired": false,
+      "expiresIn": 2147483647,
+      "url": "",
+      "id": 2916568469,
+      "type": 1
+    },
+    {
+      "refreshTime": 1486023441,
+      "tokenJsonStr": "{\"access_token\":\"2.00rNBONG0Gg461cd90775c31D1zveB\",\"uid\":\"5692230655\",\"expires_in\":\"2615842\",\"screen_name\":\"体重一百八的狄仁杰\",\"id\":5692230655,\"idstr\":\"5692230655\",\"class\":1,\"name\":\"体重一百八的狄仁杰\",\"province\":\"100\",\"city\":\"1000\",\"location\":\"其他\",\"description\":\"\",\"url\":\"\",\"profile_image_url\":\"http://tva4.sinaimg.cn/crop.0.0.996.996.50/006de1dRjw8eycji15l3uj30ro0rpwhy.jpg\",\"cover_image_phone\":\"http://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg\",\"profile_url\":\"u/5692230655\",\"domain\":\"\",\"weihao\":\"\",\"gender\":\"m\",\"followers_count\":20,\"friends_count\":121,\"pagefriends_count\":1,\"statuses_count\":21,\"favourites_count\":0,\"created_at\":\"Wed Sep 02 21:19:55 +0800 2015\",\"following\":false,\"allow_all_act_msg\":false,\"geo_enabled\":true,\"verified\":false,\"verified_type\":-1,\"remark\":\"\",\"status\":{\"created_at\":\"Wed Feb 01 01:51:09 +0800 2017\",\"id\":4070159340051725,\"mid\":\"4070159340051725\",\"idstr\":\"4070159340051725\",\"text\":\"#阴阳师手游#看看我的式神录！一言不合就炫富！http://t.cn/RfXuWeI\",\"textLength\":63,\"source_allowclick\":0,\"source_type\":2,\"source\":\"<a href=\\\"http: //weibo.com/\\\" rel=\\\"nofollow\\\">红米Note 3</a>\",\"favorited\":false,\"truncated\":false,\"in_reply_to_status_id\":\"\",\"in_reply_to_user_id\":\"\",\"in_reply_to_screen_name\":\"\",\"pic_urls\":[{\"thumbnail_pic\":\"http://wx2.sinaimg.cn/thumbnail/006de1dRgy1fcacgd02f6j30qo0f0q8a.jpg\"}],\"thumbnail_pic\":\"http://wx2.sinaimg.cn/thumbnail/006de1dRgy1fcacgd02f6j30qo0f0q8a.jpg\",\"bmiddle_pic\":\"http://wx2.sinaimg.cn/bmiddle/006de1dRgy1fcacgd02f6j30qo0f0q8a.jpg\",\"original_pic\":\"http://wx2.sinaimg.cn/large/006de1dRgy1fcacgd02f6j30qo0f0q8a.jpg\",\"geo\":null,\"annotations\":[{\"client_mblogid\":\"07e5f9e3-2e72-4369-b364-480b03ba8acb\"},{\"mapi_request\":true}],\"reposts_count\":0,\"comments_count\":0,\"attitudes_count\":0,\"isLongText\":false,\"mlevel\":0,\"visible\":{\"type\":0,\"list_id\":0},\"biz_feature\":4294967300,\"page_type\":32,\"hasActionTypeCard\":0,\"darwin_tags\":[],\"hot_weibo_tags\":[],\"text_tag_tips\":[],\"userType\":0,\"positive_recom_flag\":0,\"gif_ids\":\"\",\"is_show_bulletin\":2},\"ptype\":0,\"allow_all_comment\":true,\"avatar_large\":\"http://tva4.sinaimg.cn/crop.0.0.996.996.180/006de1dRjw8eycji15l3uj30ro0rpwhy.jpg\",\"avatar_hd\":\"http://tva4.sinaimg.cn/crop.0.0.996.996.1024/006de1dRjw8eycji15l3uj30ro0rpwhy.jpg\",\"verified_reason\":\"\",\"verified_trade\":\"\",\"verified_reason_url\":\"\",\"verified_source\":\"\",\"verified_source_url\":\"\",\"follow_me\":false,\"online_status\":0,\"bi_followers_count\":14,\"lang\":\"zh-cn\",\"star\":0,\"mbtype\":2,\"mbrank\":1,\"block_word\":0,\"block_app\":0,\"credit_score\":80,\"user_ability\":1024,\"cardid\":\"star_095\",\"urank\":9,\"insecurity\":{\"sexual_content\":false}}",
+      "userId": 355246761,
+      "expired": true,
+      "expiresIn": 2615842,
+      "url": "http://weibo.com/u/5692230655",
+      "id": 2949826924,
+      "type": 2
+    },
+    {
+      "refreshTime": 1545276504,
+      "tokenJsonStr": "{\"access_token\":\"0DF8397B415A00F69A944ED0F592013F\",\"refresh_token\":\"6720BDAB96F62A9B1E6912179289FAD5\",\"openid\":\"355CED112D9F6C13AB4FD14A2F07DD48\",\"nickname\":\"Chara\",\"expires_in\":7776000}",
+      "userId": 355246761,
+      "expired": true,
+      "expiresIn": 7776000,
+      "url": "",
+      "id": 2916568460,
+      "type": 5
+    },
+    {
+      "refreshTime": 1537844498,
+      "tokenJsonStr": "{\"email\":\"704002390@qq.com\"}",
+      "userId": 355246761,
+      "expired": false,
+      "expiresIn": 2147483647,
+      "url": "",
+      "id": 6684796527,
+      "type": 0
+    }
+  ]
+}

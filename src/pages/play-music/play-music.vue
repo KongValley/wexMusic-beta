@@ -10,9 +10,24 @@
     </div>
     <div class="center" v-if="music.id">
       <div class="circle" :class="{'spin': isOn}" v-if="!isShowLyric">
-        <img :src="music.coverImgUrl" alt="" @click="isShowLyric = true">
+        <img :src="music.coverImgUrl" alt="" @click="isShowLyric = !isShowLyric">
       </div>
-      <scroll-view v-if="isShowLyric"></scroll-view>
+      <scroll-view
+        v-if="isShowLyric && lyric.lines.length"
+        @click="isShowLyric = !isShowLyric"
+        :mp:scroll-into-view="currentLyricLine"
+        mp:scroll-y="true"
+        mp:scroll-with-animation="true"
+        class="lyric-cnt">
+        <div
+          :id="'lyric-'+index"
+          class="lyric-line"
+          v-for="(item,index) in lyric.lines"
+          :key="item.time"
+          :class="{'lyric-high-light': 'lyric-' + index === currentLyricLine}">
+          {{ item.txt }}
+        </div>
+      </scroll-view>
     </div>
     <div class="center" v-if="!music.id">
       <div class="empty">
@@ -32,23 +47,21 @@
         </div>
       </div>
       <div class="footer-slide">
-        <div class="text left">{{formatCurrentTime}}</div>
+        <div class="text left">{{ formatCurrentTime }}</div>
         <slider
           activeColor="#DF4337"
           block-size="12"
-          :max="duration*1000"
+          :max="duration"
           :value="currentTime"
           @change="handleSlideChange"
           @changing="handleSlideChanging"></slider>
-        <div class="text right">{{handleFormatDuration(music.duration ? music.duration : 100*1000)}}</div>
+        <div class="text right">{{handleFormatDuration(music.duration ? music.duration : 0)}}</div>
       </div>
       <div class="footer-action-bottom">
-        <div class="icon">
-          <i class="material-icons">repeat</i>
+        <div class="icon" @click="handleChangeMode">
+          <i class="material-icons" v-if="mode === 'single'">repeat_one</i>
+          <i class="material-icons" v-if="mode === 'multiple'">repeat</i>
         </div>
-        <!--<div class="icon">-->
-          <!--<i class="material-icons">repeat_one</i>-->
-        <!--</div>-->
         <div class="icon" @click="handlePre">
           <i class="material-icons">skip_previous</i>
         </div>
@@ -90,6 +103,7 @@
 
 <script>
 import { initPlayArr,splitArtists,formatDuration } from '_u'
+import Lyric from 'lyric-parser'
 export default {
   name: "p-music",
   data() {
@@ -97,10 +111,21 @@ export default {
       isShowLyric: false,
       sheetVisible: false,
       isOn: false,
-      music: {},
+      music: {
+        id: "",
+        name: "",
+        album: "",
+        lyric: "",
+        duration: 0,
+        coverImgUrl: "",
+        artists: "",
+        src: ""
+      },
       playlist: [],
       currentTime: 0,
-      currentIndex: -1
+      currentIndex: -1,
+      mode: 'multiple', // multiple:循环播放 single:单曲循环
+      currentLyricLine: 'lyric--1'
     }
   },
   computed: {
@@ -109,27 +134,57 @@ export default {
     },
     formatCurrentTime() {
       return this.handleFormatDuration(this.currentTime)
+    },
+    lyric() {
+      return this.music.lyric ? new Lyric(this.music.lyric,this.handleLyricPlay) : []
     }
   },
   mounted() {
+    const type = wx.getStorageSync('playType')
+    if(type === 'dj') {
+      wx.redirectTo({
+        url: '../play-dj/index'
+      })
+    }
     initPlayArr()
     const currentId = wx.getStorageSync('playId')
-    console.log('currentID'+Boolean(currentId))
+    console.log('currentId:',currentId)
     const arr = wx.getStorageSync('playArr')
-    const currentMusicObj = arr.find(val => val.id = currentId)
+    const currentMusicObj = arr.find(val => val.id === currentId)
+    console.log('currentMusicObj')
+    console.log(currentMusicObj)
     console.log(arr)
-
+    const audio = wx.getBackgroundAudioManager()
+    console.log('lyric')
+    console.log(this.lyric)
+    audio.onTimeUpdate(this.handleUpdateTime)
     // 初始化当前Music
     if(arr.length > 0 && currentMusicObj) {
       this.music = currentMusicObj
-      const audio = wx.getBackgroundAudioManager()
-      this.currentTime = audio.currentTime
+    }
+    console.log('lyric')
+    console.log(this.lyric)
+
+    if(audio.src) {
+      console.log('playing...')
+      this.currentTime = Math.floor(audio.currentTime)
+      this.isOn = true
+      this.lyric.seek(this.currentTime)
     }
 
     // 初始化播放列表
     if(arr.length) {
       this.playlist = arr
     }
+  },
+  beforeDestroy() {
+    console.log('destroy')
+    this.lyric.stop()
+    // 移除监听
+    const audio = wx.getBackgroundAudioManager()
+    audio.onTimeUpdate(function(){})
+    audio.onPlay(function(){})
+    audio.onPause(function(){})
   },
   methods: {
     handleFormatDuration(data) {
@@ -150,78 +205,170 @@ export default {
       wx.setStorageSync('playArr',this.playlist)
     },
     handleNext() {
-      if(this.music) {
+      console.log('click next')
+      if(this.music.src) {
         this.handleNextCommon()
       }else {
         this.handlePlayFirst()
       }
     },
     handlePre() {
-      if(this.music) {
-
+      console.log('click next')
+      if(this.music.src) {
+        this.handlePreCommon()
       }else {
-
+        this.handlePlayFirst()
       }
     },
     handleStart() {
+      this.isOn = true
+      const audio = wx.getBackgroundAudioManager()
+      if(!audio.src && this.music.src) {
+        audio.title = this.music.name
+        audio.epname = this.music.album.name
+        audio.singer = splitArtists(this.music.artists)
+        audio.coverImgUrl = this.music.coverImgUrl
+        audio.src = this.music.src
+        wx.setStorageSync('playId',this.music.id)
+      }
+      if(this.music.src && audio.src) {
 
+        console.log("paused")
+        console.log(audio.paused)
+        if(audio.paused) {
+          audio.play()
+          this.lyric.togglePlay()
+        }
+      }
+
+      if(!audio.src && !this.music.src) {
+        this.handlePlayFirst()
+      }
     },
     handleStop() {
-
+      this.isOn = false
+      if(this.music.src) {
+        const audio = wx.getBackgroundAudioManager()
+        if(!audio.paused) {
+          audio.pause()
+          this.lyric.seek(Math.floor(audio.currentTime))
+          this.lyric.stop()
+        }
+      }
     },
     handleSlideChange({ detail }) {
       this.currentTime = detail.value
-      console.log(this.currentTime)
+      if(this.music.src) {
+        const audio = wx.getBackgroundAudioManager()
+        audio.seek(this.currentTime / 1000)
+        audio.play()
+        audio.onTimeUpdate(this.handleUpdateTime)
+      }
     },
     handleSlideChanging({ detail }) {
+      const audio  = wx.getBackgroundAudioManager()
+      audio.onTimeUpdate(function(){})
       this.currentTime = detail.value
-      if(this.music) {
-        const audio = wx.getBackgroundAudioManager()
-        audio.seek(this.currentTime/1000)
-      }
+    },
+    handleUpdateTime() {
+      const audio = wx.getBackgroundAudioManager()
+      this.currentTime = Math.floor(audio.currentTime * 1000)
+    },
+    handleLyricPlay({lineNum,txt}) {
+      console.log(txt)
+      console.log(lineNum)
+      this.currentLyricLine = 'lyric-'+lineNum
+    },
+    handleChangeMode() {
+      if(this.mode === 'multiple')
+        this.mode = 'single'
+      else
+        this.mode = 'multiple'
     },
     // 公共下一首歌曲逻辑
     handleNextCommon() {
-      // const audio = wx.getBackgroundAudioManager()
-      // audio.onNext()
       const arr = wx.getStorageSync('playArr')
       let currentId = wx.getStorageSync('playId')
-      const index = arr.findIndex(val => val.id = currentId)
-      if(arr>=2 && index < arr.length - 1) {
-        currentId = arr[index+1].id
-        wx.setStorageSync('playId',currentId)
+      const index = arr.findIndex(val => val.id === currentId)
+      console.log(index)
+      if(arr.length >=2 && index < arr.length - 1) {
         this.music = arr[index+1]
-        const audio = wx.getBackgroundAudioManager()
-        audio.title = arr[index+1].name
-        audio.epname = arr[index+1].album.name
-        audio.singer = splitArtists(arr[index+1].artists)
-        audio.coverImgUrl = arr[index+1].coverImgUrl
-        audio.src = arr[index+1].src
-      }else if (arr>=2 && index === arr.length - 1) {
-        currentId = arr[0].id
+        this.isOn = true
+        console.log(this.music)
+        currentId = this.music.id
         wx.setStorageSync('playId',currentId)
-        this.music = arr[0]
         const audio = wx.getBackgroundAudioManager()
-        audio.title = arr[0].name
-        audio.epname = arr[0].album.name
-        audio.singer = splitArtists(arr[0].artists)
-        audio.coverImgUrl = arr[0].coverImgUrl
-        audio.src = arr[0].src
+        audio.title =this.music.name
+        audio.epname = this.music.album.name
+        audio.singer = splitArtists(this.music.artists)
+        audio.coverImgUrl = this.music.coverImgUrl
+        audio.src = this.music.src
+      }else if (arr.length >=2 && index === arr.length - 1) {
+        this.music = arr[0]
+        this.isOn = true
+        currentId = this.music.id
+        wx.setStorageSync('playId',currentId)
+        const audio = wx.getBackgroundAudioManager()
+        audio.title = this.music.name
+        audio.epname = this.music.album.name
+        audio.singer = splitArtists(this.music.artists)
+        audio.coverImgUrl = this.music.coverImgUrl
+        audio.src = this.music.src
+      }
+    },
+    // 公共上一首歌曲逻辑
+    handlePreCommon() {
+      const arr = wx.getStorageSync('playArr')
+      let currentId = wx.getStorageSync('playId')
+      const index = arr.findIndex(val => val.id === currentId)
+      if(arr.length >=2 && index > 0) {
+        this.music = arr[index-1]
+        this.isOn = true
+        currentId =this.music.id
+        wx.setStorageSync('playId',currentId)
+        const audio = wx.getBackgroundAudioManager()
+        audio.title = this.music.name
+        audio.epname = this.music.album.name
+        audio.singer = splitArtists(this.music.artists)
+        audio.coverImgUrl =this.music.coverImgUrl
+        audio.src = this.music.src
+      }else if (arr.length>=2 && index === 0) {
+        this.music = arr[arr.length-1]
+        this.isOn = true
+        currentId = this.music.id
+        wx.setStorageSync('playId',currentId)
+        const audio = wx.getBackgroundAudioManager()
+        audio.title = this.music.name
+        audio.epname = this.music.album.name
+        audio.singer = splitArtists(this.music.artists)
+        audio.coverImgUrl = this.music.coverImgUrl
+        audio.src = this.music.src
       }
     },
     // 公共播放第一首逻辑
     handlePlayFirst() {
       const arr = wx.getStorageSync('playArr')
+      console.log('arr')
+      console.log(arr)
       let currentId = wx.getStorageSync('playId')
-      currentId = arr[0].id
       this.music = arr[0]
+      this.isOn = true
+      console.log('music' + this.music)
+      currentId = this.music.id
       wx.setStorageSync('playId',currentId)
       const audio = wx.getBackgroundAudioManager()
-      audio.title = arr[0].name
-      audio.epname = arr[0].album.name
-      audio.singer = splitArtists(arr[0].artists)
-      audio.coverImgUrl = arr[0].coverImgUrl
-      audio.src = arr[0].src
+      audio.title = this.music.name
+      audio.epname = this.music.album.name
+      audio.singer = splitArtists(this.music.artists)
+      audio.coverImgUrl = this.music.coverImgUrl
+      audio.src = this.music.src
+    }
+  },
+  watch: {
+    currentTime() {
+      console.log(this.currentTime)
+      this.lyric.seek(this.currentTime)
+      this.lyric.stop()
     }
   }
 }
@@ -325,6 +472,34 @@ export default {
     align-items: center;
     justify-content: center;
     flex: 1;
+    .lyric-cnt {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 6px;
+        color: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #DF4337;
+      }
+      .lyric-line {
+        box-sizing: border-box;
+        font-size: 14px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: rgba(255,255,255,.6);
+        transition: all .5s;
+      }
+      .lyric-high-light {
+        color: #fff;
+        font-size: 16px;
+      }
+    }
     .empty {
       color: #ffffff;
       font-size: 24px;

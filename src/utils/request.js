@@ -24,6 +24,9 @@ fly.interceptors.request.use(config => {
   //   title: '电磁波发送中',
   //   mask: true
   // })
+  if(wx.getStorageSync('wx-cookie')){
+    config.headers['wx-cookie'] = wx.getStorageSync('wx-cookie')
+  }
   return config
 }, error => {
   console.warn('发生错误😭 ')

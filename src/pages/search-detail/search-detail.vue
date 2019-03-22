@@ -162,6 +162,13 @@
           </scroll-view>
         </i-tab>
       </i-tabs>
+      <i-modal :visible="artistsModalVisible" title="请选择歌手" :show-ok="false" @cancel="handleCloseArtistsModal">
+        <div class="artists-cnt" v-if="currentSongInfo.artists.length >= 2">
+          <div class="artists-item" v-for="item in currentSongInfo.artists" :key="item.id" @click="handleToArtistDetail(item.id)">
+            {{item.name}}
+          </div>
+        </div>
+      </i-modal>
       <i-toast id="toast"></i-toast>
       <c-footerbar></c-footerbar>
     </div>
@@ -190,6 +197,7 @@
       titleStyle: "background:#DF4337;color:#fff;",
       currentType: 1, // 1:单曲 10:专辑 100:歌手 1000:歌单 1009: 电台
       songSheetVisible: false,
+      artistsModalVisible: false,
       typeList: typeList,
       // 存放获取的各个数据
       result: {
@@ -249,6 +257,9 @@
   // mixin~in~~in!
   mixins: [playMixin],
   methods: {
+    handleCloseArtistsModal() {
+      this.artistsModalVisible = false
+    },
     handleToSearch() {
       wx.redirectTo({
         url: '../search/index'
@@ -314,7 +325,11 @@
           }
           break;
           case 3: {
-            this.handleToArtistDetail(this.currentSongInfo.artists[0].id)
+            if(this.currentSongInfo.artists.length >= 2) {
+              this.artistsModalVisible = true
+            }else
+              this.handleToArtistDetail(this.currentSongInfo.artists[0].id)
+            // this.handleToArtistDetail(this.currentSongInfo.artists[0].id)
           }
           break;
           case 4: {
@@ -457,6 +472,22 @@
     color: #fff;
   }
   .center {
+    .artists-cnt {
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 6px;
+        color: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #DF4337;
+      }
+      .artists-item {
+        padding-top: 10px;
+        font-size: 18px;
+        color: #000000;
+      }
+    }
     /deep/ .center-tabs {
       // 覆写默认样式
       // 隐藏滚动条
@@ -479,6 +510,15 @@
         box-sizing: border-box;
         padding-bottom: 50px;
         font-size: 14px;
+        ::-webkit-scrollbar {
+          width: 4px;
+          height: 6px;
+          color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background-color: #DF4337;
+        }
         .list-item {
           width: 100%;
           height: 60px;

@@ -6,7 +6,7 @@ import fly from '@/utils/request'
  *
  * @author Da Peng
  * @export
- * @param {Number} uid // 用户id
+ * @param {String} uid // 用户id
  * @returns
  */
 export const getUserDetailAPI = ({ uid }) => fly.request({
@@ -55,8 +55,7 @@ export const getUserPlaylistAPI = ({ uid }) => fly.request({
  * @param {String} tags // 歌单tag
  * @returns
  */
-export function updateUserPlaylistInfoAPI({ id, name, desc, tags }) {
-  return fly.request({
+export const updateUserPlaylistInfoAPI = ({ id, name, desc, tags }) => fly.request({
     url: '/playlist/update',
     body: {
       id,
@@ -65,7 +64,7 @@ export function updateUserPlaylistInfoAPI({ id, name, desc, tags }) {
       tags
     }
   })
-}
+
 
 /**
  * 发送私信
@@ -115,7 +114,7 @@ export const sendMessageAndPlaylistAPI = ({ user_ids, msg, playlist }) => fly.re
  *
  * @author Da Peng
  * @export
- * @param {Number} uid // 用户 id
+ * @param {String} uid // 用户 id
  * @returns
  */
 export const getUserDjAPI = ({ uid }) => fly.request({
@@ -132,7 +131,7 @@ export const getUserDjAPI = ({ uid }) => fly.request({
  * @author Da Peng
  * @export
  * @param {Object} { uid, limit = 30, offset = 0 } // 传入一个对象
- * @param {Number} uid // 用户 id
+ * @param {String} uid // 用户 id
  * @param {Number} limit // 返回数量,默认为 30
  * @param {Number} offset // 偏移数量,用于分页,如:(页数-1)*30,其中30为limit的值,默认为 0
  * @returns
@@ -151,7 +150,6 @@ export const getUserFollowsAPI = ({ uid, limit = 30, offset = 0 }) => fly.reques
  *
  * @author Da Peng
  * @export
- * @param {Object} { uid, type = 1 } // 传入一个对象
  * @param {String} uid // 用户 id
  * @param {Number} type // type=1 时只返回 weekData, type=0 时返回 allData
  * @returns
@@ -181,17 +179,15 @@ export const getPersonalFmAPI = () => fly.request({
  *
  * @author Da Peng
  * @export
- * @param {Number} type // 签到类型 , 默认 0, 其中 0 为安卓端签到 ,1 为 web/PC 签到
+ * @param {String} type // 签到类型 , 默认 0, 其中 0 为安卓端签到 ,1 为 web/PC 签到
  * @returns
  */
-export const dailySigninAPI = ({ type = 0 }) => {
-  return fly.request({
-    url: '/daily_signin',
-    body: {
-      type
-    }
-  })
-}
+export const dailySigninAPI = ({ type = 0 }) => fly.request({
+  url: '/daily_signin',
+  body: {
+    type
+  }
+})
 
 /**
  * 喜欢音乐

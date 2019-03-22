@@ -17,7 +17,8 @@ export default {
         "i-action-sheet": "../../static/iview/action-sheet/index",
         "i-divider": "../../static/iview/divider/index",
         "i-load-more": "../../static/iview/load-more/index",
-        "i-toast": "../../static/iview/toast/index"
+        "i-toast": "../../static/iview/toast/index",
+        "i-modal": "../../static/iview/modal/index"
       }
     }
   }

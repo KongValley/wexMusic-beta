@@ -49,7 +49,8 @@
     <div class="footer">
       <div class="footer-action-top">
         <div class="icon">
-          <i class="material-icons">favorite_border</i>
+          <i class="material-icons" v-if="likeMusicList.includes(music.id)">favorite_border</i>
+          <i class="material-icons" v-if="!likeMusicList.includes(music.id)">favorite</i>
         </div>
         <div class="icon">
           <i class="material-icons">sms</i>
@@ -116,6 +117,7 @@
 <script>
 import { likeMusicAPI,getlikeMusicListAPI } from '_a/user'
 import { initPlayArr,splitArtists,formatDuration } from '_u'
+import likesongs from '_m/like-songs'
 import Lyric from 'lyric-parser'
 export default {
   name: "p-music",
@@ -155,6 +157,17 @@ export default {
     }
   },
   mounted() {
+    wx.setStorageSync('likeMusicList',likesongs.ids)
+    const likeMusicList = wx.getStorageSync('likeMusicList')
+    const uid = wx.getStorageSync('uid')
+
+    if(likeMusicList) {
+      this.likeMusicList = likeMusicList
+    }else {
+      getlikeMusicListAPI({uid: uid}).then(res => {
+        this.likeMusicList = res.data.ids
+      })
+    }
     const type = wx.getStorageSync('playType')
     // 判断电台是否在播放
     if(type === 'dj') {
@@ -216,8 +229,39 @@ export default {
     audio.onPause(function(){})
   },
   methods: {
+    handleLikeMusic(val) {
+      if (this.likeMusicList.includes(val.id)) {
+        this.fetchLikeMusic({
+          id: val.id,
+          like: false
+        }).then(() => {
+          const index = this.likeMusicList.findIndex(value => value === val.id)
+          if(index > -1) {
+            this.likeMusicList.splice(index,1)
+          }
+        })
+      }else {
+        this.fetchLikeMusic({
+          id: val.id,
+          like: true
+        }).then(() => {
+          this.likeMusicList.push(val.id)
+        })
+      }
+    },
     handleFormatDuration(data) {
       return formatDuration(data)
+    },
+    async fetchLikeMusic(val) {
+      const { id,like } = val
+      try {
+        return await likeMusicAPI({
+          id: id,
+          like: like
+        })
+      }catch (e) {
+        console.warn(e)
+      }
     },
     handleSongSheetCancel() {
       this.sheetVisible = false

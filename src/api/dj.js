@@ -5,6 +5,10 @@ export const getDjRecommendAPI = () => fly.request({
   url: '/dj/recommend'
 })
 
+export const getDjSublistAPI = () => fly.request({
+  url: '/dj/sublist'
+})
+
 export const getDjCatelistAPI = () => fly.request({
   url: '/dj/catelist'
 })
@@ -16,7 +20,7 @@ export const getDjRecommendTypeAPI = ({ type }) => fly.request({
   }
 })
 
-export const getSubDjAPI = (rid, t) => fly.request({
+export const getSubDjAPI = ({rid, t}) => fly.request({
   url: '/dj/sub',
   body: {
     rid,

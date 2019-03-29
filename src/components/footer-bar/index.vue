@@ -1,7 +1,7 @@
 <template>
   <div class="c-footer-bar">
     <div class="item">
-      <i class="material-icons">home</i>
+      <i class="material-icons" @click="handleToHome">home</i>
     </div>
     <div class="item">
       <i class="material-icons" @click="handleToPlayMusic">headset</i>
@@ -16,6 +16,11 @@
       handleToPlayMusic() {
         wx.navigateTo({
           url: '../../pages/play-music/index'
+        })
+      },
+      handleToHome() {
+        wx.navigateTo({
+          url: '../../pages/home/index'
         })
       }
     }

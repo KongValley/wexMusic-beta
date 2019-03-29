@@ -29,8 +29,7 @@
 </template>
 
 <script>
-import { loginByPhoneAPI,getLoginStatusAPI } from '_a/login'
-import CInput from '_c/input'
+import { loginByPhoneAPI } from '_a/login'
 const { $Message } = require('_v/base/index')
 export default {
   name: "p_signin",
@@ -38,7 +37,6 @@ export default {
     return {
       phone: "",
       password: "",
-      visible: false,
       message: ""
     }
   },
@@ -62,7 +60,7 @@ export default {
         let password = this.password
         $Message({
           content: "登录成功",
-          type: 'error'
+          type: 'success'
         })
         wx.setStorageSync('phone', phone)
         wx.setStorageSync('password',password)
@@ -71,7 +69,6 @@ export default {
         })
 
       } catch (e) {
-        this.visible = true
         $Message({
           content: e.response.data.msg ? e.response.data.msg : "未知异常",
           type: 'error'

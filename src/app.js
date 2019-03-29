@@ -19,6 +19,14 @@ export default {
   config: {
     // pages 的首个页面会被编译成首页
     pages: [
+      'pages/my-music/index',
+      'pages/dj-detail/index',
+      'pages/my-dj/index',
+      'pages/my-artist/index',
+      'pages/my-follows/index',
+      // 'pages/my-music/index',
+      'pages/play-recently/index',
+      'pages/playlist-detail/index',
       'pages/comment/index',
       'pages/search-detail/index',
       'pages/play-music/index',

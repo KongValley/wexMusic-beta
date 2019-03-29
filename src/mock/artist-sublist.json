@@ -1,0 +1,106 @@
+
+{
+  "data": [
+    {
+      "info": "新碟《好心分手》抢鲜上架",
+      "id": 12093597,
+      "name": "亮声open",
+      "trans": null,
+      "alias": [
+
+      ],
+      "albumSize": 29,
+      "mvSize": 2,
+      "picId": 109951162862008960,
+      "picUrl": "https://p1.music.126.net/OYtdN3pNrokKFgt8fB_oag==/109951162862008958.jpg",
+      "img1v1Url": "https://p1.music.126.net/OYtdN3pNrokKFgt8fB_oag==/109951162862008958.jpg"
+    },
+    {
+      "info": "新碟《离开的借口》抢鲜上架",
+      "id": 840134,
+      "name": "刘瑞琦",
+      "trans": null,
+      "alias": [
+
+      ],
+      "albumSize": 21,
+      "mvSize": 23,
+      "picId": 109951163288038160,
+      "picUrl": "https://p1.music.126.net/a13xmSNqxMY5M_R1OFvPvA==/109951163288038157.jpg",
+      "img1v1Url": "https://p1.music.126.net/a13xmSNqxMY5M_R1OFvPvA==/109951163288038157.jpg"
+    },
+    {
+      "info": "新碟《听说蓝又时》抢鲜上架",
+      "id": 8328,
+      "name": "蓝又时",
+      "trans": null,
+      "alias": [
+        "黄美如"
+      ],
+      "albumSize": 7,
+      "mvSize": 9,
+      "picId": 120946279073679,
+      "picUrl": "https://p1.music.126.net/h3NYhCyHZy81dMJpKK6XLw==/120946279073679.jpg",
+      "img1v1Url": "https://p1.music.126.net/h3NYhCyHZy81dMJpKK6XLw==/120946279073679.jpg"
+    },
+    {
+      "info": "新碟《蝴蝶效应》抢鲜上架",
+      "id": 1050282,
+      "name": "房东的猫",
+      "trans": null,
+      "alias": [
+
+      ],
+      "albumSize": 16,
+      "mvSize": 21,
+      "picId": 7719671138847203,
+      "picUrl": "https://p1.music.126.net/ohub446GfbVtIJ9_H-cjpw==/7719671138847203.jpg",
+      "img1v1Url": "https://p1.music.126.net/ohub446GfbVtIJ9_H-cjpw==/7719671138847203.jpg"
+    },
+    {
+      "info": "新碟《失恋重修手册》抢鲜上架",
+      "id": 5549,
+      "name": "王睿",
+      "trans": null,
+      "alias": [
+
+      ],
+      "albumSize": 2,
+      "mvSize": 0,
+      "picId": 5511851790151750,
+      "picUrl": "https://p1.music.126.net/WvKGfirylT7OHwJ6HGv0XQ==/5511851790151750.jpg",
+      "img1v1Url": "https://p1.music.126.net/WvKGfirylT7OHwJ6HGv0XQ==/5511851790151750.jpg"
+    },
+    {
+      "info": "新碟《无所求必满载而归》抢鲜上架",
+      "id": 1007170,
+      "name": "陈粒",
+      "trans": null,
+      "alias": [
+
+      ],
+      "albumSize": 21,
+      "mvSize": 19,
+      "picId": 6628955605123612,
+      "picUrl": "https://p1.music.126.net/Q92YwJrk2f2tsK-7B0VIhQ==/6628955605123612.jpg",
+      "img1v1Url": "https://p1.music.126.net/Q92YwJrk2f2tsK-7B0VIhQ==/6628955605123612.jpg"
+    },
+    {
+      "info": "新碟《点心》抢鲜上架",
+      "id": 1039895,
+      "name": "谢春花",
+      "trans": null,
+      "alias": [
+        "谢知非"
+      ],
+      "albumSize": 15,
+      "mvSize": 27,
+      "picId": 109951162843076940,
+      "picUrl": "https://p1.music.126.net/iPx0aGscrj4DzZNpLLEGHw==/109951162843076937.jpg",
+      "img1v1Url": "https://p1.music.126.net/iPx0aGscrj4DzZNpLLEGHw==/109951162843076937.jpg"
+    }
+  ],
+  "hasMore": false,
+  "count": 7,
+  "code": 200
+}

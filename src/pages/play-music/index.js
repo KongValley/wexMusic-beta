@@ -13,7 +13,8 @@ export default {
       navigationBarTextStyle: 'white',
       usingComponents: {
         "i-action-sheet": "../../static/iview/action-sheet/index",
-        "i-toast": "../../static/iview/toast/index"
+        "i-toast": "../../static/iview/toast/index",
+        "i-modal": "../../static/iview/modal/index"
       }
     }
   }

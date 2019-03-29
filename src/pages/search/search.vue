@@ -74,10 +74,11 @@ export default {
   methods: {
     handleAddHistory(val) {
       // 存放搜索记录
-      const _ = wx.getStorageSync('searchHistory')
+      let _ = wx.getStorageSync('searchHistory')
 
       if (!_) {
         wx.setStorageSync('searchHistory', [])
+        _ = []
       }
       if (typeof val === 'string' && val.length) {
         // 如果存在相同的记录，那就不添加
@@ -184,7 +185,7 @@ export default {
   },
   async mounted() {
     this.handleInitHistory()
-    // await this.fetchSearchHot()
+    await this.fetchSearchHot()
   },
   onShow() {
     this.isFocus = false

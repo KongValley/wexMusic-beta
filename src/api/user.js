@@ -17,14 +17,14 @@ export const getUserDetailAPI = ({ uid }) => fly.request({
 })
 
 /**
- * 获取用户信息 , 歌单，收藏，mv, dj 数量
+ * 获取获取收藏的歌手列表
  *
  * @author Da Peng
  * @export
  * @returns
  */
-export const getUserSubcountAPI = () => fly.request({
-  url: '/user/subcount'
+export const getUserSubArtistAPI = () => fly.request({
+  url: '/artist/sublist'
 })
 
 
@@ -34,37 +34,16 @@ export const getUserSubcountAPI = () => fly.request({
  * @author Da Peng
  * @export
  * @param {String} uid // 用户 id
+ * @param args
  * @returns
  */
-export const getUserPlaylistAPI = ({ uid }) => fly.request({
+export const getUserPlaylistAPI = ({ uid,...args }) => fly.request({
   url: '/user/playlist',
   body: {
-    uid
+    uid,
+    ...args
   }
 })
-
-/**
- * 更新歌单信息
- *
- * @author Da Peng
- * @export
- * @param {Object} { id, name, desc, tags } // 传入一个对象
- * @param {String} id // 歌单id
- * @param {String} name // 歌单名字
- * @param {String} desc // 歌单描述
- * @param {String} tags // 歌单tag
- * @returns
- */
-export const updateUserPlaylistInfoAPI = ({ id, name, desc, tags }) => fly.request({
-    url: '/playlist/update',
-    body: {
-      id,
-      name,
-      desc,
-      tags
-    }
-  })
-
 
 /**
  * 发送私信
@@ -87,42 +66,6 @@ export const sendMessageAPI = ({ user_ids, msg }) => fly.request({
   }
 })
 
-/**
- * 发送私信(带歌单)
- * 传入用户 id 和要发送的信息和歌单 id
- * 可以发送带歌单的私信(注:不能发送重复的歌单)
- *
- * @author Da Peng
- * @export
- * @param {Object} { user_ids, msg, playlist } // 传入一个对象
- * @param {String} user_ids 用户 id,多个需用逗号隔开
- * @param {String} msg // 要发送的信息
- * @param {Number} playlist // 歌单 id
- * @returns
- */
-export const sendMessageAndPlaylistAPI = ({ user_ids, msg, playlist }) => fly.request({
-  url: '/send/playlist',
-  body: {
-    user_ids,
-    msg,
-    playlist
-  }
-})
-
-/**
- * 获取用户电台,传入用户id,可以获取用户电台
- *
- * @author Da Peng
- * @export
- * @param {String} uid // 用户 id
- * @returns
- */
-export const getUserDjAPI = ({ uid }) => fly.request({
-  url: '/user/dj',
-  body: {
-    uid
-  }
-})
 
 /**
  * 获取用户关注列表
@@ -163,33 +106,6 @@ export const getUserRecordAPI = ({ uid, type = 1 }) => fly.request({
 })
 
 /**
- * 私人FM(需要登录)
- *
- * @author Da Peng
- * @export
- * @returns
- */
-export const getPersonalFmAPI = () => fly.request({
-  url: '/personal_fm'
-})
-
-/**
- * 签到,传入签到类型 ( 可不传 , 默认安卓端签到 ), 可签到 ( 需要登录 )
- * 其中安卓端签到可获得 3 点经验 , web/PC 端签到可获得 2 点经验
- *
- * @author Da Peng
- * @export
- * @param {String} type // 签到类型 , 默认 0, 其中 0 为安卓端签到 ,1 为 web/PC 签到
- * @returns
- */
-export const dailySigninAPI = ({ type = 0 }) => fly.request({
-  url: '/daily_signin',
-  body: {
-    type
-  }
-})
-
-/**
  * 喜欢音乐
  *
  * @param {String} id
@@ -203,21 +119,10 @@ export const likeMusicAPI = ({ id, like = true }) => fly.request({
   }
 })
 
-export const getlikeMusicListAPI = ({ uid }) => fly.request({
+export const getLikeMusicListAPI = ({ uid }) => fly.request({
   url: '/likelist',
   body: {
     uid
   }
 })
 
-/**
- * 垃圾桶,传入音乐 id,可把该音乐从私人 FM 中移除至垃圾桶
- *
- * @param {Number} id
- */
-export const fmTranshAPI = ({ id }) => fly.request({
-  url: '/fm_trash',
-  body: {
-    id
-  }
-})

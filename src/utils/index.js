@@ -1,3 +1,8 @@
+/* Global Var 全局常量
+-------------------------- */
+export const SEARCH_LIMIT = 50
+export const COMMENT_LIMIT = 20
+
 // 用于vue的props验证
 export const oneOfList = (value, valueList) => {
   valueList.map((_val) => { if (_val === value) return true })
@@ -19,7 +24,7 @@ export function throttle(fn,delay = 1000) {
 // 格式化日期
 export const formatTime = date => {
   const year = date.getFullYear()
-  const month = date.getMonth()
+  const month = date.getMonth() + 1
   const day = date.getDate()
 
   return [year, month, day].join('.')
@@ -74,4 +79,12 @@ export const splitArtists = (data) => {
       return data.map(_ => _.name).join('/')
   }else
     console.warn('You need give me Array, OK?')
+}
+
+export const delay = (time) => {
+  return new Promise(resolve => {
+    setTimeout(()=> {
+      resolve(1)
+    },time)
+  })
 }

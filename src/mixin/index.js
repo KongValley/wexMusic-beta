@@ -14,13 +14,20 @@ export const playMixin = {
       }else {
         // 获取封面
         const res = await getSongDetailAPI({ids: _.id})
+        if (res.data.privileges[0].cp ===0) {
+          $Toast({
+            content: '暂无版权 :)',
+            type: 'warning'
+          })
+          return
+        }
         // 获取歌词
         const resp = await getMusicLyricAPI({id: _.id})
         const currentMusic = {
           id: _.id,
           name: _.name,
           album: _.album,
-          lyric: resp.data.lrc.lyric,
+          lyric: resp.data.lrc ? resp.data.lrc.lyric : '[00:00.000] 暂无歌词' ,
           duration: _.duration,
           coverImgUrl: res.data.songs[0].al.picUrl,
           artists: _.artists,
@@ -42,6 +49,15 @@ export const playMixin = {
       initPlayArr()
       const arr = wx.getStorageSync('playArr')
       const flag = isExistSameSong(arr, _.id)
+      // 获取封面
+      const res = await getSongDetailAPI({ids: _.id})
+      if (res.data.privileges[0].cp ===0) {
+        $Toast({
+          content: '暂无版权 :)',
+          type: 'warning'
+        })
+        return
+      }
       if(flag) {
         $Toast({
           content: '播放列表中存在此歌曲',
@@ -52,8 +68,7 @@ export const playMixin = {
           content: '添加成功',
           type: 'success'
         })
-        // 获取封面
-        const res = await getSongDetailAPI({ids: _.id})
+
         // 获取歌词
         const resp = await getMusicLyricAPI({id: _.id})
 
@@ -62,7 +77,7 @@ export const playMixin = {
             id: _.id,
             name: _.name,
             album: _.album,
-            lyric: resp.data.lrc.lyric,
+            lyric: resp.data.lrc ? resp.data.lrc.lyric : '[00:00.000] 暂无歌词',
             duration: _.duration,
             coverImgUrl: res.data.songs[0].al.picUrl,
             artists: _.artists,
@@ -73,7 +88,7 @@ export const playMixin = {
             id: _.id,
             name: _.name,
             album: _.album,
-            lyric: resp.data.lrc.lyric,
+            lyric: resp.data.lrc ? resp.data.lrc.lyric : '[00:00.000] 暂无歌词',
             duration: _.duration,
             coverImgUrl: res.data.songs[0].al.picUrl,
             artists: _.artists,

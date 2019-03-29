@@ -81,8 +81,7 @@ export const getPlaylistRelatedAPI = ({ id }) => fly.request({
  *
  * @author Da Peng
  * @export
- * @param {Object} { id, s = 3 }
- * @param {Number} id
+ * @param {String} id
  * @param {Number} s //歌单最近的s个收藏者,设置默认值为3
  * @returns
  */
@@ -134,7 +133,7 @@ export const getPlaylistSubScribeAPI = ({ id, t }) => fly.request({
  * @export
  * @param {Object} { op, pid, tracks }
  * @param {String} op // 从歌单增加单曲为 add, 删除为 del
- * @param {Number} pid
+ * @param {String} pid
  * @param {String} tracks // 歌曲 id,可多个,用逗号隔开
  * @returns
  */

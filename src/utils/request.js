@@ -3,7 +3,7 @@ const fly = new Fly()
 
 // 项目api部署地址
 // const BASEURL = 'http://47.107.32.22:3000'
-const BASEURL = 'http://127.0.0.1:4000'
+const BASEURL = 'http://47.107.32.22:4000/'
 // 最大超时时间
 const TIMEOUT = 5000
 // 统一为GET

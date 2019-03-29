@@ -10,6 +10,18 @@
             {{albumName+albumAlias}}
           </div>
           <div class="desc-sub">
+            <div>歌手：{{albumArtists.name}}</div>
+            <div>发行时间：{{albumPublishTime}}</div>
+          </div>
+        </div>
+        <div class="right-action">
+          <div class="action-button" @click="handleToComment(albumId,'album')">
+            <div class="button-icon">
+              <i class="material-icons">message</i>
+            </div>
+            <div class="button-text">
+              评论
+            </div>
           </div>
         </div>
       </div>
@@ -64,6 +76,8 @@ export default {
       albumImg: "",
       albumName: "",
       albumAlias: "",
+      albumPublishTime: 0,
+      albumArtists: {},
       songSheetVisible: false,
       songs: {
         // 存放数据
@@ -73,14 +87,27 @@ export default {
       currentSongInfo: {
         name: "",
         id: "",
-        author: "",
         album: "",
         albumId: "",
-        artists: []
+        artists: [],
+        duration: 0
       }
     }
   },
   methods: {
+    /* methods
+    -------------------------- */
+    initInfo(data) {
+      this.albumImg = data.album.picUrl
+      this.albumName = data.album.name
+      if(data.album.alias.length) {
+        this.albumAlias = `（${data.album.alias.join('/')}）`
+      }
+      this.albumArtists = data.album.artist
+      this.albumPublishTime = formatTime(new Date(data.album.publishTime))
+      // this.albumPublishTime = data.
+      this.songs.data = data.songs
+    },
     handleChangeScroll({ detail }) {
       this.currentPage = detail.index
     },
@@ -95,12 +122,23 @@ export default {
       this.currentSongInfo.id = _.id
       this.currentSongInfo.album = _.al.name
       this.currentSongInfo.albumId = _.al.id
+      this.currentSongInfo.duration = _.dt
       this.currentSongInfo.artists = this.handleSplitArtists(_.ar)
       this.songSheetVisible = true
     },
     handleSplitArtists(data) {
       return splitArtists(data)
     },
+    /* router
+    -------------------------- */
+    // 跳转到评论页
+    handleToComment(id,type) {
+      wx.navigateTo({
+        url: '../comment/index?id=' + id + '&type='+ type
+      })
+    },
+    /* fetch
+    -------------------------- */
     async fetchAlbumSongs() {
       try {
         const params = {
@@ -111,14 +149,7 @@ export default {
         console.warn(e)
       }
     },
-    initInfo(data) {
-      this.albumImg = data.album.picUrl
-      this.albumName = data.album.name
-      if(data.album.alias.length) {
-        this.albumAlias = `（${data.album.alias.join('/')}）`
-      }
-      this.songs.data = data.songs
-    }
+
   },
   computed: {
     currentSongAction() {
@@ -194,11 +225,12 @@ export default {
       .right-action {
         box-sizing: border-box;
         display: flex;
-        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding-top: 10px;
         padding-right: 20px;
         .action-button {
           font-size: 14px;
-          padding: 10px 25px;
+          padding: 10px 20px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -271,7 +303,8 @@ export default {
           .title-header {
             font-size: 14px;
             display: flex;
-            align-items: center;line-height: 1;
+            align-items: center;
+            line-height: 1;
             .title-sub-header {
               /*padding-left: 5px;*/
               color: rgba(0,0,0,.3 );

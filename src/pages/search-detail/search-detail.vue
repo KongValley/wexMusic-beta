@@ -65,7 +65,7 @@
                   </div>
                 </div>
                 <div class="title-desc">
-                  <c-highlight :keyword="keyword" :str="item.artist.name+' '+handleAlbumFormatTime(item.id)"></c-highlight>
+                  <c-highlight :keyword="keyword" :str="item.artist.name+' '+handleAlbumFormatTime(item)"></c-highlight>
                 </div>
               </div>
             </div>
@@ -179,10 +179,8 @@
   import CFooterbar from '_c/footer-bar'
   import CHighlight from '_c/searchHighlight'
   import { getSearchDataAPI } from '_a/search'
-  import { getSongDetailAPI } from '_a/song'
   import {resultList, typeList, resultCount} from './var'
-  import { formatTime,isExistSameSong,initPlayArr,findSameSongIndex,splitArtists } from '_u'
-  const { $Toast } = require('_v/base/index')
+  import { formatTime,splitArtists } from '_u'
   import { playMixin } from '_mixin'
   export default {
   name: "search-detail",
@@ -196,17 +194,15 @@
       currentPage: 0,
       titleStyle: "background:#DF4337;color:#fff;",
       currentType: 1, // 1:单曲 10:专辑 100:歌手 1000:歌单 1009: 电台
-      songSheetVisible: false,
-      artistsModalVisible: false,
       typeList: typeList,
       // 存放获取的各个数据
       result: {
         songs: {
-          // 存放偏移量
+          // 存放偏移量 * 50
           offset: 0,
           // 存放数据
           data: [],
-          // 总数（网易云这部分有问题）
+          // 总数
           total: 0,
           // 存放唯一id
           idList: [],
@@ -242,6 +238,10 @@
           endFlag: false
         }
       },
+      /* common var
+      -------------------------- */
+      songSheetVisible: false,
+      artistsModalVisible: false,
       // 当前歌曲抽屉数据
       currentSongInfo: {
         name: "",
@@ -252,28 +252,27 @@
         artists: [],
         duration: null
       }
+      /* common end
+      -------------------------- */
     };
   },
-  // mixin~in~~in!
+  /* common mixin
+  -------------------------- */
   mixins: [playMixin],
   methods: {
+    /* common methods
+    -------------------------- */
+    // 格式化歌手
+    handleSplitArtists(data) {
+      return splitArtists(data)
+    },
+    // 关闭模态框
     handleCloseArtistsModal() {
       this.artistsModalVisible = false
     },
-    handleToSearch() {
-      wx.redirectTo({
-        url: '../search/index'
-      })
-    },
-    async handleChangeScroll({ detail }) {
-      this.currentPage = detail.index
-      this.currentType = typeList[detail.index]
-      if(this.currentPageData.data.length === 0){
-        const res = await this.fetchSearchResult(this.currentPageData.offset)
-        this.currentPageData.data = res.data.result[resultList[this.currentPage]]
-        this.currentPageData.total = res.data.result[resultCount[this.currentPage]]
-        this.currentPageData.idList = res.data.result[resultList[this.currentPage]].map(val => val.id)
-      }
+    // 关闭歌曲的抽屉
+    handleSongSheetCancel() {
+      this.songSheetVisible = false
     },
     // 打开歌曲动作抽屉
     handleSongSheetActive(_) {
@@ -285,43 +284,23 @@
       this.currentSongInfo.duration = _.duration
       this.songSheetVisible = true
     },
-    async fetchSearchResult(offset) {
-      try {
-        // type [ 1:单曲 10:专辑 100:歌手 1000:歌单 1009: 电台 ]
-        const params = {
-          keywords: this.keyword,
-          type: this.currentType,
-          offset: offset
-        }
-        return await getSearchDataAPI(params)
-      } catch (e) {
-        console.warn(e)
-      }
-    },
-    async fetchSongDetailAPI(id) {
-      try {
-        const params = {
-          ids: id
-        }
-        return await getSongDetailAPI(params)
-      } catch (e) {
-        console.warn(e)
-      }
-    },
-    // 关闭歌曲的抽屉
-    handleSongSheetCancel() {
-      this.songSheetVisible = false
-    },
     // 获取点击索引
     handleClickSongSheet({_relatedInfo}) {
       if(_relatedInfo.anchorTargetText) {
         const index = this.currentSongAction.findIndex((val)=> {
           return val.name === _relatedInfo.anchorTargetText
         })
-        console.log(index)
         switch (index) {
           case 0: {
             this.handleAddSong()
+          }
+            break;
+          case 1: {
+
+          }
+            break;
+          case 2: {
+            this.handleToComment(this.currentSongInfo.id)
           }
           break;
           case 3: {
@@ -331,13 +310,47 @@
               this.handleToArtistDetail(this.currentSongInfo.artists[0].id)
             // this.handleToArtistDetail(this.currentSongInfo.artists[0].id)
           }
-          break;
+            break;
           case 4: {
             this.handleToAlbumDetail(this.currentSongInfo.albumId)
           }
-          break;
+            break;
         }
       }
+    },
+    /* common router
+    -------------------------- */
+    handleToAlbumDetail(id) {
+      wx.navigateTo({
+        url: '../album-detail/index?albumId='+ id
+      })
+    },
+    handleToArtistDetail(id) {
+      wx.navigateTo({
+        url: '../artist-detail/index?artistId='+ id
+      })
+    },
+    // 跳转到评论页
+    handleToComment(id,type = 'music') {
+      wx.navigateTo({
+        url: '../comment/index?id=' + id + '&type='+ type
+      })
+    },
+    /* common action
+    -------------------------- */
+    // 播放音乐
+    async handlePlayMusic(_) {
+      const params = {
+        id: _.id,
+        name: _.name,
+        album: {
+          id: _.album.id,
+          name: _.album.name
+        },
+        duration: _.duration,
+        artists: _.artists
+      }
+      await this._handlePlayMusic(params)
     },
     // 添加到下一首歌曲
     async handleAddSong() {
@@ -354,9 +367,27 @@
       await this._handleAddSong(_)
       this.songSheetVisible = false
     },
-    // 格式化歌手
-    handleSplitArtists(data) {
-      return splitArtists(data)
+    /* router
+    -------------------------- */
+    handleToSearch() {
+      wx.redirectTo({
+        url: '../search/index'
+      })
+    },
+    /* methods
+    -------------------------- */
+    // 切换tab
+    async handleChangeScroll({ detail }) {
+      this.currentPage = detail.index
+      this.currentType = typeList[detail.index]
+      if(this.currentPageData.data.length === 0){
+        const res = await this.fetchSearchResult(this.currentPageData.offset)
+        this.currentPageData.data = res.data.result[resultList[this.currentPage]]
+        this.currentPageData.total = res.data.result[resultCount[this.currentPage]]
+        if(this.currentPageData.data.length === this.currentPageData.total)
+          this.currentPageData.endFlag = true
+        this.currentPageData.idList = res.data.result[resultList[this.currentPage]].map(val => val.id)
+      }
     },
     // 格式化时间
     handleAlbumFormatTime(item) {
@@ -373,52 +404,46 @@
       if (this.currentPageData.total === this.currentPageData.data.length)
         this.currentPageData.endFlag =true
       // 继续加载
-      if(this.currentPageData.total !== this.currentPageData.data.length
-        || this.currentPageData.endFlag === false){
+      if(this.currentPageData.total > this.currentPageData.data.length
+        && this.currentPageData.endFlag === false){
         this.currentPageData.offset = this.currentPageData.offset + 1
         const res = await this.fetchSearchResult(this.currentPageData.offset)
-        const result = res.data.result[resultList[this.currentPage]].filter((el)=> {
-          return this.currentPageData.idList.indexOf(el.id) < 0
-        })
-        // 如果筛除重复之后返回数组长度为0就表示加载完毕
-        // 若 > 0 则表示仍有数据
-        if(result.length > 0){
-          const resultId = result.map(el=> el.id)
-          this.currentPageData.data.push(...result)
-          this.currentPageData.idList.push(...resultId)
-        }else {
+        if(res.data.result[resultList[this.currentPage]]) {
+          const result = res.data.result[resultList[this.currentPage]].filter((el)=> {
+            return this.currentPageData.idList.indexOf(el.id) < 0
+          })
+          // 如果筛除重复之后返回数组长度为0就表示加载完毕
+          // 若 > 0 则表示仍有数据
+          if(result.length > 0){
+            const resultId = result.map(el=> el.id)
+            this.currentPageData.data.push(...result)
+            this.currentPageData.idList.push(...resultId)
+          }else {
+            this.currentPageData.endFlag = true
+          }
+        } else {
           this.currentPageData.endFlag = true
         }
       }
     },
-    // 播放音乐
-    async handlePlayMusic(_) {
-      const params = {
-        id: _.id,
-        name: _.name,
-        album: {
-          id: _.album.id,
-          name: _.album.name
-        },
-        duration: _.duration,
-        artists: _.artists
+    /* fetch
+    -------------------------- */
+    async fetchSearchResult(offset) {
+      try {
+        // type [ 1:单曲 10:专辑 100:歌手 1000:歌单 1009: 电台 ]
+        const params = {
+          keywords: this.keyword,
+          type: this.currentType,
+          offset: offset * 50
+        }
+        return await getSearchDataAPI(params)
+      } catch (e) {
+        console.warn(e)
       }
-      await this._handlePlayMusic(params)
     },
-    handleToAlbumDetail(id) {
-      wx.navigateTo({
-        url: '../album-detail/index?albumId='+ id
-      })
-    },
-    handleToArtistDetail(id) {
-      wx.navigateTo({
-        url: '../artist-detail/index?artistId='+ id
-      })
-    }
   },
   async created() {
-    this.keyword = this.$mp.options.search
-    this.keyword = '海阔天空'
+    this.keyword = this.$mp.options.search || '海阔天空'
     const res = await this.fetchSearchResult(this.currentPageData.offset)
     this.currentPageData.data = res.data.result[resultList[this.currentPage]]
     this.currentPageData.total = res.data.result[resultCount[this.currentPage]]
@@ -555,10 +580,14 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            overflow: hidden;
             .title-header {
               font-size: 14px;
+              align-items: center;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow:ellipsis;
               display: flex;
-              align-items: center;line-height: 1;
               .title-sub-header {
                 padding-left: 5px;
                 color: rgba(0,0,0,.3);
@@ -570,8 +599,10 @@
               padding-top: 8px;
               font-size: 12px;
               display: flex;
-              line-height: 1;
               align-items: center;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow:ellipsis;
               .desc-header {
                 padding-right: 5px;
               }

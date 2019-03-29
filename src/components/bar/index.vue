@@ -2,12 +2,7 @@
   <div class="c-head-bar">
     <div class="header"></div>
     <div class="center">
-      <div class="center-items" :class="musicStatus" @click="handleToMusic">
-        <i class="material-icons">music_note</i>
-      </div>
-      <div class="center-items" :class="homeStatus" @click="handleToHome">
-        <i class="material-icons">home</i>
-      </div>
+      个性推荐
     </div>
     <div class="footer">
       <i class="material-icons" @click="handleToSearch">search</i>
@@ -41,12 +36,6 @@ export default {
     this.url = currentPage.route
   },
   methods: {
-    handleToMusic() {
-      if(this.url.indexOf('/music/') > 0)
-        wx.navigateTo({
-          url: '../music/index'
-        })
-    },
     handleToHome() {
       if(this.url.indexOf('/home/') > 0)
         wx.navigateTo({
@@ -77,6 +66,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
     .center-items {
       width: 40px;
       height: 100%;

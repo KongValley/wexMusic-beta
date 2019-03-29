@@ -24,7 +24,7 @@ export const getTopSongAPI = ({ type }) => fly.request({
  * @returns
  */
 export const getMusicUrlAPI = ({ id, br = 999000 }) => fly.request({
-  url: '/music/url',
+  url: '/song/url',
   body: {
     id,
     br

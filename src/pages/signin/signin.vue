@@ -51,28 +51,23 @@ export default {
     async handleSubmit() {
       try {
         const res = await this.fetchSignIn()
-        const app= getApp()
-        app.globalData.id = res.data.account.id
-        app.globalData.avatarUrl = res.data.profile.avatarUrl
-        app.globalData.backgroundUrl = res.data.profile.backgroundUrl
-        app.globalData.nickname = res.data.profile.nickname
-        let phone = this.phone
-        let password = this.password
+        console.log(res.data)
         $Message({
           content: "登录成功",
           type: 'success'
         })
-        wx.setStorageSync('phone', phone)
-        wx.setStorageSync('password',password)
+        wx.setStorageSync('uid',res.data.account.id)
+        wx.setStorageSync('wx-cookie',res.headers['set-cookie'][0])
         wx.redirectTo({
           url: '../home/index'
         })
 
       } catch (e) {
         $Message({
-          content: e.response.data.msg ? e.response.data.msg : "未知异常",
+          content: "登录失败，请再试一次",
           type: 'error'
         })
+        console.warn(e)
       }
     },
     handleClear() {

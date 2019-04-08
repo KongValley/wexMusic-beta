@@ -1,8 +1,28 @@
-import { initPlayArr,findSameSongIndex,isExistSameSong,splitArtists } from '_u'
+import { initPlayArr,isExistSameSong,splitArtists } from '_u'
 import { getSongDetailAPI,getMusicLyricAPI } from '_a/song'
 const { $Toast } = require('_v/base/index')
 export const playMixin = {
   methods: {
+    /* common router
+      -------------------------- */
+    // 跳转到专辑页
+    handleToAlbumDetail(id) {
+      wx.navigateTo({
+        url: '../album-detail/index?albumId='+ id
+      })
+    },
+    // 跳转到歌手详情页
+    handleToArtistDetail(id) {
+      wx.navigateTo({
+        url: '../artist-detail/index?artistId='+ id
+      })
+    },
+    // 跳转到评论页
+    handleToComment(id,type = 'music') {
+      wx.navigateTo({
+        url: '../comment/index?id=' + id + '&type='+ type
+      })
+    },
     async _handlePlayMusic(_) {
       initPlayArr()
       const arr = wx.getStorageSync('playArr')

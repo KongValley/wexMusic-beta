@@ -15,13 +15,18 @@
         <div class="right-sub-title">{{'by '+item.dj.nickname}}</div>
       </div>
     </div>
+    <c-footerbar></c-footerbar>
   </div>
 </template>
 
 <script>
+import CFooterbar from '_c/footer-bar'
 import { getDjSublistAPI } from '_a/dj'
   export default {
     name: "my-dj",
+    components: {
+      CFooterbar
+    },
     data() {
       return {
         djs: []
@@ -54,7 +59,10 @@ import { getDjSublistAPI } from '_a/dj'
 
 <style lang="scss" scoped>
 .p-mdj {
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
   .list-item {
     display: flex;
     padding: 10px 0;

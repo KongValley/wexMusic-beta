@@ -17,7 +17,7 @@
       i-class="action-sheet-circle"
       :visible="songSheetVisible"
       :actions="currentSongAction"
-      @click="handleClickSongSheet"
+      @clickhook="handleClickSongSheet"
       @cancel="handleSongSheetCancel">
       <div slot="header" style="padding: 10px">
         <div>歌曲：{{currentSongInfo.name}}</div>
@@ -81,7 +81,7 @@ export default {
         albumName: "",
         albumId: "",
         artists: [],
-        duration: null
+        duration: 0
       }
     }
   },
@@ -127,12 +127,9 @@ export default {
       this.songSheetVisible = false
     },
     // 获取点击索引
-    handleClickSongSheet({_relatedInfo}) {
-      if(_relatedInfo.anchorTargetText) {
-        const index = this.currentSongAction.findIndex((val)=> {
-          return val.name === _relatedInfo.anchorTargetText
-        })
-        switch (index) {
+    handleClickSongSheet({detail}) {
+      if(detail.index >= 0) {
+        switch (detail.index) {
           case 0: {
             this.handleAddSong()
           }
@@ -163,7 +160,8 @@ export default {
     async handleAddToPlaylist(el) {
       const res = await this.fetchPlaylistTracks({
         pid: el.id,
-        tracks: this.currentSongInfo.id})
+        tracks: this.currentSongInfo.id
+      })
       if(res.data.code === 200) {
         $Toast({
           content: '添加成功',
@@ -211,26 +209,26 @@ export default {
       await this._handleAddSong(_)
       this.songSheetVisible = false
     },
-    /* router
-    -------------------------- */
-    // 跳转到专辑详情页
-    handleToAlbumDetail(id) {
-      wx.navigateTo({
-        url: '../album-detail/index?albumId='+ id
-      })
-    },
-    // 跳转到歌手详情页
-    handleToArtistDetail(id) {
-      wx.navigateTo({
-        url: '../artist-detail/index?artistId='+ id
-      })
-    },
-    // 跳转到评论页
-    handleToComment(id,type = 'music') {
-      wx.navigateTo({
-        url: '../comment/index?id=' + id + '&type='+ type
-      })
-    },
+    // /* router
+    // -------------------------- */
+    // // 跳转到专辑详情页
+    // handleToAlbumDetail(id) {
+    //   wx.navigateTo({
+    //     url: '../album-detail/index?albumId='+ id
+    //   })
+    // },
+    // // 跳转到歌手详情页
+    // handleToArtistDetail(id) {
+    //   wx.navigateTo({
+    //     url: '../artist-detail/index?artistId='+ id
+    //   })
+    // },
+    // // 跳转到评论页
+    // handleToComment(id,type = 'music') {
+    //   wx.navigateTo({
+    //     url: '../comment/index?id=' + id + '&type='+ type
+    //   })
+    // },
     /* fetch
     -------------------------- */
     async fetchUserRecord() {

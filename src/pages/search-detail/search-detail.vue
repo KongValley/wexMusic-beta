@@ -38,7 +38,7 @@
               i-class="action-sheet-circle"
               :visible="songSheetVisible"
               :actions="currentSongAction"
-              @click="handleClickSongSheet"
+              @clickhook="handleClickSongSheet"
               @cancel="handleSongSheetCancel">
               <div slot="header" style="padding: 10px">
                 <div>歌曲：{{currentSongInfo.name}}</div>
@@ -82,7 +82,7 @@
             class="list-cnt"
             mp:scroll-y="true"
             @scrolltolower="handleScrollToLower">
-            <div class="list-item" v-for="item in result.artists.data" :key="item.id" @click="handleToArtistDetail(item)">
+            <div class="list-item" v-for="item in result.artists.data" :key="item.id" @click="handleToArtistDetail(item.id)">
               <div class="item-img">
                 <img :src="item.picUrl" alt="">
               </div>
@@ -110,7 +110,7 @@
             class="list-cnt"
             mp:scroll-y="true"
             @scrolltolower="handleScrollToLower">
-            <div class="list-item" v-for="item in result.playlists.data" :key="item.id">
+            <div class="list-item" v-for="item in result.playlists.data" :key="item.id" @click="handleToPlaylistDetail(item.id)">
               <div class="item-img">
                 <img :src="item.coverImgUrl" alt="">
               </div>
@@ -139,7 +139,7 @@
             class="list-cnt"
             mp:scroll-y="true"
             @scrolltolower="handleScrollToLower">
-            <div class="list-item" v-for="item in result.djRadios.data" :key="item.id">
+            <div class="list-item" v-for="item in result.djRadios.data" :key="item.id" @click="handleToDjDetail(item.id)">
               <div class="item-img">
                 <img :src="item.picUrl" alt="">
               </div>
@@ -169,6 +169,25 @@
           </div>
         </div>
       </i-modal>
+      <i-modal :visible="playlistModalVisible" title="请选择歌单" :show-ok="false" @cancel="handleClosePlaylistModal">
+        <div class="artists-cnt">
+          <div class="list-item"
+               v-for="item in createdPlaylist"
+               :key="item.id"
+               @click="handleAddToPlaylist(item)"
+          >
+            <div class="left">
+              <div class="left-img">
+                <img :src="item.coverImgUrl" alt="">
+              </div>
+            </div>
+            <div class="right">
+              <div class="right-title">{{item.name}}</div>
+              <div class="right-sub-title">{{item.trackCount+'首'}}</div>
+            </div>
+          </div>
+        </div>
+      </i-modal>
       <i-toast id="toast"></i-toast>
       <c-footerbar></c-footerbar>
     </div>
@@ -180,8 +199,11 @@
   import CHighlight from '_c/searchHighlight'
   import { getSearchDataAPI } from '_a/search'
   import {resultList, typeList, resultCount} from './var'
-  import { formatTime,splitArtists } from '_u'
+  import {formatTime, SEARCH_LIMIT, splitArtists} from '_u'
   import { playMixin } from '_mixin'
+  import {getUserPlaylistAPI} from "_a/user"
+  import {getPlaylistTracksAPI} from "_a/playlist"
+  const { $Toast } = require('_v/base/index')
   export default {
   name: "search-detail",
   components: {
@@ -242,6 +264,8 @@
       -------------------------- */
       songSheetVisible: false,
       artistsModalVisible: false,
+      playlistModalVisible: false,
+      createdPlaylist: [],
       // 当前歌曲抽屉数据
       currentSongInfo: {
         name: "",
@@ -250,7 +274,7 @@
         albumName: "",
         albumId: "",
         artists: [],
-        duration: null
+        duration: 0
       }
       /* common end
       -------------------------- */
@@ -285,18 +309,16 @@
       this.songSheetVisible = true
     },
     // 获取点击索引
-    handleClickSongSheet({_relatedInfo}) {
-      if(_relatedInfo.anchorTargetText) {
-        const index = this.currentSongAction.findIndex((val)=> {
-          return val.name === _relatedInfo.anchorTargetText
-        })
-        switch (index) {
+    handleClickSongSheet({detail}) {
+      // console.log(_relatedInfo)
+      if(detail.index >= 0) {
+        switch (detail.index) {
           case 0: {
             this.handleAddSong()
           }
             break;
           case 1: {
-
+            this.playlistModalVisible = true
           }
             break;
           case 2: {
@@ -318,22 +340,14 @@
         }
       }
     },
-    /* common router
-    -------------------------- */
-    handleToAlbumDetail(id) {
+    handleToDjDetail(id) {
       wx.navigateTo({
-        url: '../album-detail/index?albumId='+ id
+        url: '../dj-detail/index?djId='+id
       })
     },
-    handleToArtistDetail(id) {
+    handleToPlaylistDetail(id) {
       wx.navigateTo({
-        url: '../artist-detail/index?artistId='+ id
-      })
-    },
-    // 跳转到评论页
-    handleToComment(id,type = 'music') {
-      wx.navigateTo({
-        url: '../comment/index?id=' + id + '&type='+ type
+        url: '../playlist-detail/index?playlistId='+id
       })
     },
     /* common action
@@ -384,7 +398,7 @@
         const res = await this.fetchSearchResult(this.currentPageData.offset)
         this.currentPageData.data = res.data.result[resultList[this.currentPage]]
         this.currentPageData.total = res.data.result[resultCount[this.currentPage]]
-        if(this.currentPageData.data.length === this.currentPageData.total)
+        if(this.currentPageData.data.length === this.currentPageData.total || res.data.result[resultList[this.currentPage]].length < SEARCH_LIMIT)
           this.currentPageData.endFlag = true
         this.currentPageData.idList = res.data.result[resultList[this.currentPage]].map(val => val.id)
       }
@@ -426,6 +440,31 @@
         }
       }
     },
+    /* playlist common
+    -------------------------- */
+    handleClosePlaylistModal() {
+      this.playlistModalVisible = false
+    },
+    async handleAddToPlaylist(el) {
+      const res = await this.fetchPlaylistTracks({
+        pid: el.id,
+        tracks: this.currentSongInfo.id
+      })
+      if(res.data.code === 200) {
+        $Toast({
+          content: '添加成功',
+          type: 'success'
+        })
+        const playlistRes = await this.fetchUserPlaylistSync()
+        this.createdPlaylist = playlistRes.data.playlist.filter(val => val.subscribed === false)
+      }else {
+        $Toast({
+          content: '添加失败',
+          type: 'error'
+        })
+      }
+      this.playlistModalVisible = false
+    },
     /* fetch
     -------------------------- */
     async fetchSearchResult(offset) {
@@ -441,10 +480,49 @@
         console.warn(e)
       }
     },
+    /* common fetch playlist
+    -------------------------- */
+    async fetchUserPlaylist() {
+      try {
+        const uid = wx.getStorageSync('uid')
+        const params ={
+          uid: uid
+        }
+        return await getUserPlaylistAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    },
+    async fetchUserPlaylistSync() {
+      try {
+        const uid = wx.getStorageSync('uid')
+        const params ={
+          uid: uid,
+          timestamp: new Date().getTime()
+        }
+        return await getUserPlaylistAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    },
+    async fetchPlaylistTracks(val) {
+      try {
+        const params = {
+          op: 'add',
+          pid: val.pid,
+          tracks: val.tracks
+        }
+        return await getPlaylistTracksAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    }
   },
   async created() {
     this.keyword = this.$mp.options.search || '海阔天空'
     const res = await this.fetchSearchResult(this.currentPageData.offset)
+    const playlistRes = await this.fetchUserPlaylistSync()
+    this.createdPlaylist = playlistRes.data.playlist.filter(val => val.subscribed === false)
     this.currentPageData.data = res.data.result[resultList[this.currentPage]]
     this.currentPageData.total = res.data.result[resultCount[this.currentPage]]
     this.currentPageData.idList = res.data.result[resultList[this.currentPage]].map(val => val.id)
@@ -497,6 +575,39 @@
     color: #fff;
   }
   .center {
+    .artists-cnt {
+      .list-item {
+        display: flex;
+        padding: 10px 10px;
+        text-align: left;
+        .left {
+          display: flex;
+          align-items: center;
+          &-img {
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 4px;
+            }
+          }
+        }
+        .right {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          &-title {
+            font-size: 14px;
+          }
+          &-sub-title {
+            font-size: 12px;
+            color: rgba(0, 0, 0, .3);
+          }
+        }
+      }
+    }
     .artists-cnt {
       ::-webkit-scrollbar {
         width: 4px;

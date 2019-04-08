@@ -10,11 +10,11 @@
     </div>
     <div class="center" v-if="music.id">
       <div class="circle" :class="{'spin': isOn}" v-if="!isShowLyric">
-        <img :src="music.coverImgUrl" alt="" @click="isShowLyric = !isShowLyric">
+        <img :src="music.coverImgUrl" alt="" @click="handleSwitchPane">
       </div>
       <scroll-view
         v-if="isShowLyric && lyric.lines.length"
-        @click="isShowLyric = !isShowLyric"
+        @click="handleSwitchPane"
         :mp:scroll-into-view="currentLyricLine"
         mp:scroll-y="true"
         mp:scroll-with-animation="true"
@@ -185,6 +185,7 @@ export default {
   async mounted() {
     const likeMusicList = wx.getStorageSync('likeMusicList')
     const uid = wx.getStorageSync('uid')
+
     const playlistRes = await this.fetchUserPlaylistSync()
     this.createdPlaylist = playlistRes.data.playlist.filter(val => val.subscribed === false)
     if(likeMusicList) {
@@ -194,6 +195,10 @@ export default {
         this.likeMusicList = res.data.ids
       })
     }
+    if(wx.getStorageSync('playMode'))
+      wx.setStorageSync('playMode','multiple')
+    this.mode = wx.getStorageSync('playMode')
+    // 初始化播放模式
     const type = wx.getStorageSync('playType')
     // 判断电台是否在播放
     if(type === 'dj') {
@@ -235,6 +240,7 @@ export default {
       // 初始化播放列表
       if(arr.length) {
         this.playlist = arr
+        console.log('mounted playlist',this.playlist)
       }
 
       // 添加监听事件
@@ -256,6 +262,16 @@ export default {
     audio.onPause(function(){})
   },
   methods: {
+    handleSwitchPane() {
+      if(this.lyric.lines.length)
+        this.isShowLyric = !this.isShowLyric
+      else {
+        $Toast({
+          content: '网易云未提供有效歌词',
+          type: 'warning'
+        })
+      }
+    },
     handleLikeMusic(val) {
       if(!this.music.src)
         return
@@ -336,6 +352,7 @@ export default {
         console.log('handleStart:start lyric')
         if(this.lyric)
           this.lyric.stop()
+        this.currentLyricLine = 'lyric--4'
         this.lyric = new Lyric(this.music.lyric,this.handleLyricPlay)
         this.lyric.seek(0)
         wx.setStorageSync('playId',this.music.id)
@@ -343,7 +360,7 @@ export default {
       if(this.music.src && audio.src) {
         console.log("paused")
         console.log(audio.paused)
-        if(this.music.src !== audio.src)
+        if(this.music.src !== audio.src) {
           audio.title = this.music.name
           audio.epname = this.music.album.name
           audio.singer = splitArtists(this.music.artists)
@@ -351,11 +368,15 @@ export default {
           audio.src = this.music.src
           if(this.lyric)
             this.lyric.stop()
+          this.currentLyricLine = 'lyric--4'
           this.lyric = new Lyric(this.music.lyric,this.handleLyricPlay)
           this.lyric.seek(0)
           wx.setStorageSync('playId',this.music.id)
+        }
         if(audio.paused) {
           audio.play()
+          if(this.lyric)
+            this.lyric.stop()
           this.lyric.seek(this.currentTime)
         }
       }
@@ -544,7 +565,8 @@ export default {
     },
     handleOnEnd() {
       console.log('触发了end事件')
-      this.lyric.stop()
+      if(this.lyric)
+        this.lyric.stop()
       const mode  = wx.getStorageSync('playMode')
       if(mode === 'single') {
         const audio = wx.getBackgroundAudioManager()

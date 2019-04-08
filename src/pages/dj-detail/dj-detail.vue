@@ -48,6 +48,7 @@
         <i-divider color="#DF4337" lineColor="#DF4337" v-if="programs.data.length === programs.count">我是有底线的 :)</i-divider>
       </scroll-view>
       <i-toast id="toast"></i-toast>
+      <c-footerbar></c-footerbar>
     </div>
   </div>
 </template>
@@ -63,10 +64,13 @@
   import {
     formatTime,formatDuration
   } from "_u"
-
+  import CFooterbar from '_c/footer-bar'
   const { $Toast } = require('_v/base/index')
   export default {
     name: "album-detail",
+    components: {
+      CFooterbar
+    },
     data() {
       return {
         djId: "",
@@ -153,7 +157,7 @@
       }
     },
     async mounted() {
-      this.djId = this.$mp.options.djId || '336355127'
+      this.djId = this.$mp.options.djId
       const res = await this.fetchPrograms()
       const _ = res.data.programs[0]
       this.djImg = _.radio.picUrl
@@ -170,6 +174,8 @@
   .p-dj-detail {
     width: 100%;
     height: 100%;
+    padding-bottom: 50px;
+    box-sizing: border-box;
     .header {
       width: 100%;
       height: 150px;

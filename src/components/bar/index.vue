@@ -1,6 +1,8 @@
 <template>
   <div class="c-head-bar">
-    <div class="header"></div>
+    <div class="header">
+      <i class="material-icons" @click="handleToMyMusic">face</i>
+    </div>
     <div class="center">
       个性推荐
     </div>
@@ -18,18 +20,6 @@ export default {
       url: ''
     }
   },
-  computed: {
-    musicStatus() {
-      return {
-        'is-active': this.url.indexOf('/music/') > 0
-      }
-    },
-    homeStatus() {
-      return {
-        'is-active': this.url.indexOf('/home/') > 0
-      }
-    }
-  },
   mounted() {
     const pages = getCurrentPages()
     const currentPage = pages[pages.length-1]
@@ -45,6 +35,11 @@ export default {
     handleToSearch() {
       wx.navigateTo({
         url: '../search/index'
+      })
+    },
+    handleToMyMusic() {
+      wx.navigateTo({
+        url: '../my-music/index'
       })
     }
   }

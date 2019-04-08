@@ -8,7 +8,7 @@ import fly from '@/utils/request'
  * @export
  * @returns
  */
-export const getCatlistAPI = () => fly.request({
+export const getPlaylistCategoryAPI = () => fly.request({
   url: '/playlist/catlist'
 })
 
@@ -34,12 +34,13 @@ export const getPlaylistHotAPI = () => fly.request({
  * @param {Number} limit
  * @returns
  */
-export const getPlaylistTopAPI = ({ order = 'hot', tag = '全部', limit = 20 }) => fly.request({
+export const getPlaylistTopAPI = ({ order = 'hot', cat = '全部', limit = 30 , offset }) => fly.request({
   url: '/top/playlist',
   body: {
     order,
-    tag,
-    limit
+    cat,
+    limit,
+    offset
   }
 })
 

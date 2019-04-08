@@ -30,7 +30,7 @@
       <scroll-view
           class="list-cnt"
           mp:scroll-y="true">
-        <div class="list-item" v-for="item in songs.data" :key="item.id">
+        <div class="list-item" v-for="item in songs.data" :key="item.id" @click="handlePlayMusic(item)">
           <div class="item-title">
             <div class="title-header">
               {{item.name}}
@@ -50,7 +50,7 @@
         <i-action-sheet
             :visible="songSheetVisible"
             :actions="currentSongAction"
-            @click="handleClickSongSheet"
+            @clickhook="handleClickSongSheet"
             @cancel="handleSongSheetCancel">
           <div slot="header" style="padding: 10px">
             <div>歌曲：{{currentSongInfo.name}}</div>
@@ -58,18 +58,54 @@
         </i-action-sheet>
       </scroll-view>
       <i-toast id="toast"></i-toast>
+      <i-modal :visible="artistsModalVisible" title="请选择歌手" :show-ok="false" @cancel="handleCloseArtistsModal">
+        <div class="artists-cnt" v-if="currentSongInfo.artists.length >= 2">
+          <div class="artists-item" v-for="item in currentSongInfo.artists" :key="item.id" @click="handleToArtistDetail(item.id)">
+            {{item.name}}
+          </div>
+        </div>
+      </i-modal>
+      <i-modal :visible="playlistModalVisible" title="请选择歌单" :show-ok="false" @cancel="handleClosePlaylistModal">
+        <div class="artists-cnt">
+          <div class="list-item"
+               v-for="item in createdPlaylist"
+               :key="item.id"
+               @click="handleAddToPlaylist(item)"
+          >
+            <div class="left">
+              <div class="left-img">
+                <img :src="item.coverImgUrl" alt="">
+              </div>
+            </div>
+            <div class="right">
+              <div class="right-title">{{item.name}}</div>
+              <div class="right-sub-title">{{item.trackCount+'首'}}</div>
+            </div>
+          </div>
+        </div>
+      </i-modal>
+      <c-footerbar></c-footerbar>
     </div>
   </div>
 </template>
 
 <script>
+import CFooterbar from '_c/footer-bar'
 import {
   getAlbumAPI
  } from '_a/album'
 import { splitArtists,formatTime } from '_u'
+import {getUserPlaylistAPI} from "_a/user"
+import { playMixin } from '_mixin'
+import {getPlaylistTracksAPI} from "_a/playlist"
 const { $Toast } = require('_v/base/index')
 export default {
   name: "album-detail",
+  // mixin~in~~in!
+  mixins: [playMixin],
+  components: {
+    CFooterbar
+  },
   data() {
     return {
       albumId: "",
@@ -78,6 +114,9 @@ export default {
       albumAlias: "",
       albumPublishTime: 0,
       albumArtists: {},
+      playlistModalVisible: false,
+      createdPlaylist: [],
+      artistsModalVisible: false,
       songSheetVisible: false,
       songs: {
         // 存放数据
@@ -97,6 +136,35 @@ export default {
   methods: {
     /* methods
     -------------------------- */
+    // 关闭模态框
+    handleCloseArtistsModal() {
+      this.artistsModalVisible = false
+    },
+    /* playlist common
+    -------------------------- */
+    handleClosePlaylistModal() {
+      this.playlistModalVisible = false
+    },
+    async handleAddToPlaylist(el) {
+      const res = await this.fetchPlaylistTracks({
+        pid: el.id,
+        tracks: this.currentSongInfo.id
+      })
+      if(res.data.code === 200) {
+        $Toast({
+          content: '添加成功',
+          type: 'success'
+        })
+        const playlistRes = await this.fetchUserPlaylistSync()
+        this.createdPlaylist = playlistRes.data.playlist.filter(val => val.subscribed === false)
+      }else {
+        $Toast({
+          content: '添加失败',
+          type: 'error'
+        })
+      }
+      this.playlistModalVisible = false
+    },
     initInfo(data) {
       this.albumImg = data.album.picUrl
       this.albumName = data.album.name
@@ -105,14 +173,66 @@ export default {
       }
       this.albumArtists = data.album.artist
       this.albumPublishTime = formatTime(new Date(data.album.publishTime))
-      // this.albumPublishTime = data.
       this.songs.data = data.songs
     },
-    handleChangeScroll({ detail }) {
-      this.currentPage = detail.index
-    },
     handleClickSongSheet({detail}) {
-      console.log(detail)
+      if(detail.index >= 0) {
+        switch (detail.index) {
+          case 0: {
+            this.handleAddSong()
+          }
+            break;
+          case 1: {
+            this.playlistModalVisible = true
+          }
+            break;
+          case 2: {
+            this.handleToComment(this.currentSongInfo.id)
+          }
+            break;
+          case 3: {
+            if(this.currentSongInfo.artists.length >= 2) {
+              this.artistsModalVisible = true
+            }else
+              this.handleToArtistDetail(this.currentSongInfo.artists[0].id)
+            // this.handleToArtistDetail(this.currentSongInfo.artists[0].id)
+          }
+            break;
+          case 4: {
+            this.handleToAlbumDetail(this.currentSongInfo.albumId)
+          }
+            break;
+        }
+      }
+    },
+    // 播放音乐
+    async handlePlayMusic(_) {
+      const params = {
+        id: _.id,
+        name: _.name,
+        album: {
+          id: _.al.id,
+          name: _.al.name
+        },
+        duration: _.dt,
+        artists: _.ar
+      }
+      await this._handlePlayMusic(params)
+    },
+    // 添加到下一首歌曲
+    async handleAddSong() {
+      const _ = {
+        id: this.currentSongInfo.id,
+        name: this.currentSongInfo.name,
+        album: {
+          id: this.currentSongInfo.id,
+          name: this.currentSongInfo.name
+        },
+        duration: this.currentSongInfo.duration,
+        artists: this.currentSongInfo.artists,
+      }
+      await this._handleAddSong(_)
+      this.songSheetVisible = false
     },
     handleSongSheetCancel() {
       this.songSheetVisible = false
@@ -122,8 +242,8 @@ export default {
       this.currentSongInfo.id = _.id
       this.currentSongInfo.album = _.al.name
       this.currentSongInfo.albumId = _.al.id
+      this.currentSongInfo.artists = _.ar
       this.currentSongInfo.duration = _.dt
-      this.currentSongInfo.artists = this.handleSplitArtists(_.ar)
       this.songSheetVisible = true
     },
     handleSplitArtists(data) {
@@ -149,7 +269,30 @@ export default {
         console.warn(e)
       }
     },
-
+    async fetchUserPlaylistSync() {
+      try {
+        const uid = wx.getStorageSync('uid')
+        const params ={
+          uid: uid,
+          timestamp: new Date().getTime()
+        }
+        return await getUserPlaylistAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    },
+    async fetchPlaylistTracks(val) {
+      try {
+        const params = {
+          op: 'add',
+          pid: val.pid,
+          tracks: val.tracks
+        }
+        return await getPlaylistTracksAPI(params)
+      } catch (e) {
+        console.warn(e)
+      }
+    }
   },
   computed: {
     currentSongAction() {
@@ -167,7 +310,7 @@ export default {
           icon: 'interactive'
         },
         {
-          name: '歌手：'+this.currentSongInfo.artists,
+          name: '歌手：'+this.handleSplitArtists(this.currentSongInfo.artists),
           icon: 'integral',
         },
         {
@@ -180,6 +323,8 @@ export default {
   async mounted() {
     this.albumId = this.$mp.options.albumId
     const res = await this.fetchAlbumSongs()
+    const playlistRes = await this.fetchUserPlaylistSync()
+    this.createdPlaylist = playlistRes.data.playlist.filter(val => val.subscribed === false)
     this.initInfo(res.data)
   }
 }
@@ -189,6 +334,8 @@ export default {
 .p-artist-detail {
   width: 100%;
   height: 100%;
+  padding-bottom: 50px;
+  box-sizing: border-box;
   .header {
     width: 100%;
     height: 150px;
@@ -327,6 +474,55 @@ export default {
           justify-content: center;
           align-items: center;
         }
+      }
+    }
+    .artists-cnt {
+      .list-item {
+        display: flex;
+        padding: 10px 10px;
+        text-align: left;
+        .left {
+          display: flex;
+          align-items: center;
+          &-img {
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 4px;
+            }
+          }
+        }
+        .right {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          &-title {
+            font-size: 14px;
+          }
+          &-sub-title {
+            font-size: 12px;
+            color: rgba(0, 0, 0, .3);
+          }
+        }
+      }
+    }
+    .artists-cnt {
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 6px;
+        color: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #DF4337;
+      }
+      .artists-item {
+        padding-top: 10px;
+        font-size: 18px;
+        color: #000000;
       }
     }
   }

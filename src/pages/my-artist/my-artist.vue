@@ -15,13 +15,18 @@
         <div class="right-sub-title">{{'专辑：'+item.albumSize}}</div>
       </div>
     </div>
+    <c-footerbar></c-footerbar>
   </div>
 </template>
 
 <script>
 import { getUserSubArtistAPI } from '_a/user'
+import CFooterbar from '_c/footer-bar'
 export default {
   name: "my-artist",
+  components: {
+    CFooterbar
+  },
   data() {
     return {
       artists: []
@@ -54,7 +59,10 @@ export default {
 
 <style lang="scss" scoped>
 .p-mat {
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
   .list-item {
     display: flex;
     padding: 10px 0;

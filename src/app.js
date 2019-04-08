@@ -19,12 +19,14 @@ export default {
   config: {
     // pages 的首个页面会被编译成首页
     pages: [
+      'pages/ad/index',
+      'pages/top/index',
+      'pages/home/index',
       'pages/my-music/index',
       'pages/dj-detail/index',
       'pages/my-dj/index',
       'pages/my-artist/index',
       'pages/my-follows/index',
-      // 'pages/my-music/index',
       'pages/play-recently/index',
       'pages/playlist-detail/index',
       'pages/comment/index',
@@ -33,10 +35,9 @@ export default {
       'pages/album-detail/index',
       'pages/artist-detail/index',
       'pages/search/index',
-      'pages/home/index',
-      'pages/ad/index',
+      'pages/playlist-all/index',
       'pages/signin/index',
-      // 'pages/search-detail/index'
+      'pages/dj-all/index'
     ],
     "requiredBackgroundModes": ["audio"],
     // tabBar: {

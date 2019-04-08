@@ -30,23 +30,13 @@ export default {
         url: '../signin/index'
       })
     },
-    async autoLogin() {
+    async isLogin() {
       try {
-        const phone = wx.getStorageSync('phone')
-        const password = wx.getStorageSync('password')
-        if(phone.length && password.length) {
-          let params =  {
-            phone: phone,
-            password: password
-          }
-          const res = await loginByPhoneAPI({
-            ...params
+        const res = await getLoginStatusAPI()
+        if(res.data.code === 200) {
+          wx.redirectTo({
+            url: '../home/index'
           })
-          if(res.data.code === 200) {
-            wx.redirectTo({
-              url: '../home/index'
-            })
-          }
         }
       } catch (e) {
         console.log('暂无账号信息')
@@ -54,7 +44,7 @@ export default {
     }
   },
   async mounted() {
-    await this.autoLogin()
+    await this.isLogin()
     wx.setStorageSync('playStatus', false)
   }
 }

@@ -21,14 +21,19 @@
       <input class="input-text" v-model="text" placeholder="请输入发送内容"/>
     </i-modal>
     <i-toast id="toast"></i-toast>
+    <c-footerbar></c-footerbar>
   </div>
 </template>
 
 <script>
+import CFooterbar from '_c/footer-bar'
 import { getUserFollowsAPI,sendMessageAPI } from '_a/user'
 const { $Toast } = require('_v/base/index')
 export default {
   name: "my-follows",
+  components: {
+    CFooterbar
+  },
   data() {
     return {
       follows: [],
@@ -99,7 +104,10 @@ export default {
 
 <style lang="scss" scoped>
 .p-mfs {
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
   .input-text {
     text-align: left;
     padding: 0 10px;

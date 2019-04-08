@@ -7,7 +7,7 @@
         </div>
         <div class="account-right">
           <div class="account-name">{{userInfo.nickname}}</div>
-          <div class="account-action">退出登录</div>
+          <div class="account-action" @click="handleLogOut">退出登录</div>
         </div>
       </div>
     </div>
@@ -75,7 +75,8 @@
 <script>
 import CFooterbar from '_c/footer-bar'
 import {
-  getLoginStatusAPI
+  getLoginStatusAPI,
+  logOutAPI
 } from '_a/login'
 import {
   getUserSubcountAPI,
@@ -104,6 +105,13 @@ import {
     methods: {
       /* methods
       -------------------------- */
+      async handleLogOut() {
+        await this.fetchUserPlaylist()
+        wx.setStorageSync('wx-cookie','')
+        wx.reLaunch({
+          url: '../ad/index'
+        })
+      },
       async initUserInfo() {
         const res = await this.fetchLoginStatus()
         const playlistRes = await this.fetchUserPlaylist()
@@ -143,6 +151,13 @@ import {
       },
       /* fetch
       -------------------------- */
+      async fetchLogOut() {
+        try {
+          return await logOutAPI()
+        } catch (e) {
+          console.warn(e)
+        }
+      },
       async fetchLoginStatus() {
         try {
           return await getLoginStatusAPI()

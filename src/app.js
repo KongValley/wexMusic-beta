@@ -37,7 +37,8 @@ export default {
       'pages/search/index',
       'pages/playlist-all/index',
       'pages/signin/index',
-      'pages/dj-all/index'
+      'pages/dj-all/index',
+      'pages/sign-up/index'
     ],
     "requiredBackgroundModes": ["audio"],
     // tabBar: {

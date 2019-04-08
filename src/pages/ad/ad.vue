@@ -4,8 +4,8 @@
       iMusic
     </div>
     <div class="p-ad-button-group">
-      <i-button type="ghost" shape="circle" i-class="p-ad-button" @click="handleToSignIn()">手机号登录</i-button>
-      <i-button type="ghost" shape="circle" i-class="p-ad-button">注册</i-button>
+      <i-button type="ghost" shape="circle" i-class="p-ad-button" @click="handleToSignIn">手机号登录</i-button>
+      <i-button type="ghost" shape="circle" i-class="p-ad-button" @click="handleTip">注册</i-button>
     </div>
   </div>
 </template>
@@ -13,6 +13,7 @@
 <script>
 import { loginByPhoneAPI,getLoginStatusAPI } from '_a/login'
 import CButton from '_c/button'
+const { $Message } = require('_v/base/index')
 export default {
   name: 'p_ad',
   components: {
@@ -28,6 +29,17 @@ export default {
     handleToSignIn() {
       wx.navigateTo({
         url: '../signin/index'
+      })
+    },
+    handleToSignUp() {
+      wx.navigateTo({
+        url: '../sign-up/index'
+      })
+    },
+    handleTip() {
+      $Message({
+        content: "注册炸了,请前往官网注册",
+        type: 'error'
       })
     },
     async isLogin() {

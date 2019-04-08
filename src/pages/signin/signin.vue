@@ -5,7 +5,7 @@
         <div class="p-signin-icon"><i class="material-icons">phone_android</i></div>
         <div class="p-signin-input-ex" :class="{'is-not-empty': phone}">+86</div>
         <input v-model="phone"
-          type="text" placeholder="请输入手机号"
+          type="number" placeholder="请输入手机号"
           placeholder-class="p-signin-place-holder"
           :class="{'is-not-empty': phone}"
           maxlength="11">
@@ -30,6 +30,7 @@
 
 <script>
 import { loginByPhoneAPI } from '_a/login'
+
 const { $Message } = require('_v/base/index')
 export default {
   name: "p_signin",
@@ -37,16 +38,16 @@ export default {
     return {
       phone: "",
       password: "",
-      message: ""
+      message: "",
     }
   },
   methods: {
     fetchSignIn() {
-        const params = {
-          phone: this.phone,
-          password: this.password
-        }
-        return loginByPhoneAPI(params)
+      const params = {
+        phone: this.phone,
+        password: this.password
+      }
+      return loginByPhoneAPI(params)
     },
     async handleSubmit() {
       try {
@@ -110,11 +111,10 @@ export default {
     font-size: 18px;
 
     input {
-      font-size: 16px;
+      font-size: 14px;
       flex: 1;
       caret-color: $--color-primary;
       height: 100%;
-      font-family: Robot !important;
     }
 
     &.phone {
@@ -133,11 +133,11 @@ export default {
     }
     &-ex {
       padding-right: 5px;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     /deep/ .p-signin-place-holder {
-      font-size: 16px;
+      font-size: 14px;
       color: rgba(0, 0, 0, .2);
     }
   }

@@ -10,6 +10,8 @@
 </template>
 
 <script>
+  import {splitArtists} from "_u"
+
   export default {
     name: "footer-bar",
     methods: {
@@ -23,6 +25,87 @@
           url: '../../pages/home/index'
         })
       }
+    },
+    mounted() {
+      const audio = wx.getBackgroundAudioManager()
+      audio.onEnded(()=>{
+        const mode  = wx.getStorageSync('playMode')
+        if(mode === 'single') {
+          audio.seek(0)
+        }else if(mode === 'multiple'){
+          let arr = wx.getStorageSync('playArr')
+          let currentId = wx.getStorageSync('playId')
+          const index = arr.findIndex(val => val.id === currentId)
+
+          if(arr.length>=2) {
+            currentId = arr[(index+1) % arr.length].id
+            const music = arr[(index+1) % arr.length]
+            wx.setStorageSync('playId',currentId)
+            arr.splice(index,1)
+            wx.setStorageSync('playArr',arr)
+            audio.title = music.name
+            audio.epname = music.album.name
+            audio.singer = splitArtists(music.artists)
+            audio.coverImgUrl = music.coverImgUrl
+            audio.src = music.src
+          } else {
+            wx.setStorageSync('playId','')
+            arr.splice(index,1)
+            wx.setStorageSync('playArr',arr)
+          }
+        }
+      })
+      audio.onNext(()=> {
+        const arr = wx.getStorageSync('playArr')
+        let currentId = wx.getStorageSync('playId')
+        const index = arr.findIndex(val => val.id === currentId)
+        if(arr.length >=2 && index < arr.length - 1) {
+          console.log(arr[index +1 ])
+          const music = arr[index+1]
+          currentId = music
+          wx.setStorageSync('playId',currentId)
+          audio.title = music.name
+          audio.epname = music.album.name
+          audio.singer = splitArtists(music.artists)
+          audio.coverImgUrl = music.coverImgUrl
+          audio.src = music.src
+        }else if (arr.length >=2 && index === arr.length - 1) {
+          const music = arr[0]
+          currentId = music.id
+          wx.setStorageSync('playId',currentId)
+          audio.title = music.name
+          audio.epname = music.album.name
+          audio.singer = splitArtists(music.artists)
+          audio.coverImgUrl = music.coverImgUrl
+          audio.src = music.src
+        }
+      })
+      audio.onPrev(()=> {
+        const arr = wx.getStorageSync('playArr')
+        let currentId = wx.getStorageSync('playId')
+        const index = arr.findIndex(val => val.id === currentId)
+
+        if(arr.length >=2 && index > 0) {
+          const music = arr[index-1]
+          currentId = music.id
+          wx.setStorageSync('playId',currentId)
+          audio.title = music.name
+          audio.epname = music.album.name
+          audio.singer = splitArtists(music.artists)
+          audio.coverImgUrl =music.coverImgUrl
+          audio.src = music.src
+        }else if (arr.length>=2 && index === 0) {
+          const music = arr[arr.length-1]
+          currentId = music.id
+          wx.setStorageSync('playId',currentId)
+          const audio = wx.getBackgroundAudioManager()
+          audio.title = music.name
+          audio.epname = music.album.name
+          audio.singer = splitArtists(music.artists)
+          audio.coverImgUrl = music.coverImgUrl
+          audio.src = music.src
+        }
+      })
     }
   }
 </script>

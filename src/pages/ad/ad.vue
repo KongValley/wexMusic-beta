@@ -5,7 +5,7 @@
     </div>
     <div class="p-ad-button-group">
       <i-button type="ghost" shape="circle" i-class="p-ad-button" @click="handleToSignIn">手机号登录</i-button>
-      <i-button type="ghost" shape="circle" i-class="p-ad-button" @click="handleTip">注册</i-button>
+      <i-button type="ghost" shape="circle" i-class="p-ad-button" @click="handleToSignUp">注册</i-button>
     </div>
   </div>
 </template>
@@ -36,17 +36,14 @@ export default {
         url: '../sign-up/index'
       })
     },
-    handleTip() {
-      $Message({
-        content: "注册炸了,请前往官网注册",
-        type: 'error'
-      })
-    },
     async isLogin() {
+      if(!wx.getStorageSync('wx-cookie').length) {
+        return
+      }
       try {
         const res = await getLoginStatusAPI()
         if(res.data.code === 200) {
-          wx.redirectTo({
+          wx.reLaunch({
             url: '../home/index'
           })
         }

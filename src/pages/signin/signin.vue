@@ -59,7 +59,7 @@ export default {
         })
         wx.setStorageSync('uid',res.data.account.id)
         wx.setStorageSync('wx-cookie',res.headers['set-cookie'][0])
-        wx.redirectTo({
+        wx.reLaunch({
           url: '../home/index'
         })
 

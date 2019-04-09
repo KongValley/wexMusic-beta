@@ -106,7 +106,7 @@ import {
       /* methods
       -------------------------- */
       async handleLogOut() {
-        await this.fetchUserPlaylist()
+        await this.fetchLogOut()
         wx.setStorageSync('wx-cookie','')
         wx.reLaunch({
           url: '../ad/index'

@@ -130,10 +130,12 @@
         </div>
       </div>
     </i-modal>
+    <i-toast id="toast"></i-toast>
   </div>
 </template>
 
 <script>
+const { $Toast } = require('_v/base/index')
 import {
   likeMusicAPI,
   getLikeMusicListAPI,
@@ -443,7 +445,6 @@ export default {
       this.currentTime = 0
       const arr = wx.getStorageSync('playArr')
       let currentId = wx.getStorageSync('playId')
-
       const index = arr.findIndex(val => val.id === currentId)
       if(arr.length >=2 && index < arr.length - 1) {
         console.log(arr[index +1 ])

@@ -20,8 +20,8 @@
           placeholder-class="p-signin-place-holder"
           :class="{'is-not-empty': password}">
       </div>
-      <div class="p-signin-input password">
-        <div class="p-signin-icon"><i class="material-icons">lock_outline</i></div>
+      <div class="p-signin-input password" v-if="!isFirst">
+        <div class="p-signin-icon"><i class="material-icons">message</i></div>
         <input
           v-model="code"
           type="number"
@@ -29,17 +29,25 @@
           placeholder-class="p-signin-place-holder"
           :class="{'is-not-empty': code}">
       </div>
+      <div class="p-signin-input password" v-if="isShowNickName">
+        <div class="p-signin-icon"><i class="material-icons">account_circle</i></div>
+        <input
+          v-model="nickname"
+          type="text"
+          placeholder="请输入用户名"
+          placeholder-class="p-signin-place-holder"
+          :class="{'is-not-empty': nickname}">
+      </div>
     </div>
     <div class="p-signin-button">
-      <i-button i-class="button-primary" shape="circle" @click="handleSignUp">登录</i-button>
+      <i-button i-class="button-primary" shape="circle" @click="handleSignUp">注册</i-button>
     </div>
     <i-message id="message"></i-message>
   </div>
 </template>
 
 <script>
-  // import { loginByPhoneAPI } from '_a/login'
-  import { getUserMessageCodeAPI,sendMessageCodeAPI } from '_a/plugin/signup'
+  import { sendCaptchAPI,verifyCaptchAPI,registerCaptchAPI } from '_a/captch'
   const { $Message } = require('_v/base/index')
   export default {
     name: "p_signin",
@@ -49,18 +57,58 @@
         password: "",
         message: "",
         code: '',
-        isFirst: true
+        nickname: '',
+        isFirst: true,
+        isShowNickName: false
       }
     },
     methods: {
       async handleSignUp() {
         try {
-          if(this.isFirst) {
+
+          if(!this.isFirst && this.isShowNickName) {
             const params = {
-              username: this.phone,
+              phone: this.phone,
+              captcha: this.code,
+              password: this.password,
+              nickname:  this.nickname
+            }
+            const res = await registerCaptchAPI(params)
+            $Message({
+              content: "注册成功",
+              type: 'success'
+            })
+            wx.reLaunch({
+              url: '../ad/index'
+            })
+          }
+
+          if(!this.isFirst && !this.isShowNickName){
+            const params = {
+              cellphone: this.phone,
+              captcha: this.code
+            }
+            const res = await verifyCaptchAPI(params)
+            if(res.data.code === 200) {
+              $Message({
+                content: "验证码正确，请输入用户名",
+                type: 'success'
+              })
+              this.isShowNickName = true
+            }else {
+              $Message({
+                content: "验证码输入错误，请重新输入",
+                type: 'success'
+              })
+            }
+          }
+
+          if(this.isFirst && !this.isShowNickName) {
+            const params = {
+              cellphone: this.phone,
               password: this.password
             }
-            const res = await getUserMessageCodeAPI(params)
+            const res = await sendCaptchAPI(params)
             console.log(res.data)
             if(res.data.code === 200) {
               $Message({
@@ -69,36 +117,27 @@
               })
               this.isFirst = false
             }
-          } else {
-            const params = {
-              username: this.phone,
-              msgCode: this.code
-            }
-            const res = await sendMessageCodeAPI(params)
-            if(res.data.code === 200) {
-              $Message({
-                content: "注册成功",
-                type: 'success'
-              })
-              wx.redirectTo({
-                url: '../home/index'
-              })
-            }else {
-              $Message({
-                content: "验证码输入错误，请重新输入",
-                type: 'success'
-              })
-              wx.redirectTo({
-                url: '../home/index'
-              })
-            }
           }
 
         } catch (e) {
-          $Message({
-            content: "注册失败，请再试一次",
-            type: 'error'
-          })
+          if(this.isFirst && !this.isShowNickName) {
+            $Message({
+              content: "手机号码错误",
+              type: 'error'
+            })
+          }
+          if(!this.isFirst && !this.isShowNickName) {
+            $Message({
+              content: "验证码错误",
+              type: 'error'
+            })
+          }
+          if(!this.isFirst && this.isShowNickName) {
+            $Message({
+              content: "用户名重复",
+              type: 'error'
+            })
+          }
           console.warn(e)
         }
       },

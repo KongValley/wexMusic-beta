@@ -34,7 +34,7 @@
       <div class="center-container">
         <div class="center-item" v-for="item in hotPlaylists" :key="item.id" @click="handleToPlaylistDetail(item.id)">
           <div class="wrapper">
-            <img :src="item.picUrl" alt="">
+            <img :src="item.picUrl ? item.picUrl : '../../static/imgs/Pacman-1s-200px.gif'" alt="">
             <div class="wrapper-text">
               ▶{{item.playCount/10000>=10 ? Math.round(item.playCount/10000) + '万': item.playCount}}
             </div>
@@ -50,7 +50,7 @@
       <div class="center-container">
         <div class="center-item" v-for="item in djLists" :key="item.id" @click="handleToDjDetail(item.id)">
           <div class="wrapper">
-            <img :src="item.picUrl" alt="">
+            <img :src="item.picUrl ? item.picUrl : '../../static/imgs/Pacman-1s-200px.gif'" alt="">
             <div class="wrapper-text">
             </div>
           </div>
@@ -65,7 +65,7 @@
       <div class="center-container">
         <div class="center-item" v-for="item in playlists" :key="item.id" @click="handleToPlaylistDetail(item.id)">
           <div class="wrapper">
-            <img :src="item.picUrl" alt="">
+            <img :src="item.picUrl ? item.picUrl : '../../static/imgs/Pacman-1s-200px.gif'" alt="">
             <div class="wrapper-text">
               ▶{{item.playcount/10000>=10 ? Math.round(item.playcount/10000) + '万': Math.round(item.playcount)}}
             </div>

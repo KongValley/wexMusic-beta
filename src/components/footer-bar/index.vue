@@ -62,7 +62,7 @@
         if(arr.length >=2 && index < arr.length - 1) {
           console.log(arr[index +1 ])
           const music = arr[index+1]
-          currentId = music
+          currentId = music.id
           wx.setStorageSync('playId',currentId)
           audio.title = music.name
           audio.epname = music.album.name
@@ -84,7 +84,6 @@
         const arr = wx.getStorageSync('playArr')
         let currentId = wx.getStorageSync('playId')
         const index = arr.findIndex(val => val.id === currentId)
-
         if(arr.length >=2 && index > 0) {
           const music = arr[index-1]
           currentId = music.id
@@ -106,6 +105,15 @@
           audio.src = music.src
         }
       })
+    },
+    beforeDestroy() {
+      const audio = wx.getBackgroundAudioManager()
+      if(audio.src) {
+        audio.onPlay(function() {})
+        audio.onPause(function() {})
+        audio.onPrev(function () {})
+        audio.onNext(function () {})
+      }
     }
   }
 </script>

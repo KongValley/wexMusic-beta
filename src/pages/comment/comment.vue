@@ -86,7 +86,7 @@
     </div>
     <c-footerbar></c-footerbar>
     <i-message id="message"></i-message>
-    <i-modal title="删除确认" :visible="deleteModalVisible" :mp:actions="deleteModalActon" @click="handleModalClick">
+    <i-modal title="删除确认" :visible="deleteModalVisible" :mp:actions="deleteModalActon" @clickhook="handleModalClick">
       <view>删除后无法恢复哦</view>
     </i-modal>
   </div>
@@ -102,7 +102,7 @@ import {
   deleteCommentsAPI
 } from '_a/comment'
 import {
-  formatTime, COMMENT_LIMIT
+  formatTime
 } from '_u'
 
 const { $Message } = require('_v/base/index')
@@ -142,6 +142,7 @@ export default {
     let { id, type } = this.$mp.options
     this.id = id
     this.type = type
+    console.log(id,type)
     await this.handleLoadMoreComments()
   },
   beforeDestroy() {
@@ -178,11 +179,13 @@ export default {
             content: '点赞成功',
             type: 'success'
           });
+          item.likedCount = item.likedCount + 1
         }else {
           $Message({
             content: '取消成功',
             type: 'success'
           });
+          item.likedCount = item.likedCount - 1
         }
       } else {
         $Message({
@@ -219,11 +222,9 @@ export default {
         type: 'success'
       });
     },
-    async handleModalClick({_relatedInfo}) {
-      if(_relatedInfo.anchorTargetText) {
-        const index = this.deleteModalActon.findIndex((val)=> {
-          return val.name === _relatedInfo.anchorTargetText
-        })
+    async handleModalClick({detail}) {
+      if(detail) {
+        const index = detail.index
         console.log(index)
         switch (index) {
           case 0: {
@@ -308,9 +309,10 @@ export default {
       try {
         const params = {
           id: this.id,
-          offset: this.offset * COMMENT_LIMIT,
+          offset: this.offset * 20,
           timestamp: new Date().getTime()
         }
+        console.log('param', this.offset, 20)
         return await getMusicCommentsAPI(params)
       } catch (e) {
         console.warn(e)
@@ -320,7 +322,7 @@ export default {
       try {
         const params = {
           id: this.id,
-          offset: this.offset * COMMENT_LIMIT,
+          offset: this.offset * 20,
           timestamp: new Date().getTime()
         }
         return await getAlbumCommentsAPI(params)
@@ -332,7 +334,7 @@ export default {
       try {
         const params = {
           id: this.id,
-          offset: this.offset * COMMENT_LIMIT,
+          offset: this.offset * 20,
           timestamp: new Date().getTime()
         }
         return await getPlaylistCommentsAPI(params)

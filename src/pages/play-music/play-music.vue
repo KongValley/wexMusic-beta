@@ -250,6 +250,8 @@ export default {
       audio.onPause(this.handleOnStop)
       audio.onPlay(this.handleOnPlay)
       audio.onEnded(this.handleOnEnd)
+      audio.onNext(this.handleNextCommon)
+      audio.onPrev(this.handlePreCommon)
     }
 
   },
@@ -259,9 +261,11 @@ export default {
       this.lyric.stop()
     // 移除监听
     const audio = wx.getBackgroundAudioManager()
-    audio.onTimeUpdate(function(){})
-    audio.onPlay(function(){})
-    audio.onPause(function(){})
+    audio.onTimeUpdate(function() {})
+    audio.onPlay(function() {})
+    audio.onPause(function() {})
+    audio.onPrev(function () {})
+    audio.onNext(function () {})
   },
   methods: {
     handleSwitchPane() {
@@ -642,6 +646,7 @@ export default {
     -------------------------- */
     // 跳转到评论页
     handleToComment(id,type = 'music') {
+      console.log('id',id)
       if(!this.music.src)
         return
       wx.navigateTo({
@@ -794,8 +799,8 @@ export default {
       display: flex;
       justify-content: center;
       ::-webkit-scrollbar {
-        width: 4px;
-        height: 6px;
+        width: 0;
+        height: 0;
         color: transparent;
       }
       ::-webkit-scrollbar-thumb {
